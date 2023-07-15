@@ -11,7 +11,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/reece/Documents/Asteroids-CPP/build"
+			"value" : "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/build"
 		},
 		{
 			"name" : "Asteroids_IS_TOP_LEVEL",
@@ -35,7 +35,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/reece/Documents/Asteroids-CPP"
+			"value" : "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP"
 		},
 		{
 			"name" : "CMAKE_ADDR2LINE",
@@ -91,7 +91,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/reece/Documents/Asteroids-CPP/build"
+			"value" : "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -559,7 +559,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/reece/Documents/Asteroids-CPP"
+			"value" : "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP"
 		},
 		{
 			"name" : "CMAKE_INSTALL_NAME_TOOL",

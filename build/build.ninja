@@ -39,7 +39,7 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /Users/reece/Documents/Asteroids-CPP/build/
+cmake_ninja_workdir = /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/build/
 # =============================================================================
 # Object build statements for EXECUTABLE target Asteroids
 
@@ -49,7 +49,7 @@ cmake_ninja_workdir = /Users/reece/Documents/Asteroids-CPP/build/
 
 build cmake_object_order_depends_target_Asteroids: phony || CMakeFiles/Asteroids.dir
 
-build CMakeFiles/Asteroids.dir/main.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/Asteroids-CPP/main.cpp || cmake_object_order_depends_target_Asteroids
+build CMakeFiles/Asteroids.dir/main.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/main.cpp || cmake_object_order_depends_target_Asteroids
   DEP_FILE = CMakeFiles/Asteroids.dir/main.cpp.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
   INCLUDES = -isystem /usr/local/include
@@ -81,7 +81,7 @@ build Asteroids: CXX_EXECUTABLE_LINKER__Asteroids_Debug CMakeFiles/Asteroids.dir
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/reece/Documents/Asteroids-CPP/build && /opt/local/bin/ccmake -S/Users/reece/Documents/Asteroids-CPP -B/Users/reece/Documents/Asteroids-CPP/build
+  COMMAND = cd /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/build && /opt/local/bin/ccmake -S/Users/reece/Documents/GitHub.nosync/Asteroids-CPP -B/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/build
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -93,7 +93,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/reece/Documents/Asteroids-CPP/build && /opt/local/bin/cmake --regenerate-during-build -S/Users/reece/Documents/Asteroids-CPP -B/Users/reece/Documents/Asteroids-CPP/build
+  COMMAND = cd /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/build && /opt/local/bin/cmake --regenerate-during-build -S/Users/reece/Documents/GitHub.nosync/Asteroids-CPP -B/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/build
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -109,7 +109,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 
 #############################################
-# Folder: /Users/reece/Documents/Asteroids-CPP/build
+# Folder: /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/build
 
 build all: phony Asteroids
 
