@@ -3,6 +3,7 @@
 #include <entt/entt.hpp>
 #include "System.hpp"
 #include "../components/TransformComponent.hpp"
+#include "../components/WrapperBoundaryComponent.hpp"
 
 class WrappingSystem : public System
 {
@@ -14,30 +15,32 @@ public:
 
     void update(entt::registry &registry, float dt)
     {
-        auto view = registry.view<TransformComponent>();
+        auto view = registry.view<TransformComponent, WrapperBoundaryComponent>();
 
         for (auto entity : view)
         {
             TransformComponent &transformComponent = view.get<TransformComponent>(entity);
+            WrapperBoundaryComponent &wrapperBoundaryComponent = view.get<WrapperBoundaryComponent>(entity);
+            const float boundary = wrapperBoundaryComponent.boundarySize;
 
             // Wrap position horizontally
-            if (transformComponent.position.x < 0)
+            if (transformComponent.position.x < -boundary)
             {
-                transformComponent.position.x = window.getSize().x;
+                transformComponent.position.x = window.getSize().x + boundary;
             }
-            else if (transformComponent.position.x > window.getSize().x)
+            else if (transformComponent.position.x > window.getSize().x + boundary)
             {
-                transformComponent.position.x = 0;
+                transformComponent.position.x = -boundary;
             }
 
             // Wrap position vertically
-            if (transformComponent.position.y < 0)
+            if (transformComponent.position.y < -boundary)
             {
-                transformComponent.position.y = window.getSize().y;
+                transformComponent.position.y = window.getSize().y + boundary;
             }
-            else if (transformComponent.position.y > window.getSize().y)
+            else if (transformComponent.position.y > window.getSize().y + boundary)
             {
-                transformComponent.position.y = 0;
+                transformComponent.position.y = -boundary;
             }
         }
     }

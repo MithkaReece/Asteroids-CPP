@@ -19,10 +19,8 @@ public:
     void update(entt::registry &registry, float dt)
     {
         timer += dt;
-        std::cout << timer << "||" << interval.count() << "\n";
         if (timer >= interval.count())
         {
-            std::cout << "SPAWN\n";
             createAsteroid(registry, window);
             timer = 0;
         }
