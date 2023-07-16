@@ -1,43 +1,32 @@
 #pragma once
 
+#include <entt/entt.hpp>
+#include "Scene0.hpp"
+
 class SceneManager
 {
-public:
-    SceneManager() : activeScene(nullptr) {}
+private:
+    std::reference_wrapper<entt::registry> registry;
+    std::vector<std::unique_ptr<Scene>> scenes;
+    int currentSceneIndex;
 
-    // Create a new scene
-    void createScene()
+public:
+    SceneManager(entt::registry &registry, int startingSceneIndex) : registry(registry)
     {
-        scenes.emplace_back(std::make_unique<Scene>());
+        // Add scenes that exist
+        scenes.emplace_back(std::make_unique<Scene0>());
+
+        switchToScene(startingSceneIndex);
     }
 
     // Switch to a scene by index
-    void switchToScene(size_t index)
+    void switchToScene(int sceneIndex)
     {
-        if (index < scenes.size())
-        {
-            // Clear the registry of the previous scene
-            registry.clear();
-
-            // Set the active scene to the specified index
-            activeScene = scenes[index].get();
-
-            // Initialize the new scene
-            activeScene->initialize(registry);
-        }
+        // Valid scene index
+        assert(sceneIndex >= 0 && sceneIndex < scenes.size());
+        // Clear and init scene
+        registry.get().clear();
+        currentSceneIndex = sceneIndex;
+        scenes[currentSceneIndex]->init(registry.get());
     }
-
-    // Update the active scene
-    void updateActiveScene(float dt)
-    {
-        if (activeScene)
-        {
-            activeScene->update(registry, dt);
-        }
-    }
-
-private:
-    entt::registry registry;
-    std::vector<std::unique_ptr<Scene>> scenes;
-    Scene* activeScene;
 };

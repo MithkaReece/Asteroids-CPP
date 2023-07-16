@@ -7,8 +7,7 @@
 
 #include "src/systems/SystemManager.cpp"
 
-#include "src/entities/PlayerEntity.hpp"
-#include "src/entities/AsteroidEntity.hpp"
+#include "src/scenes/SceneManager.cpp"
 
 // Temp
 #include <iostream>
@@ -17,16 +16,11 @@
 
 int main(int argc, char *argv[])
 {
-    // Create window
     sf::RenderWindow window(sf::VideoMode(800, 600), "");
 
-    // Define entity registry
     entt::registry registry;
-
-    // Define systems
     SystemManager systemManager(window);
-
-    createPlayer(registry);
+    SceneManager sceneManager(registry, 0);
 
     sf::Clock clock;
 
@@ -46,7 +40,7 @@ int main(int argc, char *argv[])
         // Update
         systemManager.updateSystems(registry, dt);
         // Render
-        window.clear(sf::Color::White);
+        window.clear(sf::Color::Black);
         systemManager.updateRenderSystem(registry, dt);
 
         // Display the window

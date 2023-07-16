@@ -4,5 +4,7 @@
 
 class Scene
 {
-    virtual init(entt::registry &registry)
-}
+public:
+    virtual ~Scene() {}
+    virtual void init(entt::registry &registry) = 0;
+};
