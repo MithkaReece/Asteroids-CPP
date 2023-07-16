@@ -7,7 +7,8 @@
 #include "RenderSystem.hpp"
 #include "WrappingSystem.hpp"
 #include "UserInputSystem.hpp"
-#include "AsteroidSpawner.hpp"
+#include "AsteroidSpawnerSystem.hpp"
+#include "ColliderSystem.hpp"
 
 class SystemManager
 {
@@ -19,11 +20,14 @@ public:
     // Adds all the systems
     SystemManager(sf::RenderWindow &window) : renderSystem(std::make_unique<RenderSystem>(window))
     {
-        systems.push_back(std::make_unique<MovementSystem>());
+
+        systems.push_back(std::make_unique<ColliderSystem>());
         systems.push_back(std::make_unique<CollisionSystem>());
         systems.push_back(std::make_unique<UserInputSystem>());
         systems.push_back(std::make_unique<WrappingSystem>(window));
-        systems.push_back(std::make_unique<AsteroidSpawner>(window, std::chrono::seconds(2)));
+        systems.push_back(std::make_unique<AsteroidSpawnerSystem>(window, std::chrono::seconds(2)));
+
+        systems.push_back(std::make_unique<MovementSystem>());
     }
 
     void updateSystems(entt::registry &registry, float dt)

@@ -5,7 +5,7 @@
 #include "../entities/AsteroidEntity.hpp"
 
 #include <iostream>
-class AsteroidSpawner : public System
+class AsteroidSpawnerSystem : public System
 {
 private:
     sf::RenderWindow &window;
@@ -13,7 +13,7 @@ private:
     float timer;
 
 public:
-    AsteroidSpawner(sf::RenderWindow &window, std::chrono::seconds interval)
+    AsteroidSpawnerSystem(sf::RenderWindow &window, std::chrono::seconds interval)
         : window(window), interval(interval) {}
 
     void update(entt::registry &registry, float dt)

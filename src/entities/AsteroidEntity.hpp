@@ -101,4 +101,10 @@ void createAsteroid(entt::registry &registry, sf::RenderWindow &window)
     sf::ConvexShape shape = createAsteroidShape(15, 1.0f, scaleVariation);
     std::unique_ptr<sf::Drawable> drawable = std::make_unique<sf::ConvexShape>(std::move(shape));
     registry.emplace<RenderComponent>(entity, std::move(drawable));
+
+    // Add ColliderComponent
+    registry.emplace<ColliderComponent>(entity, shape);
+
+    // Add AsteroidComponent
+    registry.emplace<AsteroidComponent>(entity, 3);
 }

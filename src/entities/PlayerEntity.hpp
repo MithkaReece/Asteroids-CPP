@@ -41,4 +41,7 @@ void createPlayer(entt::registry &registry)
     sf::ConvexShape shape = createTriangle();
     std::unique_ptr<sf::Drawable> drawable = std::make_unique<sf::ConvexShape>(std::move(shape));
     registry.emplace<RenderComponent>(entity, std::move(drawable));
+
+    // Add ColliderComponent
+    registry.emplace<ColliderComponent>(entity, shape);
 }
