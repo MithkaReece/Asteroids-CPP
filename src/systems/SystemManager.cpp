@@ -4,7 +4,6 @@
 
 #include "MovementSystem.hpp"
 #include "CollisionSystem.hpp"
-#include "UserInputSystem.hpp"
 
 class SystemManager
 {
@@ -14,7 +13,6 @@ public:
     {
         systems.push_back(std::make_unique<MovementSystem>());
         systems.push_back(std::make_unique<CollisionSystem>());
-        //systems.push_back(std::make_unique<UserInputSystem>());
     }
 
     void updateSystems(entt::registry &registry, float dt)

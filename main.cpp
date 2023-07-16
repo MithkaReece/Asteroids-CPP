@@ -2,12 +2,15 @@
 #include <entt/entt.hpp>
 
 #include "src/components/PlayerComponent.hpp"
-#include "src/components/PositionComponent.hpp"
+#include "src/components/TransformComponent.hpp"
+#include "src/components/RenderComponent.hpp"
 #include "src/components/VelocityComponent.hpp"
 
 #include "src/systems/SystemManager.cpp"
 #include "src/systems/UserInputSystem.hpp"
+#include "src/systems/RenderSystem.hpp"
 
+// Temp
 #include <iostream>
 
 #include <SFML/Window.hpp>
@@ -17,8 +20,20 @@ void createPlayer(entt::registry &registry)
 {
     auto entity = registry.create();
 
-    registry.emplace<PlayerComponent>(entity);
-    registry.emplace<PositionComponent>(entity, sf::Vector2f(30.0f, 30.0f));
+    registry.emplace<PlayerComponent>(entity, 1.0f);
+    registry.emplace<TransformComponent>(entity, sf::Vector2f(30.0f, 30.0f),
+                                         sf::Vector2f(1.0, 1.0f),
+                                         0.0f);
+
+    sf::ConvexShape triangle;
+    triangle.setPointCount(3);
+    triangle.setPoint(0, sf::Vector2f(0.0f, 0.0f));
+    triangle.setPoint(1, sf::Vector2f(100.0f, 0.0f));
+    triangle.setPoint(2, sf::Vector2f(50.0f, 100.0f));
+    triangle.setFillColor(sf::Color::Red);
+    std::unique_ptr<sf::Drawable> drawable = std::make_unique<sf::ConvexShape>(std::move(triangle));
+    registry.emplace<RenderComponent>(entity, std::move(drawable));
+
     registry.emplace<VelocityComponent>(entity, sf::Vector2f(0.f, 0.f));
 }
 
@@ -33,12 +48,9 @@ int main(int argc, char *argv[])
     // Define systems
     SystemManager systemManager;
     UserInputSystem userInputSystem;
+    RenderSystem renderSystem;
 
     createPlayer(registry);
-    // Create an entity with position and velocity components
-    auto entity = registry.create();
-    registry.emplace<PositionComponent>(entity, sf::Vector2f(100.f, 100.f));
-    registry.emplace<VelocityComponent>(entity, sf::Vector2f(50.f, 0.f));
 
     sf::Clock clock;
 
@@ -61,19 +73,8 @@ int main(int argc, char *argv[])
         // Clear the window
         window.clear(sf::Color::White);
 
-        // TODO Drawing entities automated
-        //  Draw entities based on their position component
-        auto view = registry.view<PositionComponent>();
-        for (auto entity : view)
-        {
-            const auto &position = view.get<PositionComponent>(entity);
-
-            sf::CircleShape circle(10.f);
-            circle.setPosition(position.position);
-            circle.setFillColor(sf::Color::Red);
-
-            window.draw(circle);
-        }
+        // Draw all drawables
+        renderSystem.update(registry, dt, window);
 
         // Display the window
         window.display();

@@ -2,7 +2,9 @@
 
 #include <SFML/Graphics.hpp>
 
-struct PositionComponent
+struct TransformComponent
 {
     sf::Vector2f position;
+    sf::Vector2f scale;
+    float rotation;
 };
