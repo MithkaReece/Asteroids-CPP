@@ -16,7 +16,7 @@
 
 int main(int argc, char *argv[])
 {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "");
+    sf::RenderWindow window(sf::VideoMode(1920, 1080), "");
 
     entt::registry registry;
     SystemManager systemManager(window);

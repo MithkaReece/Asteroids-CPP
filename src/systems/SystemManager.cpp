@@ -7,6 +7,7 @@
 #include "RenderSystem.hpp"
 #include "WrappingSystem.hpp"
 #include "UserInputSystem.hpp"
+#include "AsteroidSpawner.hpp"
 
 class SystemManager
 {
@@ -22,6 +23,7 @@ public:
         systems.push_back(std::make_unique<CollisionSystem>());
         systems.push_back(std::make_unique<UserInputSystem>());
         systems.push_back(std::make_unique<WrappingSystem>(window));
+        systems.push_back(std::make_unique<AsteroidSpawner>(window, std::chrono::seconds(2)));
     }
 
     void updateSystems(entt::registry &registry, float dt)

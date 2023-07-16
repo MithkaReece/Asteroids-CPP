@@ -16,14 +16,16 @@ sf::ConvexShape createTriangle()
 void createPlayer(entt::registry &registry)
 {
     auto entity = registry.create();
-
+    // Add components
     registry.emplace<PlayerComponent>(entity, 50.0f);
-    registry.emplace<TransformComponent>(entity, sf::Vector2f(30.0f, 30.0f),
-                                         sf::Vector2f(10.0, 10.0f),
-                                         0.0f);
+    registry.emplace<TransformComponent>(
+        entity,
+        sf::Vector2f(30.0f, 30.0f),
+        sf::Vector2f(10.0, 10.0f),
+        0.0f);
     registry.emplace<VelocityComponent>(entity, sf::Vector2f(0.f, 0.f));
-
-    sf::ConvexShape triangle = createTriangle();
-    std::unique_ptr<sf::Drawable> drawable = std::make_unique<sf::ConvexShape>(std::move(triangle));
+    // Add visuals
+    sf::ConvexShape shape = createTriangle();
+    std::unique_ptr<sf::Drawable> drawable = std::make_unique<sf::ConvexShape>(std::move(shape));
     registry.emplace<RenderComponent>(entity, std::move(drawable));
 }
