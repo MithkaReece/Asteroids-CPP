@@ -1,7 +1,7 @@
 #pragma once
 
 #include <entt/entt.hpp>
-#include "System.cpp"
+#include "System.hpp"
 
 class CollisionSystem : public System
 {

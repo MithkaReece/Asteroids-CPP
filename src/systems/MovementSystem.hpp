@@ -4,7 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "../components/TransformComponent.hpp"
 #include "../components/VelocityComponent.hpp"
-#include "System.cpp"
+#include "System.hpp"
 
 class MovementSystem : public System
 {

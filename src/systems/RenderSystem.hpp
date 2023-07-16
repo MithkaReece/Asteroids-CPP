@@ -7,8 +7,13 @@
 #include <iostream>
 class RenderSystem
 {
+private:
+    sf::RenderWindow &window;
+
 public:
-    void update(entt::registry &registry, float dt, sf::RenderWindow &window)
+    RenderSystem(sf::RenderWindow &window) : window(window) {}
+
+    void update(entt::registry &registry, float dt)
     {
         auto view = registry.view<RenderComponent, TransformComponent>();
 

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "System.cpp"
+#include "System.hpp"
 #include "../components/PlayerComponent.hpp"
 #include "../components/TransformComponent.hpp"
 #include "../components/VelocityComponent.hpp"
@@ -12,7 +12,7 @@
 
 #include <iostream>
 
-class UserInputSystem
+class UserInputSystem : public System
 {
 public:
     void update(entt::registry &registry, float dt)

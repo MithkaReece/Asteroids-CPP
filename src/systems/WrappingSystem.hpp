@@ -1,12 +1,18 @@
 #pragma once
 
 #include <entt/entt.hpp>
+#include "System.hpp"
 #include "../components/TransformComponent.hpp"
 
-class WrappingSystem
+class WrappingSystem : public System
 {
+private:
+    sf::RenderWindow &window;
+
 public:
-    void update(entt::registry &registry, float dt, sf::RenderWindow &window)
+    WrappingSystem(sf::RenderWindow &window) : window(window) {}
+
+    void update(entt::registry &registry, float dt)
     {
         auto view = registry.view<TransformComponent>();
 
