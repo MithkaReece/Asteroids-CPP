@@ -15,10 +15,10 @@ public:
 
         for (auto entity : view)
         {
-            auto &transform = view.get<TransformComponent>(entity);
-            const auto &velocity = view.get<VelocityComponent>(entity);
 
-            transform.position += velocity.velocity * dt;
+            VelocityComponent &velocityComponent = view.get<VelocityComponent>(entity);
+            TransformComponent &transformComponent = view.get<TransformComponent>(entity);
+            transformComponent.position += velocityComponent.velocity * dt;
         }
     }
 };

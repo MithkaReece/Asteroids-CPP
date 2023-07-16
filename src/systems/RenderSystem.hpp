@@ -18,24 +18,15 @@ public:
             TransformComponent &transformComponent = view.get<TransformComponent>(entity);
 
             // Render the entity using the render and transform components
-
-            // Access the drawable and transform information to perform rendering
             sf::Drawable *drawable = renderComponent.drawable.get();
             assert(drawable != nullptr && "Drawable is null!");
 
-            window.draw(*drawable); // Draw the drawable object to the window
+            sf::Transform transform;
+            transform.translate(transformComponent.position);
+            transform.scale(transformComponent.scale);
+            transform.rotate(transformComponent.rotation);
 
-            // sf::Vector2f position = transformComponent.position;
-            // sf::Vector2f scale = transformComponent.scale;
-            // float rotation = transformComponent.rotation;
-
-            // Set the position, scale, and rotation of the drawable
-            // drawable->setPosition(position);
-            // drawable->setScale(scale);
-            // drawable->setRotation(rotation);
-
-            // Render the drawable object
-            // window.draw(*drawable);
+            window.draw(*drawable, transform); // Draw the drawable object to the window
         }
     }
 };

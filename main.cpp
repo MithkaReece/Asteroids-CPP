@@ -1,4 +1,8 @@
+#include <SFML/Window.hpp>
+#include <SFML/Window/Keyboard.hpp>
 #include <SFML/Graphics.hpp>
+#include <SFML/System.hpp>
+
 #include <entt/entt.hpp>
 
 #include "src/components/PlayerComponent.hpp"
@@ -9,32 +13,36 @@
 #include "src/systems/SystemManager.cpp"
 #include "src/systems/UserInputSystem.hpp"
 #include "src/systems/RenderSystem.hpp"
+#include "src/systems/WrappingSystem.hpp"
 
 // Temp
 #include <iostream>
 
-#include <SFML/Window.hpp>
-#include <SFML/Window/Keyboard.hpp>
+sf::ConvexShape createTriangle()
+{
+    sf::ConvexShape triangle;
+    triangle.setPointCount(3);
+    triangle.setPoint(0, sf::Vector2f(1.0f, .0f));    // Top vertex
+    triangle.setPoint(1, sf::Vector2f(-1.0f, 1.0f));  // Right vertex
+    triangle.setPoint(2, sf::Vector2f(-1.0f, -1.0f)); // Bottom vertex
+    triangle.setFillColor(sf::Color::Red);
+
+    return triangle;
+}
 
 void createPlayer(entt::registry &registry)
 {
     auto entity = registry.create();
 
-    registry.emplace<PlayerComponent>(entity, 1.0f);
+    registry.emplace<PlayerComponent>(entity, 50.0f);
     registry.emplace<TransformComponent>(entity, sf::Vector2f(30.0f, 30.0f),
-                                         sf::Vector2f(1.0, 1.0f),
+                                         sf::Vector2f(10.0, 10.0f),
                                          0.0f);
+    registry.emplace<VelocityComponent>(entity, sf::Vector2f(0.f, 0.f));
 
-    sf::ConvexShape triangle;
-    triangle.setPointCount(3);
-    triangle.setPoint(0, sf::Vector2f(0.0f, 0.0f));
-    triangle.setPoint(1, sf::Vector2f(100.0f, 0.0f));
-    triangle.setPoint(2, sf::Vector2f(50.0f, 100.0f));
-    triangle.setFillColor(sf::Color::Red);
+    sf::ConvexShape triangle = createTriangle();
     std::unique_ptr<sf::Drawable> drawable = std::make_unique<sf::ConvexShape>(std::move(triangle));
     registry.emplace<RenderComponent>(entity, std::move(drawable));
-
-    registry.emplace<VelocityComponent>(entity, sf::Vector2f(0.f, 0.f));
 }
 
 int main(int argc, char *argv[])
@@ -49,6 +57,7 @@ int main(int argc, char *argv[])
     SystemManager systemManager;
     UserInputSystem userInputSystem;
     RenderSystem renderSystem;
+    WrappingSystem wrappingSystem;
 
     createPlayer(registry);
 
@@ -68,7 +77,8 @@ int main(int argc, char *argv[])
         float dt = clock.restart().asSeconds();
 
         systemManager.updateSystems(registry, dt);
-        userInputSystem.update(registry, dt, event.key.code);
+        userInputSystem.update(registry, dt);
+        wrappingSystem.update(registry, dt, window);
 
         // Clear the window
         window.clear(sf::Color::White);

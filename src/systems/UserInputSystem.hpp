@@ -10,10 +10,12 @@
 
 #include "../Constants.h"
 
+#include <iostream>
+
 class UserInputSystem
 {
 public:
-    void update(entt::registry &registry, float dt, sf::Keyboard::Key key)
+    void update(entt::registry &registry, float dt)
     {
         // Retrieve entities with PlayerComponent and VelocityComponent
         auto view = registry.view<PlayerComponent, TransformComponent, VelocityComponent>();
@@ -25,26 +27,22 @@ public:
             TransformComponent &transformComponent = view.get<TransformComponent>(entity);
             VelocityComponent &velocityComponent = view.get<VelocityComponent>(entity);
             // Update velocity based on user input
-            if (key == sf::Keyboard::Key::A)
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
             {
-                transformComponent.rotation -= 10.0f;
+                transformComponent.rotation -= 0.1f;
             }
-            if (key == sf::Keyboard::Key::D)
+
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
             {
-                transformComponent.rotation -= 10.0f;
+                transformComponent.rotation += 0.1f;
             }
-            if (key == sf::Keyboard::Key::W)
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
             {
                 // Accelerate player forward
                 sf::Vector2f forwardVector = sf::Vector2f(
                     std::cos(transformComponent.rotation * DEG_TO_RAD),
                     std::sin(transformComponent.rotation * DEG_TO_RAD));
-                sf::Vector2f acceleration = forwardVector * playerComponent.acceleration;
-                velocityComponent.velocity += acceleration;
-            }
-            if (key == sf::Keyboard::Key::S)
-            {
-                // velocityComponent.velocity.y = 100.0f;
+                velocityComponent.velocity += forwardVector * playerComponent.acceleration * dt;
             }
         }
     }
