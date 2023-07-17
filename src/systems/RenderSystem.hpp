@@ -19,6 +19,10 @@ public:
 
         for (auto entity : view)
         {
+            if (!registry.valid(entity))
+            {
+                continue;
+            }
             RenderComponent &renderComponent = view.get<RenderComponent>(entity);
             TransformComponent &transformComponent = view.get<TransformComponent>(entity);
 

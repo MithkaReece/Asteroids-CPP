@@ -19,6 +19,10 @@ public:
 
         for (auto entity : view)
         {
+            if(!registry.valid(entity)){
+                continue;
+            }
+
             TransformComponent &transformComponent = view.get<TransformComponent>(entity);
             WrapperBoundaryComponent &wrapperBoundaryComponent = view.get<WrapperBoundaryComponent>(entity);
             const float boundary = wrapperBoundaryComponent.boundarySize;

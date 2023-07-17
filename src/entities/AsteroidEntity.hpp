@@ -1,8 +1,17 @@
 #pragma once
 #include <entt/entt.hpp>
 #include <random>
-sf::ConvexShape createAsteroidShape(unsigned int noPoints, float radius, float noiseMagnitude)
+#include "../components/AsteroidComponent.hpp"
+#include "../components/TransformComponent.hpp"
+#include "../components/VelocityComponent.hpp"
+#include "../components/WrapperBoundaryComponent.hpp"
+#include "../components/RenderComponent.hpp"
+#include "../components/ColliderComponent.hpp"
+
+sf::ConvexShape createAsteroidShape(unsigned int noPoints, float noiseMagnitude)
 {
+    const float radius = 1.0f; // Normalised circled, then its scaled up
+
     sf::ConvexShape asteroid;
     asteroid.setPointCount(noPoints);
 
@@ -29,15 +38,71 @@ sf::ConvexShape createAsteroidShape(unsigned int noPoints, float radius, float n
     return asteroid;
 }
 
-// Random number between -max < -min or min < max
-float randomRange(float min, float max, std::mt19937 gen)
+const float SCALE_VARIATION = 0.3f;
+const float MAX_SCALE = 60.0f;
+const float BOUNDARY = 120.0f;
+
+float levelMinScale(int level)
 {
-    std::uniform_real_distribution<float> distribution(-max + min, max - min);
-    //-max+min < max-min
-    // If neg then -min
-    // If positive then +min
-    float x = distribution(gen);
-    return x + std::signbit(x) * min;
+    switch (level)
+    {
+    case 1:
+        return 5.0f;
+    case 2:
+        return 20.0f;
+    case 3:
+        return 50.0f;
+    }
+    return 0.0f;
+}
+
+float levelMaxScale(int level)
+{
+    switch (level)
+    {
+    case 1:
+        return 10.0f;
+    case 2:
+        return 25.0f;
+    case 3:
+        return MAX_SCALE;
+    }
+    return 0.0f;
+}
+
+void createAsteroid(entt::registry &registry, sf::RenderWindow &window, int level, sf::Vector2f position, sf::Vector2f velocity)
+{
+    assert(level == 1 || level == 2 || level == 3);
+    // Create entity
+    auto entity = registry.create();
+
+    // Add AsteroidComponent
+    registry.emplace<AsteroidComponent>(entity, level);
+
+    // Add randomised scale
+    std::random_device rd;
+    std::mt19937 gen(rd());
+
+    std::uniform_real_distribution<float> scaleDistribution(levelMinScale(level), levelMaxScale(level));
+    const float scale = scaleDistribution(gen);
+    sf::Vector2f scaleVector(scale, scale);
+    // Add TransformComponent
+    registry.emplace<TransformComponent>(entity, position, scaleVector, 0.0f);
+
+    // Add VelocityComponent
+    registry.emplace<VelocityComponent>(entity, velocity);
+
+    // Add WrapperBoundaryComponent
+    registry.emplace<WrapperBoundaryComponent>(entity, BOUNDARY);
+
+    // Add RenderComponent
+    const int points = 15;
+    sf::ConvexShape shape = createAsteroidShape(points, SCALE_VARIATION);
+    std::unique_ptr<sf::Drawable> drawable = std::make_unique<sf::ConvexShape>(std::move(shape));
+    registry.emplace<RenderComponent>(entity, std::move(drawable));
+
+    // Add ColliderComponent
+    registry.emplace<ColliderComponent>(entity, shape);
 }
 
 void createAsteroid(entt::registry &registry, sf::RenderWindow &window)
@@ -45,66 +110,45 @@ void createAsteroid(entt::registry &registry, sf::RenderWindow &window)
     std::random_device rd;
     std::mt19937 gen(rd());
 
-    // Create entity
-    auto entity = registry.create();
+    // std::uniform_int_distribution<int> levelDistribution(1, 3);
+    // int level = levelDistribution(gen);
+    int level = 3;
 
-    const float maxScale = 50.0f;
-    std::uniform_real_distribution<float> scaleDistribution(5.0f, maxScale);
-    const float scale = scaleDistribution(gen);
-    sf::Vector2f scaleVector(scale, scale);
-
-    const float scaleVariation = 0.3f;
-
-    const float boundary = maxScale * 2;
-
-    // Add TransformComponent
     // Generate a random position outside the window but inside the boundary
 
     // Random x inside window
     std::uniform_real_distribution<float> xDistribution(-window.getSize().x, window.getSize().x);
     float x = xDistribution(gen);
+    /*
     // Width to the edge of the box
-    const float innerWidth = window.getSize().x + (maxScale + scaleVariation) * 2;
+    const float innerWidth = window.getSize().x + (MAX_SCALE + SCALE_VARIATION) * 2;
     // Further x - closest x
-    const float outerWidth = window.getSize().x + boundary - innerWidth;
+    const float outerWidth = window.getSize().x + BOUNDARY - innerWidth;
     // Shift all inner x outside x (now between innerWidth and window.getSize().x + boundary)
-    x = x * outerWidth + std::signbit(x) * innerWidth;
+    x = x * outerWidth + std::signbit(x) * innerWidth;*/
     // Map to screen
     x += window.getSize().x / 2;
 
     // Random y inside window
     std::uniform_real_distribution<float> yDistribution(-window.getSize().y, window.getSize().y);
     float y = yDistribution(gen);
+    /*
     // Height to the edge of the box
-    const float innerHeight = window.getSize().y + (maxScale + scaleVariation) * 2;
+    const float innerHeight = window.getSize().y + (MAX_SCALE + SCALE_VARIATION) * 2;
     // Further y - closest y
-    const float outerHeight = window.getSize().y + boundary - innerHeight;
+    const float outerHeight = window.getSize().y + BOUNDARY - innerHeight;
     // Shift all inner y outside y (now between innerHeight and window.getSize().y + boundary)
-    y = y * outerHeight + std::signbit(y) * innerHeight;
+    y = y * outerHeight + std::signbit(y) * innerHeight;*/
     // Map to screen
     y += window.getSize().y / 2;
 
     sf::Vector2f position(x, y);
-    registry.emplace<TransformComponent>(entity, position, scaleVector, 0.0f);
 
-    // Add VelocityComponent
+    // Random VelocityComponent
     const float maxStartingVelocity = 50.0f;
     const float minStartingVelocity = 10.0f;
     std::uniform_real_distribution<float> directionDistribution(-maxStartingVelocity, maxStartingVelocity);
     sf::Vector2f velocity(directionDistribution(gen), directionDistribution(gen));
-    registry.emplace<VelocityComponent>(entity, velocity);
 
-    // Add WrapperBoundaryComponent
-    registry.emplace<WrapperBoundaryComponent>(entity, boundary);
-
-    // Add RenderComponent
-    sf::ConvexShape shape = createAsteroidShape(15, 1.0f, scaleVariation);
-    std::unique_ptr<sf::Drawable> drawable = std::make_unique<sf::ConvexShape>(std::move(shape));
-    registry.emplace<RenderComponent>(entity, std::move(drawable));
-
-    // Add ColliderComponent
-    registry.emplace<ColliderComponent>(entity, shape);
-
-    // Add AsteroidComponent
-    registry.emplace<AsteroidComponent>(entity, 3);
+    createAsteroid(registry, window, level, position, velocity);
 }

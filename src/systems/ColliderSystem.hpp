@@ -14,6 +14,10 @@ public:
 
         for (auto entity : view)
         {
+            if (!registry.valid(entity))
+            {
+                continue;
+            }
             ColliderComponent &colliderComponent = view.get<ColliderComponent>(entity);
             TransformComponent &transformComponent = view.get<TransformComponent>(entity);
 

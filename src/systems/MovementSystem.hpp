@@ -15,7 +15,10 @@ public:
 
         for (auto entity : view)
         {
-
+            if (!registry.valid(entity))
+            {
+                continue;
+            }
             VelocityComponent &velocityComponent = view.get<VelocityComponent>(entity);
             TransformComponent &transformComponent = view.get<TransformComponent>(entity);
             transformComponent.position += velocityComponent.velocity * dt;

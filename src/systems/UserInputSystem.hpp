@@ -23,6 +23,11 @@ public:
         // Process user input for the player entity
         for (auto entity : view)
         {
+            if (!registry.valid(entity))
+            {
+                continue;
+            }
+
             PlayerComponent &playerComponent = view.get<PlayerComponent>(entity);
             TransformComponent &transformComponent = view.get<TransformComponent>(entity);
             VelocityComponent &velocityComponent = view.get<VelocityComponent>(entity);

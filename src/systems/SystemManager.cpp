@@ -22,7 +22,7 @@ public:
     {
 
         systems.push_back(std::make_unique<ColliderSystem>());
-        systems.push_back(std::make_unique<CollisionSystem>());
+        systems.push_back(std::make_unique<CollisionSystem>(window));
         systems.push_back(std::make_unique<UserInputSystem>());
         systems.push_back(std::make_unique<WrappingSystem>(window));
         systems.push_back(std::make_unique<AsteroidSpawnerSystem>(window, std::chrono::seconds(2)));
