@@ -4,7 +4,7 @@
 #include "components/Transform.hpp"
 #include "components/Render.hpp"
 #include "components/TextUI.hpp"
-#include "components/UITag.hpp"
+#include "components/ScoreTag.hpp"
 
 #include <iostream>
 namespace System
@@ -19,7 +19,7 @@ namespace System
 
     void update(entt::registry &registry, sf::Time dt)
     {
-      auto view = registry.view<Component::Render, Component::Transform>(entt::exclude<Component::UITag>);
+      auto view = registry.view<Component::Render, Component::Transform>();
 
       for (auto entity : view)
       {
@@ -40,7 +40,7 @@ namespace System
         window.draw(*drawable, sfTransform); // Draw the drawable object to the window
       }
 
-      auto viewUI = registry.view<Component::Transform, Component::TextUI, Component::UITag>();
+      auto viewUI = registry.view<Component::Transform, Component::TextUI, Component::ScoreTag>();
 
       for (auto entity : viewUI)
       {

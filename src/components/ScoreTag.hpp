@@ -2,7 +2,7 @@
 
 namespace Component
 {
-  struct UITag
+  struct ScoreTag
   {
   };
 }

@@ -8,10 +8,13 @@
 #include "components/Player.hpp"
 #include "components/Asteroid.hpp"
 #include "components/BulletTag.hpp"
+#include "components/TextUI.hpp"
+#include "components/ScoreTag.hpp"
 
 #include "entities/Asteroid.hpp"
 
 #include "Constants.h"
+#include <string>
 
 // Temp
 #include <iostream>
@@ -110,6 +113,24 @@ namespace System
       sf::Vector2f velocity2 = rotateVector(originalVelocity, -ASTEROID_SPLIT_ANGLE);
 
       splitAsteroid(registry, asteroid, level, position1, velocity1, position2, velocity2);
+
+      addScore(registry, 1);
+    }
+
+    void addScore(entt::registry &registry, int scoreIncrease)
+    {
+      auto view = registry.view<Component::Transform, Component::TextUI, Component::ScoreTag>();
+
+      for (auto entity : view)
+      {
+        if (!registry.valid(entity))
+          continue;
+        // Increment score value
+        Component::TextUI &textUI = view.get<Component::TextUI>(entity);
+        int score = std::stoi(textUI.text);
+        score += scoreIncrease;
+        textUI.text = std::to_string(score);
+      }
     }
 
   public:

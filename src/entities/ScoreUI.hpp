@@ -3,7 +3,7 @@
 
 #include "components/Transform.hpp"
 #include "components/TextUI.hpp"
-#include "components/UITag.hpp"
+#include "components/ScoreTag.hpp"
 
 #include <SFML/Graphics.hpp>
 
@@ -17,6 +17,6 @@ namespace Entity
     sf::Vector2f scale(1.0f, 1.0f);
     registry.emplace<Component::Transform>(entity, position, scale, 0.0f);
     registry.emplace<Component::TextUI>(entity, "0", sf::Color::White);
-    registry.emplace<Component::UITag>(entity);
+    registry.emplace<Component::ScoreTag>(entity);
   }
 }
