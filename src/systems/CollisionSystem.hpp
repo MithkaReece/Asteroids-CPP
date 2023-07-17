@@ -50,8 +50,8 @@ private:
         sf::Vector2f velocity4 = rotateVector(newVelocity1, -splitAngle);
 
         // Asteroid 2 -> splits into 2 asteroids 5,6
-        sf::Vector2f velocity5 = rotateVector(newVelocity2, splitAngle);
-        sf::Vector2f velocity6 = rotateVector(newVelocity2, -splitAngle);
+        sf::Vector2f velocity5 = rotateVector(newVelocity2, -splitAngle);
+        sf::Vector2f velocity6 = rotateVector(newVelocity2, splitAngle);
 
         // Destroy old asteroids
         if (!(registry.valid(entity1) && registry.valid(entity2)))
@@ -62,14 +62,14 @@ private:
         // Create asteroids halves
         if (level1 > 1)
         {
-            createAsteroid(registry, window, level1 - 1, transform1.position + (level1 - 1) * (level1 - 1) * 10.0f * perpNormal, velocity3);
-            createAsteroid(registry, window, level1 - 1, transform1.position - (level1 - 1) * (level1 - 1) * 10.0f * perpNormal, velocity4);
+            createAsteroid(registry, window, level1 - 1, transform1.position + (level1 - 1) * (level1 - 1) * 15.0f * perpNormal, velocity3);
+            createAsteroid(registry, window, level1 - 1, transform1.position - (level1 - 1) * (level1 - 1) * 15.0f * perpNormal, velocity4);
         }
 
         if (level2 > 1)
         {
-            createAsteroid(registry, window, level2 - 1, transform2.position + (level2 - 1) * (level2 - 1) * 10.0f * perpNormal, velocity5);
-            createAsteroid(registry, window, level2 - 1, transform2.position - (level2 - 1) * (level2 - 1) * 10.0f * perpNormal, velocity6);
+            createAsteroid(registry, window, level2 - 1, transform2.position + (level2 - 1) * (level2 - 1) * 15.0f * perpNormal, velocity5);
+            createAsteroid(registry, window, level2 - 1, transform2.position - (level2 - 1) * (level2 - 1) * 15.0f * perpNormal, velocity6);
         }
     }
 

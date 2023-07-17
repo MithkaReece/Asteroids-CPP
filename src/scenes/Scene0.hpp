@@ -11,6 +11,5 @@ class Scene0 : public Scene
     void init(entt::registry &registry)
     {
         createPlayer(registry);
-        //createAsteroidSpawner(registry);
     }
 };
