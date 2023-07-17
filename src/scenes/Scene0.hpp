@@ -1,15 +1,15 @@
 #pragma once
 
 #include <entt/entt.hpp>
-#include "Scene.hpp"
+#include "scenes/Scene.hpp"
 
-#include "../entities/PlayerEntity.hpp"
-#include "../entities/AsteroidEntity.hpp"
+#include "entities/Player.hpp"
+#include "entities/Asteroid.hpp"
 
 class Scene0 : public Scene
 {
     void init(entt::registry &registry)
     {
-        createPlayer(registry);
+        Entity::createPlayer(registry);
     }
 };

@@ -1,7 +1,7 @@
 [
 {
   "directory": "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/build",
-  "command": "/usr/bin/clang++ -isystem /usr/local/include -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17 -o CMakeFiles/Asteroids.dir/main.cpp.o -c /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/main.cpp",
-  "file": "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/main.cpp"
+  "command": "/usr/bin/clang++ -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17 -o CMakeFiles/Asteroids.dir/src/main.cpp.o -c /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/main.cpp",
+  "file": "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/main.cpp"
 }
 ]
