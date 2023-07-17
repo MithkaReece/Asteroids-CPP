@@ -15,47 +15,47 @@
 #include "systems/OutOfBound.hpp"
 namespace System
 {
-    class Manager
+  class Manager
+  {
+  private:
+    std::vector<std::unique_ptr<System>> systems;
+    std::unique_ptr<Render> render;
+
+  public:
+    // Adds all the systems
+    Manager(sf::RenderWindow &window) : render(std::make_unique<Render>(window))
     {
-    private:
-        std::vector<std::unique_ptr<System>> systems;
-        std::unique_ptr<RenderSystem> renderSystem;
+      // Spawners
+      systems.push_back(std::make_unique<AsteroidSpawner>(window, sf::milliseconds(2000)));
 
-    public:
-        // Adds all the systems
-        Manager(sf::RenderWindow &window) : renderSystem(std::make_unique<RenderSystem>(window))
-        {
-            // Spawners
-            systems.push_back(std::make_unique<AsteroidSpawnerSystem>(window, sf::milliseconds(2000)));
+      // Input
+      systems.push_back(std::make_unique<UserInput>());
+      // Input responses
+      systems.push_back(std::make_unique<PlayerThrust>());
+      systems.push_back(std::make_unique<PlayerRotate>());
+      systems.push_back(std::make_unique<Weapon>());
 
-            // Input
-            systems.push_back(std::make_unique<UserInputSystem>());
-            // Input responses
-            systems.push_back(std::make_unique<PlayerThrustSystem>());
-            systems.push_back(std::make_unique<PlayerRotateSystem>());
-            systems.push_back(std::make_unique<WeaponSystem>());
+      // Applying velocity
+      systems.push_back(std::make_unique<Movement>());
+      // Collider positioning
+      systems.push_back(std::make_unique<Collider>());
+      // Keep objects within boundary or deleted
+      systems.push_back(std::make_unique<Wrapping>(window));
+      systems.push_back(std::make_unique<OutOfBound>(window));
 
-            // Applying velocity
-            systems.push_back(std::make_unique<MovementSystem>());
-            // Collider positioning
-            systems.push_back(std::make_unique<ColliderSystem>());
-            // Keep objects within boundary or deleted
-            systems.push_back(std::make_unique<WrappingSystem>(window));
-            systems.push_back(std::make_unique<OutOfBoundSystem>());
+      // Detects collisions
+      systems.push_back(std::make_unique<Collision>(window));
+    }
 
-            // Detects collisions
-            systems.push_back(std::make_unique<CollisionSystem>(window));
-        }
+    void updateSystems(entt::registry &registry, sf::Time dt)
+    {
+      for (auto &system : systems)
+        system->update(registry, dt);
+    }
 
-        void updateSystems(entt::registry &registry, sf::Time dt)
-        {
-            for (auto &system : systems)
-                system->update(registry, dt);
-        }
-
-        void updateRenderSystem(entt::registry &registry, sf::Time dt)
-        {
-            renderSystem->update(registry, dt);
-        }
-    };
+    void updateRenderSystem(entt::registry &registry, sf::Time dt)
+    {
+      render->update(registry, dt);
+    }
+  };
 }

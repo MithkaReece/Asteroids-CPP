@@ -8,25 +8,25 @@
 
 namespace System
 {
-    class AsteroidSpawnerSystem : public System
+  class AsteroidSpawner : public System
+  {
+  private:
+    sf::RenderWindow &window;
+    sf::Time interval;
+    sf::Time timer;
+
+  public:
+    AsteroidSpawner(sf::RenderWindow &window, sf::Time interval)
+        : window(window), interval(interval) {}
+
+    void update(entt::registry &registry, sf::Time dt)
     {
-    private:
-        sf::RenderWindow &window;
-        sf::Time interval;
-        sf::Time timer;
-
-    public:
-        AsteroidSpawnerSystem(sf::RenderWindow &window, sf::Time interval)
-            : window(window), interval(interval) {}
-
-        void update(entt::registry &registry, sf::Time dt)
-        {
-            timer += dt;
-            if (timer >= interval)
-            {
-                Entity::createAsteroid(registry, window);
-                timer = sf::Time::Zero;
-            }
-        }
-    };
+      timer += dt;
+      if (timer >= interval)
+      {
+        Entity::createAsteroid(registry, window);
+        timer = sf::Time::Zero;
+      }
+    }
+  };
 }

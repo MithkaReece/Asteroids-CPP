@@ -8,10 +8,12 @@
 #include "components/Render.hpp"
 #include "components/Collider.hpp"
 #include <SFML/Graphics.hpp>
+#include "Constants.h"
+
 namespace Entity
 {
-sf::ConvexShape createAsteroidShape(unsigned int noPoints, float noiseMagnitude)
-{
+  sf::ConvexShape createAsteroidShape(unsigned int noPoints, float noiseMagnitude)
+  {
     const float radius = 1.0f; // Normalised circled, then its scaled up
 
     sf::ConvexShape asteroid;
@@ -24,13 +26,13 @@ sf::ConvexShape createAsteroidShape(unsigned int noPoints, float noiseMagnitude)
 
     for (unsigned int i = 0; i < noPoints; ++i)
     {
-        float angle = (i * 360.0f) / noPoints;
-        float noiseOffset = noiseDist(gen);
+      float angle = (i * 360.0f) / noPoints;
+      float noiseOffset = noiseDist(gen);
 
-        float x = radius * std::cos(angle * 3.14159f / 180.0f) + noiseOffset;
-        float y = radius * std::sin(angle * 3.14159f / 180.0f) + noiseOffset;
+      float x = radius * std::cos(angle * 3.14159f / 180.0f) + noiseOffset;
+      float y = radius * std::sin(angle * 3.14159f / 180.0f) + noiseOffset;
 
-        asteroid.setPoint(i, sf::Vector2f(x, y));
+      asteroid.setPoint(i, sf::Vector2f(x, y));
     }
 
     asteroid.setFillColor(sf::Color::Black);
@@ -38,42 +40,38 @@ sf::ConvexShape createAsteroidShape(unsigned int noPoints, float noiseMagnitude)
     asteroid.setOutlineThickness(0.1f);
 
     return asteroid;
-}
+  }
 
-const float SCALE_VARIATION = 0.3f;
-const float MAX_SCALE = 60.0f;
-const float BOUNDARY = 120.0f;
-
-float levelMinScale(int level)
-{
+  float levelMinScale(int level)
+  {
     switch (level)
     {
     case 1:
-        return 5.0f;
+      return 5.0f;
     case 2:
-        return 20.0f;
+      return 20.0f;
     case 3:
-        return 50.0f;
+      return 50.0f;
     }
     return 0.0f;
-}
+  }
 
-float levelMaxScale(int level)
-{
+  float levelMaxScale(int level)
+  {
     switch (level)
     {
     case 1:
-        return 10.0f;
+      return 10.0f;
     case 2:
-        return 25.0f;
+      return 25.0f;
     case 3:
-        return MAX_SCALE;
+      return MAX_SCALE;
     }
     return 0.0f;
-}
+  }
 
-void createAsteroid(entt::registry &registry, sf::RenderWindow &window, int level, sf::Vector2f position, sf::Vector2f velocity)
-{
+  void createAsteroid(entt::registry &registry, sf::RenderWindow &window, int level, sf::Vector2f position, sf::Vector2f velocity)
+  {
     assert(level == 1 || level == 2 || level == 3);
     // Calculate random scale from level
     std::random_device rd;
@@ -97,10 +95,10 @@ void createAsteroid(entt::registry &registry, sf::RenderWindow &window, int leve
     // Add components
     registry.emplace<Component::Render>(entity, std::move(drawable));
     registry.emplace<Component::Collider>(entity, shape);
-}
+  }
 
-void createAsteroid(entt::registry &registry, sf::RenderWindow &window)
-{
+  void createAsteroid(entt::registry &registry, sf::RenderWindow &window)
+  {
     std::random_device rd;
     std::mt19937 gen(rd());
 
@@ -113,26 +111,24 @@ void createAsteroid(entt::registry &registry, sf::RenderWindow &window)
     // Random x inside window
     std::uniform_real_distribution<float> xDistribution(-window.getSize().x, window.getSize().x);
     float x = xDistribution(gen);
-    /*
     // Width to the edge of the box
     const float innerWidth = window.getSize().x + (MAX_SCALE + SCALE_VARIATION) * 2;
     // Further x - closest x
     const float outerWidth = window.getSize().x + BOUNDARY - innerWidth;
     // Shift all inner x outside x (now between innerWidth and window.getSize().x + boundary)
-    x = x * outerWidth + std::signbit(x) * innerWidth;*/
+    x = x * outerWidth + std::signbit(x) * innerWidth;
     // Map to screen
     x += window.getSize().x / 2;
 
     // Random y inside window
     std::uniform_real_distribution<float> yDistribution(-window.getSize().y, window.getSize().y);
     float y = yDistribution(gen);
-    /*
     // Height to the edge of the box
     const float innerHeight = window.getSize().y + (MAX_SCALE + SCALE_VARIATION) * 2;
     // Further y - closest y
     const float outerHeight = window.getSize().y + BOUNDARY - innerHeight;
     // Shift all inner y outside y (now between innerHeight and window.getSize().y + boundary)
-    y = y * outerHeight + std::signbit(y) * innerHeight;*/
+    y = y * outerHeight + std::signbit(y) * innerHeight;
     // Map to screen
     y += window.getSize().y / 2;
 
@@ -145,5 +141,5 @@ void createAsteroid(entt::registry &registry, sf::RenderWindow &window)
     sf::Vector2f velocity(directionDistribution(gen), directionDistribution(gen));
 
     createAsteroid(registry, window, level, position, velocity);
-}
+  }
 }

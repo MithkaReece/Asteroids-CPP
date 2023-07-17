@@ -8,10 +8,12 @@
 #include "components/Render.hpp"
 #include "components/Collider.hpp"
 #include "components/PlayerInput.hpp"
+#include "components/Weapon.hpp"
+
 namespace Entity
 {
-sf::ConvexShape createTriangle()
-{
+  sf::ConvexShape createTriangle()
+  {
     sf::ConvexShape triangle;
     triangle.setPointCount(3);
     triangle.setPoint(0, sf::Vector2f(1.0f, .0f));    // Middle Right vertex
@@ -19,10 +21,10 @@ sf::ConvexShape createTriangle()
     triangle.setPoint(2, sf::Vector2f(-1.0f, -1.0f)); // Bottom Left vertex
     triangle.setFillColor(sf::Color::Red);
     return triangle;
-}
+  }
 
-void createPlayer(entt::registry &registry)
-{
+  void createPlayer(entt::registry &registry)
+  {
     // Create entity
     auto entity = registry.create();
 
@@ -44,6 +46,9 @@ void createPlayer(entt::registry &registry)
     const float boundarySize = 2.0f;
     registry.emplace<Component::WrapperBoundary>(entity, boundarySize);
 
+    // Add Weapon to shoot
+    registry.emplace<Component::Weapon>(entity, sf::seconds(0.2f));
+
     // Add PlayerInputComponent
     registry.emplace<Component::PlayerInput>(entity);
 
@@ -54,5 +59,5 @@ void createPlayer(entt::registry &registry)
 
     // Add ColliderComponent
     registry.emplace<Component::Collider>(entity, shape);
-}
+  }
 }

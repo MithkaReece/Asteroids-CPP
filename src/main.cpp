@@ -16,36 +16,36 @@
 
 int main(int argc, char *argv[])
 {
-    sf::RenderWindow window(sf::VideoMode(1000, 600), "");
+  sf::RenderWindow window(sf::VideoMode(1000, 600), "");
 
-    entt::registry registry;
-    System::Manager systemManager(window);
-    SceneManager sceneManager(registry, 0);
+  entt::registry registry;
+  System::Manager systemManager(window);
+  SceneManager sceneManager(registry, 0);
 
-    sf::Clock clock;
-    sf::Time dt;
+  sf::Clock clock;
+  sf::Time dt;
 
-    // Frame loop
-    while (window.isOpen())
-    {
-        sf::Event event;
-        while (window.pollEvent(event))
-        { // Close window (on close button)
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
-
-        // Calculate delta time
-        dt = clock.restart();
-        // Update
-        systemManager.updateSystems(registry, dt);
-        // Render
-        window.clear(sf::Color::Black);
-        systemManager.updateRenderSystem(registry, dt);
-
-        // Display the window
-        window.display();
+  // Frame loop
+  while (window.isOpen())
+  {
+    sf::Event event;
+    while (window.pollEvent(event))
+    { // Close window (on close button)
+      if (event.type == sf::Event::Closed)
+        window.close();
     }
 
-    return 0;
+    // Calculate delta time
+    dt = clock.restart();
+    // Update
+    systemManager.updateSystems(registry, dt);
+    // Render
+    window.clear(sf::Color::Black);
+    systemManager.updateRenderSystem(registry, dt);
+
+    // Display the window
+    window.display();
+  }
+
+  return 0;
 }
