@@ -5,6 +5,6 @@
 class Scene
 {
 public:
-    virtual ~Scene() {}
-    virtual void init(entt::registry &registry) = 0;
+  virtual ~Scene() {}
+  virtual void init(entt::registry &registry, sf::RenderWindow &window) = 0;
 };

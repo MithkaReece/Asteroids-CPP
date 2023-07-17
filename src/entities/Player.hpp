@@ -23,7 +23,7 @@ namespace Entity
     return triangle;
   }
 
-  void createPlayer(entt::registry &registry)
+  void createPlayer(entt::registry &registry, sf::RenderWindow &window)
   {
     // Create entity
     auto entity = registry.create();
@@ -33,7 +33,7 @@ namespace Entity
     registry.emplace<Component::Player>(entity, acceleration);
 
     // Add TransformComponent
-    sf::Vector2f position(30.0f, 30.0f);
+    sf::Vector2f position(window.getSize().x / 2, window.getSize().y / 2);
     sf::Vector2f scale(10.0f, 10.0f);
     const float rotation = 0.0f;
     registry.emplace<Component::Transform>(entity, position, scale, rotation);

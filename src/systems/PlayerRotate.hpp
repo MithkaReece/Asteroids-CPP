@@ -25,13 +25,13 @@ namespace System
 
         if (input.leftRotatePressed)
         {
-          transform.rotation -= 0.1f;
+          transform.rotation -= 200.0f * dt.asSeconds();
           input.leftRotatePressed = false;
         }
 
         if (input.rightRotatePressed)
         {
-          transform.rotation += 0.1f;
+          transform.rotation += 200.0f * dt.asSeconds();
           input.rightRotatePressed = false;
         }
       }

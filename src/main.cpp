@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 
   entt::registry registry;
   System::Manager systemManager(window);
-  SceneManager sceneManager(registry, 0);
+  SceneManager sceneManager(registry, window, 0);
 
   sf::Clock clock;
   sf::Time dt;
@@ -33,6 +33,9 @@ int main(int argc, char *argv[])
     { // Close window (on close button)
       if (event.type == sf::Event::Closed)
         window.close();
+      else if (event.type == sf::Event::Resized)
+      {
+      }
     }
 
     // Calculate delta time
