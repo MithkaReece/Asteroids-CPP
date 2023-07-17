@@ -83,10 +83,10 @@ void createAsteroid(entt::registry &registry, sf::RenderWindow &window, int leve
 
     // Add components
     auto entity = registry.create();
-    registry.emplace<AsteroidComponent>(entity, level);
-    registry.emplace<TransformComponent>(entity, position, scaleVector, 0.0f);
-    registry.emplace<VelocityComponent>(entity, velocity);
-    registry.emplace<WrapperBoundaryComponent>(entity, BOUNDARY);
+    registry.emplace<Component::Asteroid>(entity, level);
+    registry.emplace<Component::Transform>(entity, position, scaleVector, 0.0f);
+    registry.emplace<Component::Velocity>(entity, velocity);
+    registry.emplace<Component::WrapperBoundary>(entity, BOUNDARY);
 
     // Create shape
     const int points = 15;
@@ -94,8 +94,8 @@ void createAsteroid(entt::registry &registry, sf::RenderWindow &window, int leve
     std::unique_ptr<sf::Drawable> drawable = std::make_unique<sf::ConvexShape>(std::move(shape));
 
     // Add components
-    registry.emplace<RenderComponent>(entity, std::move(drawable));
-    registry.emplace<ColliderComponent>(entity, shape);
+    registry.emplace<Component::Render>(entity, std::move(drawable));
+    registry.emplace<Component::Collider>(entity, shape);
 }
 
 void createAsteroid(entt::registry &registry, sf::RenderWindow &window)

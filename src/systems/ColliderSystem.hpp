@@ -10,7 +10,7 @@ class ColliderSystem : public System
 public:
     void update(entt::registry &registry, sf::Time dt)
     {
-        auto view = registry.view<ColliderComponent, TransformComponent>();
+        auto view = registry.view<Component::Collider, Component::Transform>();
 
         for (auto entity : view)
         {
@@ -18,13 +18,13 @@ public:
             {
                 continue;
             }
-            ColliderComponent &colliderComponent = view.get<ColliderComponent>(entity);
-            TransformComponent &transformComponent = view.get<TransformComponent>(entity);
+            Component::Collider &collider = view.get<Component::Collider>(entity);
+            Component::Transform &transform = view.get<Component::Transform>(entity);
 
-            sf::ConvexShape &shape = colliderComponent.shape;
-            shape.setPosition(transformComponent.position);
-            shape.setScale(transformComponent.scale);
-            shape.setRotation(transformComponent.rotation);
+            sf::ConvexShape &shape = collider.shape;
+            shape.setPosition(transform.position);
+            shape.setScale(transform.scale);
+            shape.setRotation(transform.rotation);
         }
     }
 };

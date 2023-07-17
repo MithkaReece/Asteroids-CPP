@@ -1,6 +1,9 @@
 #pragma once
 
-struct WrapperBoundaryComponent
+namespace Component
 {
-    float boundarySize;
-};
+    struct WrapperBoundary
+    {
+        float boundarySize;
+    };
+}

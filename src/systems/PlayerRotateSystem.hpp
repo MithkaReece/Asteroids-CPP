@@ -10,7 +10,7 @@ class PlayerRotateSystem : public System
 public:
     void update(entt::registry &registry, sf::Time dt)
     {
-        auto view = registry.view<PlayerInputComponent, TransformComponent>();
+        auto view = registry.view<Component::PlayerInput, Component::Transform>();
 
         for (auto entity : view)
         {
@@ -19,8 +19,8 @@ public:
                 continue;
             }
 
-            PlayerInputComponent &input = view.get<PlayerInputComponent>(entity);
-            TransformComponent &transform = view.get<TransformComponent>(entity);
+            Component::PlayerInput &input = view.get<Component::PlayerInput>(entity);
+            Component::Transform &transform = view.get<Component::Transform>(entity);
 
             if (input.leftRotatePressed)
             {

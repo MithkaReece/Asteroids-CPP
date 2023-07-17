@@ -11,7 +11,7 @@ class MovementSystem : public System
 public:
     void update(entt::registry &registry, sf::Time dt)
     {
-        auto view = registry.view<TransformComponent, VelocityComponent>();
+        auto view = registry.view<Component::Transform, Component::Velocity>();
 
         for (auto entity : view)
         {
@@ -19,9 +19,9 @@ public:
             {
                 continue;
             }
-            VelocityComponent &velocityComponent = view.get<VelocityComponent>(entity);
-            TransformComponent &transformComponent = view.get<TransformComponent>(entity);
-            transformComponent.position += velocityComponent.velocity * dt.asSeconds();
+            Component::Velocity &velocity = view.get<Component::Velocity>(entity);
+            Component::Transform &transform = view.get<Component::Transform>(entity);
+            transform.position += velocity.velocity * dt.asSeconds();
         }
     }
 };

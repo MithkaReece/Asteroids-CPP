@@ -1,9 +1,12 @@
 #pragma once
 
-struct PlayerInputComponent
+namespace Component
 {
-    bool thrustPressed = false;
-    bool leftRotatePressed = false;
-    bool rightRotatePressed = false;
-    bool shootPressed = false;
-};
+    struct PlayerInput
+    {
+        bool thrustPressed = false;
+        bool leftRotatePressed = false;
+        bool rightRotatePressed = false;
+        bool shootPressed = false;
+    };
+}

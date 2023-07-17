@@ -1,5 +1,7 @@
 #pragma once
-
-struct BulletTag
+namespace Component
 {
-};
+    struct BulletTag
+    {
+    };
+}

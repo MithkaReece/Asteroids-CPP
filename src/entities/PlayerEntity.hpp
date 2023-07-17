@@ -27,30 +27,30 @@ void createPlayer(entt::registry &registry)
 
     // Add PlayerComponent
     const float acceleration = 100.0f;
-    registry.emplace<PlayerComponent>(entity, acceleration);
+    registry.emplace<Component::Player>(entity, acceleration);
 
     // Add TransformComponent
     sf::Vector2f position(30.0f, 30.0f);
     sf::Vector2f scale(10.0f, 10.0f);
     const float rotation = 0.0f;
-    registry.emplace<TransformComponent>(entity, position, scale, rotation);
+    registry.emplace<Component::Transform>(entity, position, scale, rotation);
 
     // Add VelocityComponent
     sf::Vector2f velocity(0.0f, 0.0f);
-    registry.emplace<VelocityComponent>(entity, velocity);
+    registry.emplace<Component::Velocity>(entity, velocity);
 
     // Add WrapperBoundaryComponent
     const float boundarySize = 2.0f;
-    registry.emplace<WrapperBoundaryComponent>(entity, boundarySize);
+    registry.emplace<Component::WrapperBoundary>(entity, boundarySize);
 
     // Add PlayerInputComponent
-    registry.emplace<PlayerInputComponent>(entity);
+    registry.emplace<Component::PlayerInput>(entity);
 
     // Add RenderComponent
     sf::ConvexShape shape = createTriangle();
     std::unique_ptr<sf::Drawable> drawable = std::make_unique<sf::ConvexShape>(std::move(shape));
-    registry.emplace<RenderComponent>(entity, std::move(drawable));
+    registry.emplace<Component::Render>(entity, std::move(drawable));
 
     // Add ColliderComponent
-    registry.emplace<ColliderComponent>(entity, shape);
+    registry.emplace<Component::Collider>(entity, shape);
 }

@@ -22,8 +22,8 @@ private:
     sf::RenderWindow &window;
 
     void handleAsteroidCollision(entt::registry &registry,
-                                 entt::entity entity1, TransformComponent transform1, VelocityComponent velocity1, int level1,
-                                 entt::entity entity2, TransformComponent transform2, VelocityComponent velocity2, int level2)
+                                 entt::entity entity1, Component::Transform transform1, Component::Velocity velocity1, int level1,
+                                 entt::entity entity2, Component::Transform transform2, Component::Velocity velocity2, int level2)
     {
         float mass1 = std::sqrt(transform1.scale.x * transform1.scale.x + transform1.scale.y * transform1.scale.y);
         float mass2 = std::sqrt(transform2.scale.x * transform2.scale.x + transform2.scale.y * transform2.scale.y);
@@ -87,17 +87,17 @@ public:
 
     void update(entt::registry &registry, sf::Time dt)
     {
-        auto view = registry.view<TransformComponent, ColliderComponent, VelocityComponent>();
-        auto asteroidView = registry.view<TransformComponent, ColliderComponent, AsteroidComponent, VelocityComponent>();
-        auto playerView = registry.view<TransformComponent, ColliderComponent, PlayerComponent, VelocityComponent>();
+        auto view = registry.view<Component::Transform, Component::Collider, Component::Velocity>();
+        auto asteroidView = registry.view<Component::Transform, Component::Collider, Component::Asteroid, Component::Velocity>();
+        auto playerView = registry.view<Component::Transform, Component::Collider, Component::Player, Component::Velocity>();
 
         for (auto entity1 : view)
         {
             if (!registry.valid(entity1))
                 continue;
-            const ColliderComponent &collider1 = view.get<ColliderComponent>(entity1);
-            const TransformComponent &transform1 = view.get<TransformComponent>(entity1);
-            const VelocityComponent &velocity1 = view.get<VelocityComponent>(entity1);
+            const Component::Collider &collider1 = view.get<Component::Collider>(entity1);
+            const Component::Transform &transform1 = view.get<Component::Transform>(entity1);
+            const Component::Velocity &velocity1 = view.get<Component::Velocity>(entity1);
 
             for (auto entity2 : view)
             {
@@ -106,9 +106,9 @@ public:
                 if (entity1 == entity2)
                     continue;
 
-                const ColliderComponent &collider2 = view.get<ColliderComponent>(entity2);
-                const TransformComponent &transform2 = view.get<TransformComponent>(entity2);
-                const VelocityComponent &velocity2 = view.get<VelocityComponent>(entity2);
+                const Component::Collider &collider2 = view.get<Component::Collider>(entity2);
+                const Component::Transform &transform2 = view.get<Component::Transform>(entity2);
+                const Component::Velocity &velocity2 = view.get<Component::Velocity>(entity2);
 
                 if (collider1.shape.getGlobalBounds().intersects(collider2.shape.getGlobalBounds()))
                 {
@@ -122,8 +122,8 @@ public:
                     {
                         // Asteroid-to-Asteroid collision
                         std::cout << "Asteroid\n";
-                        handleAsteroidCollision(registry, entity1, transform1, velocity1, asteroidView.get<AsteroidComponent>(entity1).level,
-                                                entity2, transform2, velocity2, asteroidView.get<AsteroidComponent>(entity2).level);
+                        handleAsteroidCollision(registry, entity1, transform1, velocity1, asteroidView.get<Component::Asteroid>(entity1).level,
+                                                entity2, transform2, velocity2, asteroidView.get<Component::Asteroid>(entity2).level);
                         //  handleAsteroidCollision(registry, entity1, entity2);
                     }
                     else if (isAsteroid1 && isPlayer2)

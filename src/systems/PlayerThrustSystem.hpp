@@ -12,7 +12,7 @@ class PlayerThrustSystem : public System
 public:
     void update(entt::registry &registry, sf::Time dt)
     {
-        auto view = registry.view<PlayerComponent, PlayerInputComponent, TransformComponent, VelocityComponent>();
+        auto view = registry.view<Component::Player, Component::PlayerInput, Component::Transform, Component::Velocity>();
         for (auto entity : view)
         {
             if (!registry.valid(entity))
@@ -20,10 +20,10 @@ public:
                 continue;
             }
 
-            PlayerComponent &player = view.get<PlayerComponent>(entity);
-            PlayerInputComponent &input = view.get<PlayerInputComponent>(entity);
-            TransformComponent &transform = view.get<TransformComponent>(entity);
-            VelocityComponent &velocity = view.get<VelocityComponent>(entity);
+            Component::Player &player = view.get<Component::Player>(entity);
+            Component::PlayerInput &input = view.get<Component::PlayerInput>(entity);
+            Component::Transform &transform = view.get<Component::Transform>(entity);
+            Component::Velocity &velocity = view.get<Component::Velocity>(entity);
 
             if (input.thrustPressed)
             { // Accelerate player forward

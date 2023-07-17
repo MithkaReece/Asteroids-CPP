@@ -1,8 +1,10 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-
-struct ColliderComponent
+namespace Component
 {
-    sf::ConvexShape shape;
-};
+    struct Collider
+    {
+        sf::ConvexShape shape;
+    };
+}

@@ -1,6 +1,9 @@
 #pragma once
 
-struct PlayerComponent
+namespace Component
 {
-    float acceleration;
-};
+    struct Player
+    {
+        float acceleration;
+    };
+}

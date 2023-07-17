@@ -5,6 +5,7 @@
 #include "../components/RenderComponent.hpp"
 
 #include <iostream>
+
 class RenderSystem
 {
 private:
@@ -15,7 +16,7 @@ public:
 
     void update(entt::registry &registry, sf::Time dt)
     {
-        auto view = registry.view<RenderComponent, TransformComponent>();
+        auto view = registry.view<Component::Render, Component::Transform>();
 
         for (auto entity : view)
         {
@@ -23,19 +24,19 @@ public:
             {
                 continue;
             }
-            RenderComponent &renderComponent = view.get<RenderComponent>(entity);
-            TransformComponent &transformComponent = view.get<TransformComponent>(entity);
+            Component::Render &render = view.get<Component::Render>(entity);
+            Component::Transform &transform = view.get<Component::Transform>(entity);
 
             // Render the entity using the render and transform components
-            sf::Drawable *drawable = renderComponent.drawable.get();
+            sf::Drawable *drawable = render.drawable.get();
             assert(drawable != nullptr && "Drawable is null!");
 
-            sf::Transform transform;
-            transform.translate(transformComponent.position);
-            transform.scale(transformComponent.scale);
-            transform.rotate(transformComponent.rotation);
+            sf::Transform sfTransform;
+            sfTransform.translate(transform.position);
+            sfTransform.scale(transform.scale);
+            sfTransform.rotate(transform.rotation);
 
-            window.draw(*drawable, transform); // Draw the drawable object to the window
+            window.draw(*drawable, sfTransform); // Draw the drawable object to the window
         }
     }
 };

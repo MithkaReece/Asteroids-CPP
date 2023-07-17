@@ -1,8 +1,8 @@
 #pragma once
-
-#include <SFML/Graphics.hpp>
-
-struct AsteroidComponent
+namespace Component
 {
-    int level;
-};
+    struct Asteroid
+    {
+        int level;
+    };
+}

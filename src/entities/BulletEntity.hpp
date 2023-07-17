@@ -20,20 +20,20 @@ sf::ConvexShape createBulletShape()
     return bullet;
 }
 
-void createBullet(entt::registry &registry, sf::Vector2f position, sf::Vector2f velocity, float rotation)
+void createBullet(entt::registry& registry, sf::Vector2f position, sf::Vector2f velocity, float rotation)
 {
     // Add components
     auto entity = registry.create();
 
-    registry.emplace<BulletTag>(entity);
-    registry.emplace<TransformComponent>(entity, position, sf::Vector2f(1.0f, 1.0f), rotation);
-    registry.emplace<VelocityComponent>(entity, velocity);
+    registry.emplace<Component::BulletTag>(entity);
+    registry.emplace<Component::Transform>(entity, position, sf::Vector2f(1.0f, 1.0f), rotation);
+    registry.emplace<Component::Velocity>(entity, velocity);
 
     // Create shape
     sf::ConvexShape shape = createBulletShape();
     std::unique_ptr<sf::Drawable> drawable = std::make_unique<sf::ConvexShape>(std::move(shape));
 
     // Add components
-    registry.emplace<RenderComponent>(entity, std::move(drawable));
-    registry.emplace<ColliderComponent>(entity, shape);
+    registry.emplace<Component::Render>(entity, std::move(drawable));
+    registry.emplace<Component::Collider>(entity, shape);
 }

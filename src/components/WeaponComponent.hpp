@@ -1,8 +1,11 @@
 #pragma once
 #include <SFML/System/Time.hpp>
 
-struct WeaponComponent
+namespace Component
 {
-    sf::Time cooldownDuration;
-    sf::Time remainingCooldown;
-};
+    struct Weapon
+    {
+        sf::Time cooldownDuration;
+        sf::Time remainingCooldown;
+    };
+}

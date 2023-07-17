@@ -14,7 +14,7 @@ class UserInputSystem : public System
 public:
     void update(entt::registry &registry, sf::Time dt)
     {
-        auto view = registry.view<PlayerInputComponent>();
+        auto view = registry.view<Component::PlayerInput>();
         for (auto entity : view)
         {
             if (!registry.valid(entity))
@@ -22,7 +22,7 @@ public:
                 continue;
             }
 
-            PlayerInputComponent &input = view.get<PlayerInputComponent>(entity);
+            Component::PlayerInput &input = view.get<Component::PlayerInput>(entity);
 
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
                 input.leftRotatePressed = true;

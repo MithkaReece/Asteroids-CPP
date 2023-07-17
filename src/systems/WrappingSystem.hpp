@@ -15,36 +15,37 @@ public:
 
     void update(entt::registry &registry, sf::Time dt)
     {
-        auto view = registry.view<TransformComponent, WrapperBoundaryComponent>();
+        auto view = registry.view<Component::Transform, Component::WrapperBoundary>();
 
         for (auto entity : view)
         {
-            if(!registry.valid(entity)){
+            if (!registry.valid(entity))
+            {
                 continue;
             }
 
-            TransformComponent &transformComponent = view.get<TransformComponent>(entity);
-            WrapperBoundaryComponent &wrapperBoundaryComponent = view.get<WrapperBoundaryComponent>(entity);
-            const float boundary = wrapperBoundaryComponent.boundarySize;
+            Component::Transform &transform = view.get<Component::Transform>(entity);
+            Component::WrapperBoundary &boundary = view.get<Component::WrapperBoundary>(entity);
+            const float boundarySize = boundary.boundarySize;
 
             // Wrap position horizontally
-            if (transformComponent.position.x < -boundary)
+            if (transform.position.x < -boundarySize)
             {
-                transformComponent.position.x = window.getSize().x + boundary;
+                transform.position.x = window.getSize().x + boundarySize;
             }
-            else if (transformComponent.position.x > window.getSize().x + boundary)
+            else if (transform.position.x > window.getSize().x + boundarySize)
             {
-                transformComponent.position.x = -boundary;
+                transform.position.x = -boundarySize;
             }
 
             // Wrap position vertically
-            if (transformComponent.position.y < -boundary)
+            if (transform.position.y < -boundarySize)
             {
-                transformComponent.position.y = window.getSize().y + boundary;
+                transform.position.y = window.getSize().y + boundarySize;
             }
-            else if (transformComponent.position.y > window.getSize().y + boundary)
+            else if (transform.position.y > window.getSize().y + boundarySize)
             {
-                transformComponent.position.y = -boundary;
+                transform.position.y = -boundarySize;
             }
         }
     }

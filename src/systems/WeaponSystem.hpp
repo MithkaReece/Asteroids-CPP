@@ -15,16 +15,16 @@ class WeaponSystem : public System
 public:
     void update(entt::registry &registry, sf::Time dt)
     {
-        auto view = registry.view<TransformComponent, PlayerInputComponent, WeaponComponent>();
+        auto view = registry.view<Component::Transform, Component::PlayerInput, Component::Weapon>();
         for (auto entity : view)
         {
             if (!registry.valid(entity))
             {
                 continue;
             }
-            TransformComponent &transform = view.get<TransformComponent>(entity);
-            PlayerInputComponent &input = view.get<PlayerInputComponent>(entity);
-            WeaponComponent &weapon = view.get<WeaponComponent>(entity);
+            Component::Transform &transform = view.get<Component::Transform>(entity);
+            Component::PlayerInput &input = view.get<Component::PlayerInput>(entity);
+            Component::Weapon &weapon = view.get<Component::Weapon>(entity);
 
             if (input.shootPressed && weapon.remainingCooldown <= sf::Time::Zero)
             {
