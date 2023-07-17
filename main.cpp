@@ -23,6 +23,7 @@ int main(int argc, char *argv[])
     SceneManager sceneManager(registry, 0);
 
     sf::Clock clock;
+    sf::Time dt;
 
     // Frame loop
     while (window.isOpen())
@@ -34,9 +35,8 @@ int main(int argc, char *argv[])
                 window.close();
         }
 
-        // Update the movement system
-        float dt = clock.restart().asSeconds();
-
+        // Calculate delta time
+        dt = clock.restart();
         // Update
         systemManager.updateSystems(registry, dt);
         // Render

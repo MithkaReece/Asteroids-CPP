@@ -1,10 +1,7 @@
 #pragma once
 
 #include "System.hpp"
-#include "../components/PlayerComponent.hpp"
-#include "../components/TransformComponent.hpp"
-#include "../components/VelocityComponent.hpp"
-#include <entt/entt.hpp>
+#include "../components/PlayerInputComponent.hpp"
 
 #include <SFML/Window/Keyboard.hpp>
 
@@ -15,12 +12,9 @@
 class UserInputSystem : public System
 {
 public:
-    void update(entt::registry &registry, float dt)
+    void update(entt::registry &registry, sf::Time dt)
     {
-        // Retrieve entities with PlayerComponent and VelocityComponent
-        auto view = registry.view<PlayerComponent, TransformComponent, VelocityComponent>();
-
-        // Process user input for the player entity
+        auto view = registry.view<PlayerInputComponent>();
         for (auto entity : view)
         {
             if (!registry.valid(entity))
@@ -28,27 +22,16 @@ public:
                 continue;
             }
 
-            PlayerComponent &playerComponent = view.get<PlayerComponent>(entity);
-            TransformComponent &transformComponent = view.get<TransformComponent>(entity);
-            VelocityComponent &velocityComponent = view.get<VelocityComponent>(entity);
-            // Update velocity based on user input
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-            {
-                transformComponent.rotation -= 0.1f;
-            }
+            PlayerInputComponent &input = view.get<PlayerInputComponent>(entity);
 
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+                input.leftRotatePressed = true;
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-            {
-                transformComponent.rotation += 0.1f;
-            }
+                input.rightRotatePressed = true;
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-            {
-                // Accelerate player forward
-                sf::Vector2f forwardVector = sf::Vector2f(
-                    std::cos(transformComponent.rotation * DEG_TO_RAD),
-                    std::sin(transformComponent.rotation * DEG_TO_RAD));
-                velocityComponent.velocity += forwardVector * playerComponent.acceleration * dt;
-            }
+                input.thrustPressed = true;
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+                input.shootPressed = true;
         }
     }
 };

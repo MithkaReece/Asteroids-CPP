@@ -4,7 +4,8 @@
             "name": "Mac",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/usr/local/Cellar/entt/3.12.2/include"
+                "/usr/local/Cellar/entt/3.12.2/include",
+                "/usr/local/Cellar/sfml/2.6.0/include"
             ],
             "defines": [],
             "macFrameworkPath": [

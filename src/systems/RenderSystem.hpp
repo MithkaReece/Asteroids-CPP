@@ -13,7 +13,7 @@ private:
 public:
     RenderSystem(sf::RenderWindow &window) : window(window) {}
 
-    void update(entt::registry &registry, float dt)
+    void update(entt::registry &registry, sf::Time dt)
     {
         auto view = registry.view<RenderComponent, TransformComponent>();
 

@@ -7,6 +7,7 @@
 #include "../components/WrapperBoundaryComponent.hpp"
 #include "../components/RenderComponent.hpp"
 #include "../components/ColliderComponent.hpp"
+#include <SFML/Graphics.hpp>
 
 sf::ConvexShape createAsteroidShape(unsigned int noPoints, float noiseMagnitude)
 {
@@ -73,35 +74,27 @@ float levelMaxScale(int level)
 void createAsteroid(entt::registry &registry, sf::RenderWindow &window, int level, sf::Vector2f position, sf::Vector2f velocity)
 {
     assert(level == 1 || level == 2 || level == 3);
-    // Create entity
-    auto entity = registry.create();
-
-    // Add AsteroidComponent
-    registry.emplace<AsteroidComponent>(entity, level);
-
-    // Add randomised scale
+    // Calculate random scale from level
     std::random_device rd;
     std::mt19937 gen(rd());
-
     std::uniform_real_distribution<float> scaleDistribution(levelMinScale(level), levelMaxScale(level));
     const float scale = scaleDistribution(gen);
     sf::Vector2f scaleVector(scale, scale);
-    // Add TransformComponent
+
+    // Add components
+    auto entity = registry.create();
+    registry.emplace<AsteroidComponent>(entity, level);
     registry.emplace<TransformComponent>(entity, position, scaleVector, 0.0f);
-
-    // Add VelocityComponent
     registry.emplace<VelocityComponent>(entity, velocity);
-
-    // Add WrapperBoundaryComponent
     registry.emplace<WrapperBoundaryComponent>(entity, BOUNDARY);
 
-    // Add RenderComponent
+    // Create shape
     const int points = 15;
     sf::ConvexShape shape = createAsteroidShape(points, SCALE_VARIATION);
     std::unique_ptr<sf::Drawable> drawable = std::make_unique<sf::ConvexShape>(std::move(shape));
-    registry.emplace<RenderComponent>(entity, std::move(drawable));
 
-    // Add ColliderComponent
+    // Add components
+    registry.emplace<RenderComponent>(entity, std::move(drawable));
     registry.emplace<ColliderComponent>(entity, shape);
 }
 

@@ -9,7 +9,7 @@
 class MovementSystem : public System
 {
 public:
-    void update(entt::registry &registry, float dt)
+    void update(entt::registry &registry, sf::Time dt)
     {
         auto view = registry.view<TransformComponent, VelocityComponent>();
 
@@ -21,7 +21,7 @@ public:
             }
             VelocityComponent &velocityComponent = view.get<VelocityComponent>(entity);
             TransformComponent &transformComponent = view.get<TransformComponent>(entity);
-            transformComponent.position += velocityComponent.velocity * dt;
+            transformComponent.position += velocityComponent.velocity * dt.asSeconds();
         }
     }
 };

@@ -85,7 +85,7 @@ private:
 public:
     CollisionSystem(sf::RenderWindow &window) : window(window) {}
 
-    void update(entt::registry &registry, float dt)
+    void update(entt::registry &registry, sf::Time dt)
     {
         auto view = registry.view<TransformComponent, ColliderComponent, VelocityComponent>();
         auto asteroidView = registry.view<TransformComponent, ColliderComponent, AsteroidComponent, VelocityComponent>();

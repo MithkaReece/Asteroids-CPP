@@ -1,7 +1,13 @@
 #pragma once
 #include <entt/entt.hpp>
 
+#include "../components/PlayerComponent.hpp"
+#include "../components/TransformComponent.hpp"
+#include "../components/VelocityComponent.hpp"
 #include "../components/WrapperBoundaryComponent.hpp"
+#include "../components/RenderComponent.hpp"
+#include "../components/ColliderComponent.hpp"
+#include "../components/PlayerInputComponent.hpp"
 
 sf::ConvexShape createTriangle()
 {
@@ -36,6 +42,9 @@ void createPlayer(entt::registry &registry)
     // Add WrapperBoundaryComponent
     const float boundarySize = 2.0f;
     registry.emplace<WrapperBoundaryComponent>(entity, boundarySize);
+
+    // Add PlayerInputComponent
+    registry.emplace<PlayerInputComponent>(entity);
 
     // Add RenderComponent
     sf::ConvexShape shape = createTriangle();

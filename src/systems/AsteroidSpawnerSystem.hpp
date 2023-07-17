@@ -9,20 +9,20 @@ class AsteroidSpawnerSystem : public System
 {
 private:
     sf::RenderWindow &window;
-    std::chrono::seconds interval;
-    float timer;
+    sf::Time interval;
+    sf::Time timer;
 
 public:
-    AsteroidSpawnerSystem(sf::RenderWindow &window, std::chrono::seconds interval)
+    AsteroidSpawnerSystem(sf::RenderWindow &window, sf::Time interval)
         : window(window), interval(interval) {}
 
-    void update(entt::registry &registry, float dt)
+    void update(entt::registry &registry, sf::Time dt)
     {
         timer += dt;
-        if (timer >= interval.count())
+        if (timer >= interval)
         {
             createAsteroid(registry, window);
-            timer = 0;
+            timer = sf::Time::Zero;
         }
     }
 };
