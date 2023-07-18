@@ -15,12 +15,20 @@
 #include "systems/OutOfBound.hpp"
 namespace System
 {
+  /**
+   * @brief The Manager class defines and updates all systems in the game.
+   */
   class Manager
   {
   private:
     std::vector<std::unique_ptr<System>> systems;
     std::unique_ptr<Render> render;
 
+    /**
+     * @brief Constructs the Manager object and defines all the systems.
+     *
+     * @param window The SFML RenderWindow to be used by the systems.
+     */
   public:
     // Adds all the systems
     Manager(sf::RenderWindow &window) : render(std::make_unique<Render>(window))
@@ -47,12 +55,24 @@ namespace System
       systems.push_back(std::make_unique<Collision>(window));
     }
 
+    /**
+     * @brief Updates all the systems in the Manager.
+     *
+     * @param registry The entt::registry containing the game entities.
+     * @param dt The time delta for the update.
+     */
     void updateSystems(entt::registry &registry, sf::Time dt)
     {
       for (auto &system : systems)
         system->update(registry, dt);
     }
 
+    /**
+     * @brief Updates the render system in the Manager.
+     *
+     * @param registry The entt::registry containing the game entities.
+     * @param dt The time delta for the update.
+     */
     void updateRenderSystem(entt::registry &registry, sf::Time dt)
     {
       render->update(registry, dt);

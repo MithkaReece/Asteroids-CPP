@@ -8,14 +8,28 @@
 
 namespace System
 {
+  /**
+   * @brief The Wrapping class handles the wrapping behavior of entities.
+   */
   class Wrapping : public System
   {
   private:
     sf::RenderWindow &window;
 
   public:
+    /**
+     * @brief Constructs a Wrapping object with the specified window.
+     *
+     * @param window The SFML render window.
+     */
     Wrapping(sf::RenderWindow &window) : window(window) {}
 
+    /**
+     * @brief Update function for handling the wrapping behavior of entities.
+     *
+     * @param registry The entt::registry containing the game entities.
+     * @param dt The time delta for the update.
+     */
     void update(entt::registry &registry, sf::Time dt)
     {
       auto view = registry.view<Component::Transform, Component::Velocity, Component::WrapperBoundary>();

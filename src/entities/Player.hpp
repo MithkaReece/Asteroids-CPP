@@ -12,7 +12,13 @@
 
 namespace Entity
 {
-  sf::ConvexShape createTriangle()
+  /**
+   * @brief Create a triangle shape.
+   *
+   * @return The created triangle shape.
+   */
+  sf::ConvexShape
+  createTriangle()
   {
     sf::ConvexShape triangle;
     triangle.setPointCount(3);
@@ -23,6 +29,12 @@ namespace Entity
     return triangle;
   }
 
+  /**
+   * @brief Create a player entity with the specified components.
+   *
+   * @param registry The entity registry.
+   * @param window The render window.
+   */
   void createPlayer(entt::registry &registry, sf::RenderWindow &window)
   {
     // Create entity

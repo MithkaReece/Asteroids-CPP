@@ -15,12 +15,20 @@
 
 namespace System
 {
+  /**
+   * @brief The Weapon class manages the player's weapon system.
+   */
   class Weapon : public System
   {
   public:
+    /**
+     * @brief Update function for managing the player's weapon system.
+     *
+     * @param registry The entt::registry containing the game entities.
+     * @param dt The time delta for the update.
+     */
     void update(entt::registry &registry, sf::Time dt)
     {
-
       auto view = registry.view<Component::Transform, Component::PlayerInput, Component::Weapon, Component::Velocity>();
       for (auto entity : view)
       {
@@ -35,7 +43,7 @@ namespace System
 
         if (input.shootPressed && weapon.remainingCooldown <= sf::Time::Zero)
         {
-
+          // Calculate the forward vector based on the player's rotation
           sf::Vector2f forwardVector = sf::Vector2f(
               std::cos(transform.rotation * DEG_TO_RAD),
               std::sin(transform.rotation * DEG_TO_RAD));
@@ -48,8 +56,10 @@ namespace System
           sf::Vector2f position = transform.position;
           position += forwardVector * transform.scale.x;
 
+          // Create a bullet entity with the calculated position, velocity, and rotation
           Entity::createBullet(registry, position, bulletVelocity, transform.rotation);
 
+          // Reset the remaining cooldown to the specified cooldown duration
           weapon.remainingCooldown = weapon.cooldownDuration;
           input.shootPressed = false;
         }

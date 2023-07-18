@@ -12,8 +12,6 @@
 // Temp
 #include <iostream>
 
-// Function to create an asteroid
-
 int main(int argc, char *argv[])
 {
   sf::RenderWindow window(sf::VideoMode(1000, 600), "");

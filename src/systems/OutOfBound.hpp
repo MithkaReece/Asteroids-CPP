@@ -10,14 +10,28 @@
 
 namespace System
 {
+  /**
+   * @brief The OutOfBound class removes entities that are outside the game boundary.
+   */
   class OutOfBound : public System
   {
   private:
     sf::RenderWindow &window;
 
   public:
+    /**
+     * @brief Constructs an OutOfBound object with a reference to the game window.
+     *
+     * @param window The sf::RenderWindow object representing the game window.
+     */
     OutOfBound(sf::RenderWindow &window) : window(window) {}
 
+    /**
+     * @brief Updates the system by removing entities that are outside the game boundary.
+     *
+     * @param registry The entt::registry containing the game entities.
+     * @param dt The time delta for the update.
+     */
     void update(entt::registry &registry, sf::Time dt)
     {
       auto view = registry.view<Component::Transform, Component::Velocity>(entt::exclude<Component::WrapperBoundary>);
@@ -27,6 +41,7 @@ namespace System
         if (!registry.valid(entity))
           continue;
 
+        // Get the transform component of the entity
         Component::Transform &transform = view.get<Component::Transform>(entity);
 
         // Delete outside boundary

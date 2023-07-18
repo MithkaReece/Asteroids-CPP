@@ -21,11 +21,27 @@
 
 namespace System
 {
+  /**
+   * @brief Class for handling collisions between entities.
+   */
   class Collision : public System
   {
   private:
     sf::RenderWindow &window;
 
+    /**
+     * @brief Handles collision between two asteroids.
+     *
+     * @param registry The entity registry.
+     * @param entity1 The first asteroid entity.
+     * @param transform1 The transform component of the first asteroid.
+     * @param velocity1 The velocity component of the first asteroid.
+     * @param level1 The level of the first asteroid.
+     * @param entity2 The second asteroid entity.
+     * @param transform2 The transform component of the second asteroid.
+     * @param velocity2 The velocity component of the second asteroid.
+     * @param level2 The level of the second asteroid.
+     */
     void handleAsteroidCollision(entt::registry &registry,
                                  entt::entity entity1, Component::Transform transform1, Component::Velocity velocity1, int level1,
                                  entt::entity entity2, Component::Transform transform2, Component::Velocity velocity2, int level2)
@@ -68,7 +84,13 @@ namespace System
       sf::Vector2f velocity6 = rotateVector(newVelocity2, ASTEROID_SPLIT_ANGLE);
       splitAsteroid(registry, entity2, level2, position5, velocity5, position6, velocity6);
     }
-
+    /**
+     * @brief Rotates a vector by a given angle.
+     *
+     * @param vector The vector to rotate.
+     * @param angle The angle of rotation.
+     * @return sf::Vector2f The rotated vector.
+     */
     sf::Vector2f rotateVector(sf::Vector2f vector, float angle)
     {
       float cosAngle = std::cos(DEG_TO_RAD * angle);
@@ -78,6 +100,18 @@ namespace System
       return rotatedVector;
     }
 
+    /**
+     * @brief Splits an asteroid into two smaller asteroids.
+     * Spawning 2 smaller asteroids if original above level 1
+     *
+     * @param registry The entity registry.
+     * @param entity The asteroid entity to split.
+     * @param level The level of the asteroid.
+     * @param position1 The position of the first split asteroid.
+     * @param velocity1 The velocity of the first split asteroid.
+     * @param position2 The position of the second split asteroid.
+     * @param velocity2 The velocity of the second split asteroid.
+     */
     void splitAsteroid(entt::registry &registry,
                        entt::entity entity, int level,
                        sf::Vector2f position1, sf::Vector2f velocity1,
@@ -90,6 +124,18 @@ namespace System
       Entity::createAsteroid(registry, window, level - 1, position2, velocity2);
     }
 
+    /**
+     * @brief Handles collision between a bullet and an asteroid.
+     *  Splits asteroid, deletes bullet and adds a score.
+     *
+     * @param registry The entity registry.
+     * @param bullet The bullet entity.
+     * @param bulletTransform The transform component of the bullet.
+     * @param asteroid The asteroid entity.
+     * @param transform The transform component of the asteroid.
+     * @param velocity The velocity component of the asteroid.
+     * @param level The level of the asteroid.
+     */
     void handleBulletCollision(entt::registry &registry,
                                entt::entity bullet, Component::Transform bulletTransform,
                                entt::entity asteroid, Component::Transform transform, Component::Velocity velocity, int level)
@@ -117,6 +163,12 @@ namespace System
       addScore(registry, 1);
     }
 
+    /**
+     * @brief Increases the score by a specified amount.
+     *
+     * @param registry The entity registry.
+     * @param scoreIncrease The amount to increase the score by.
+     */
     void addScore(entt::registry &registry, int scoreIncrease)
     {
       auto view = registry.view<Component::Transform, Component::TextUI, Component::ScoreTag>();
@@ -134,8 +186,19 @@ namespace System
     }
 
   public:
+    /**
+     * @brief Constructs a Collision system with the specified render window.
+     *
+     * @param window The render window.
+     */
     Collision(sf::RenderWindow &window) : window(window) {}
 
+    /**
+     * @brief Updates the collision system.
+     *
+     * @param registry The entity registry.
+     * @param dt The delta time.
+     */
     void update(entt::registry &registry, sf::Time dt)
     {
       auto view = registry.view<Component::Transform, Component::Collider, Component::Velocity>();
