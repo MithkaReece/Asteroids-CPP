@@ -21,7 +21,6 @@ namespace Scene
   {
   private:
     std::vector<std::unique_ptr<Scene>> scenes; // Vector of unique pointers to all scenes
-    std::unique_ptr<System::Render> render;
     std::reference_wrapper<System::Manager> systemManagerRef;
 
   public:
@@ -41,10 +40,6 @@ namespace Scene
 
     template <typename SceneType>
     void removeScene();
-
-    void updateSystems(sf::Time dt);
-
-    void updateRenderSystem(sf::Time dt);
 
     entt::registry &getRegistry();
 

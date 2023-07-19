@@ -6,7 +6,7 @@
 namespace Scene
 {
   Manager::Manager(System::Manager &systemManager, entt::registry &registry, sf::RenderWindow &window)
-      : systemManagerRef(systemManager), registryRef(registry), windowRef(window), render(std::make_unique<System::Render>(registry, window))
+      : systemManagerRef(systemManager), registryRef(registry), windowRef(window)
   {
     // Add initialise scenes
     addScene<Level>();
@@ -15,8 +15,7 @@ namespace Scene
   template <typename SceneType>
   void Manager::addScene()
   {
-    scenes.emplace_back(std::make_unique<SceneType>(registryRef.get(), windowRef.get()));
-    scenes.back()->init();
+    scenes.emplace_back(std::make_unique<SceneType>(systemManagerRef.get(), registryRef.get(), windowRef.get()));
     // sortScenesByPrecedence();
   }
 
@@ -31,14 +30,6 @@ namespace Scene
     it.erase();       // Remove entities of scene
     scenes.erase(it); // Remove scene from active scenes*/
   }
-
-  void Manager::updateSystems(sf::Time dt)
-  {
-    for (auto &scene : scenes)
-      scene->updateSystems(dt);
-  }
-
-  void Manager::updateRenderSystem(sf::Time dt) { render->update(dt); }
 
   void Manager::sortScenesByPrecedence()
   {

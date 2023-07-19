@@ -43,5 +43,10 @@
   "directory": "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/build",
   "command": "/usr/bin/clang++ -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17 -o CMakeFiles/Asteroids.dir/src/systems/System.cpp.o -c /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/systems/System.cpp",
   "file": "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/systems/System.cpp"
+},
+{
+  "directory": "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/build",
+  "command": "/usr/bin/clang++ -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17 -o CMakeFiles/Asteroids.dir/src/systems/SystemManager.cpp.o -c /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/systems/SystemManager.cpp",
+  "file": "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/systems/SystemManager.cpp"
 }
 ]

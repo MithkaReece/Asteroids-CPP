@@ -25,15 +25,8 @@ namespace Scene
   class Level : public Scene
   {
   public:
-    Level(entt::registry &registry, sf::RenderWindow &window)
-        : Scene(registry, window) {}
-    /**
-     * @brief Initialize the Scene0 by creating entities and components.
-     *
-     * @param registry The entity registry.
-     * @param window The SFML render window.
-     */
-    void init() override
+    Level(System::Manager &systemManager, entt::registry &registry, sf::RenderWindow &window)
+        : Scene(systemManager, registry, window)
     {
       // Define entities
       Entity::createPlayer(*this, windowRef.get());

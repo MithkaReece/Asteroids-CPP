@@ -2,7 +2,7 @@
 
 #include <entt/entt.hpp>
 #include <functional>
-#include "systems/System.hpp"
+#include "systems/ISystem.hpp"
 #include "components/Transform.hpp"
 #include "components/Render.hpp"
 #include "components/TextUI.hpp"
@@ -13,7 +13,7 @@ namespace System
   /**
    * @brief The Render class handles rendering entities and UI elements.
    */
-  class Render
+  class Render : public ISystem
   {
   private:
     std::reference_wrapper<sf::RenderWindow> windowRef;

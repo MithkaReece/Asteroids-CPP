@@ -5,6 +5,7 @@
 
 #include <entt/entt.hpp>
 
+#include "systems/Render.hpp"
 #include "systems/SystemManager.hpp"
 #include "scenes/SceneManager.hpp"
 
@@ -16,7 +17,7 @@ int main(int argc, char *argv[])
   sf::RenderWindow window(sf::VideoMode(1000, 600), "");
 
   entt::registry registry;
-  System::Manager systemManager;
+  System::Manager systemManager(std::make_unique<System::Render>(registry, window));
   Scene::Manager sceneManager(systemManager, registry, window);
 
   sf::Clock clock;
@@ -38,10 +39,10 @@ int main(int argc, char *argv[])
     // Calculate delta time
     dt = clock.restart();
     // Update
-    sceneManager.updateSystems(dt);
+    systemManager.updateSystems(dt);
     // Render
     window.clear(sf::Color::Black);
-    sceneManager.updateRenderSystem(dt);
+    systemManager.updateRenderSystem(dt);
 
     // Display the window
     window.display();

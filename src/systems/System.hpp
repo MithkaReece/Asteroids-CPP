@@ -3,13 +3,14 @@
 #include <SFML/System/Time.hpp>
 #include <functional>
 #include "scenes/Scene.hpp"
+#include "systems/ISystem.hpp"
 
 namespace System
 {
   /**
    * @brief The base System class for game systems.
    */
-  class System
+  class System : ISystem
   {
   protected:
     std::reference_wrapper<entt::registry> registryRef;

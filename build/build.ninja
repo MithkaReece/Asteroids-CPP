@@ -130,6 +130,15 @@ build CMakeFiles/Asteroids.dir/src/systems/System.cpp.o: CXX_COMPILER__Asteroids
   TARGET_COMPILE_PDB = CMakeFiles/Asteroids.dir/
   TARGET_PDB = Asteroids.pdb
 
+build CMakeFiles/Asteroids.dir/src/systems/SystemManager.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/systems/SystemManager.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/systems/SystemManager.cpp.o.d
+  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include
+  OBJECT_DIR = CMakeFiles/Asteroids.dir
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/systems
+  TARGET_COMPILE_PDB = CMakeFiles/Asteroids.dir/
+  TARGET_PDB = Asteroids.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Asteroids
@@ -138,7 +147,7 @@ build CMakeFiles/Asteroids.dir/src/systems/System.cpp.o: CXX_COMPILER__Asteroids
 #############################################
 # Link the executable Asteroids
 
-build Asteroids: CXX_EXECUTABLE_LINKER__Asteroids_Debug CMakeFiles/Asteroids.dir/src/entities/Asteroid.cpp.o CMakeFiles/Asteroids.dir/src/entities/Bullet.cpp.o CMakeFiles/Asteroids.dir/src/entities/Player.cpp.o CMakeFiles/Asteroids.dir/src/entities/ScoreUI.cpp.o CMakeFiles/Asteroids.dir/src/main.cpp.o CMakeFiles/Asteroids.dir/src/scenes/Scene.cpp.o CMakeFiles/Asteroids.dir/src/scenes/SceneManager.cpp.o CMakeFiles/Asteroids.dir/src/systems/Render.cpp.o CMakeFiles/Asteroids.dir/src/systems/System.cpp.o | /usr/local/lib/libsfml-graphics.2.6.0.dylib /usr/local/lib/libsfml-audio.2.6.0.dylib /usr/local/lib/libsfml-window.2.6.0.dylib /usr/local/lib/libsfml-system.2.6.0.dylib
+build Asteroids: CXX_EXECUTABLE_LINKER__Asteroids_Debug CMakeFiles/Asteroids.dir/src/entities/Asteroid.cpp.o CMakeFiles/Asteroids.dir/src/entities/Bullet.cpp.o CMakeFiles/Asteroids.dir/src/entities/Player.cpp.o CMakeFiles/Asteroids.dir/src/entities/ScoreUI.cpp.o CMakeFiles/Asteroids.dir/src/main.cpp.o CMakeFiles/Asteroids.dir/src/scenes/Scene.cpp.o CMakeFiles/Asteroids.dir/src/scenes/SceneManager.cpp.o CMakeFiles/Asteroids.dir/src/systems/Render.cpp.o CMakeFiles/Asteroids.dir/src/systems/System.cpp.o CMakeFiles/Asteroids.dir/src/systems/SystemManager.cpp.o | /usr/local/lib/libsfml-graphics.2.6.0.dylib /usr/local/lib/libsfml-audio.2.6.0.dylib /usr/local/lib/libsfml-window.2.6.0.dylib /usr/local/lib/libsfml-system.2.6.0.dylib
   FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib/libsfml-graphics.2.6.0.dylib  /usr/local/lib/libsfml-audio.2.6.0.dylib  /usr/local/lib/libsfml-window.2.6.0.dylib  /usr/local/lib/libsfml-system.2.6.0.dylib
   OBJECT_DIR = CMakeFiles/Asteroids.dir

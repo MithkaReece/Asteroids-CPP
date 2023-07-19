@@ -4,6 +4,8 @@
 #include <SFML/System/Time.hpp>
 #include <entt/entt.hpp>
 
+#include "systems/SystemManager.hpp"
+
 namespace Scene
 {
   /**
@@ -14,6 +16,7 @@ namespace Scene
   {
   protected:
     std::unordered_set<entt::entity> createdEntities;
+    std::reference_wrapper<System::Manager> systemManagerRef;
 
   public:
     std::reference_wrapper<entt::registry> registryRef;
@@ -21,16 +24,8 @@ namespace Scene
 
     virtual int precedence();
 
-    Scene(entt::registry &registry, sf::RenderWindow &window);
+    Scene(System::Manager &systemManager, entt::registry &registry, sf::RenderWindow &window);
     virtual ~Scene();
-    /**
-     * @brief Initialize the scene by adding entities and components to the registry.
-     * And add all the systems used
-     *
-     * @param registry The entity registry.
-     * @param window The SFML render window.
-     */
-    virtual void init() = 0;
     /**
      * @brief Updates all the systems in the scene.
      *

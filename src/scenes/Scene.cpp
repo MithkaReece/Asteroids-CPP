@@ -7,8 +7,8 @@ namespace Scene
 {
   int Scene::precedence() { return 0; }
 
-  Scene::Scene(entt::registry &registry, sf::RenderWindow &window)
-      : registryRef(registry), windowRef(window) {}
+  Scene::Scene(System::Manager &systemManager, entt::registry &registry, sf::RenderWindow &window)
+      : systemManagerRef(systemManager), registryRef(registry), windowRef(window) {}
 
   Scene::~Scene()
   {
