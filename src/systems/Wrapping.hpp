@@ -13,16 +13,10 @@ namespace System
    */
   class Wrapping : public System
   {
-  private:
-    sf::RenderWindow &window;
 
   public:
-    /**
-     * @brief Constructs a Wrapping object with the specified window.
-     *
-     * @param window The SFML render window.
-     */
-    Wrapping(sf::RenderWindow &window) : window(window) {}
+    Wrapping(std::reference_wrapper<Scene::IManager> sceneManager, Scene::IScene &scene)
+        : System::System(sceneManager, scene) {}
 
     /**
      * @brief Update function for handling the wrapping behavior of entities.
@@ -30,8 +24,10 @@ namespace System
      * @param registry The entt::registry containing the game entities.
      * @param dt The time delta for the update.
      */
-    void update(entt::registry &registry, sf::Time dt)
+    void update(sf::Time dt)
     {
+      entt::registry &registry = sceneManagerRef.get().registryRef.get();
+      sf::RenderWindow &window = sceneManagerRef.get().windowRef.get();
       auto view = registry.view<Component::Transform, Component::Velocity, Component::WrapperBoundary>();
 
       for (auto entity : view)

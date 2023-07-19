@@ -16,14 +16,17 @@ namespace System
   class UserInput : public System
   {
   public:
+    UserInput(std::reference_wrapper<Scene::IManager> sceneManager, Scene::IScene &scene)
+        : System::System(sceneManager,scene) {}
     /**
      * @brief Update function for updating player input.
      *
      * @param registry The entt::registry containing the game entities.
      * @param dt The time delta for the update.
      */
-    void update(entt::registry &registry, sf::Time dt)
+    void update(sf::Time dt)
     {
+      entt::registry &registry = sceneManagerRef.get().registryRef.get();
       auto view = registry.view<Component::PlayerInput>();
       for (auto entity : view)
       {

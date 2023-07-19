@@ -49,12 +49,75 @@ cmake_ninja_workdir = /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/build/
 
 build cmake_object_order_depends_target_Asteroids: phony || CMakeFiles/Asteroids.dir
 
+build CMakeFiles/Asteroids.dir/src/entities/Asteroid.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/entities/Asteroid.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/entities/Asteroid.cpp.o.d
+  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include
+  OBJECT_DIR = CMakeFiles/Asteroids.dir
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/entities
+
+build CMakeFiles/Asteroids.dir/src/entities/Bullet.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/entities/Bullet.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/entities/Bullet.cpp.o.d
+  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include
+  OBJECT_DIR = CMakeFiles/Asteroids.dir
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/entities
+
+build CMakeFiles/Asteroids.dir/src/entities/Player.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/entities/Player.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/entities/Player.cpp.o.d
+  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include
+  OBJECT_DIR = CMakeFiles/Asteroids.dir
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/entities
+
+build CMakeFiles/Asteroids.dir/src/entities/ScoreUI.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/entities/ScoreUI.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/entities/ScoreUI.cpp.o.d
+  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include
+  OBJECT_DIR = CMakeFiles/Asteroids.dir
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/entities
+
 build CMakeFiles/Asteroids.dir/src/main.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/main.cpp || cmake_object_order_depends_target_Asteroids
   DEP_FILE = CMakeFiles/Asteroids.dir/src/main.cpp.o.d
   FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
   INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include
   OBJECT_DIR = CMakeFiles/Asteroids.dir
   OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src
+
+build CMakeFiles/Asteroids.dir/src/scenes/Scene.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/scenes/Scene.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/scenes/Scene.cpp.o.d
+  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include
+  OBJECT_DIR = CMakeFiles/Asteroids.dir
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/scenes
+
+build CMakeFiles/Asteroids.dir/src/scenes/SceneIManager.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/scenes/SceneIManager.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/scenes/SceneIManager.cpp.o.d
+  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include
+  OBJECT_DIR = CMakeFiles/Asteroids.dir
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/scenes
+
+build CMakeFiles/Asteroids.dir/src/scenes/SceneManager.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/scenes/SceneManager.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/scenes/SceneManager.cpp.o.d
+  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include
+  OBJECT_DIR = CMakeFiles/Asteroids.dir
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/scenes
+
+build CMakeFiles/Asteroids.dir/src/systems/Render.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/systems/Render.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/systems/Render.cpp.o.d
+  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include
+  OBJECT_DIR = CMakeFiles/Asteroids.dir
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/systems
+
+build CMakeFiles/Asteroids.dir/src/systems/System.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/systems/System.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/systems/System.cpp.o.d
+  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include
+  OBJECT_DIR = CMakeFiles/Asteroids.dir
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/systems
 
 
 # =============================================================================
@@ -64,7 +127,7 @@ build CMakeFiles/Asteroids.dir/src/main.cpp.o: CXX_COMPILER__Asteroids_Debug /Us
 #############################################
 # Link the executable Asteroids
 
-build Asteroids: CXX_EXECUTABLE_LINKER__Asteroids_Debug CMakeFiles/Asteroids.dir/src/main.cpp.o | /usr/local/lib/libsfml-graphics.2.6.0.dylib /usr/local/lib/libsfml-audio.2.6.0.dylib /usr/local/lib/libsfml-window.2.6.0.dylib /usr/local/lib/libsfml-system.2.6.0.dylib
+build Asteroids: CXX_EXECUTABLE_LINKER__Asteroids_Debug CMakeFiles/Asteroids.dir/src/entities/Asteroid.cpp.o CMakeFiles/Asteroids.dir/src/entities/Bullet.cpp.o CMakeFiles/Asteroids.dir/src/entities/Player.cpp.o CMakeFiles/Asteroids.dir/src/entities/ScoreUI.cpp.o CMakeFiles/Asteroids.dir/src/main.cpp.o CMakeFiles/Asteroids.dir/src/scenes/Scene.cpp.o CMakeFiles/Asteroids.dir/src/scenes/SceneIManager.cpp.o CMakeFiles/Asteroids.dir/src/scenes/SceneManager.cpp.o CMakeFiles/Asteroids.dir/src/systems/Render.cpp.o CMakeFiles/Asteroids.dir/src/systems/System.cpp.o | /usr/local/lib/libsfml-graphics.2.6.0.dylib /usr/local/lib/libsfml-audio.2.6.0.dylib /usr/local/lib/libsfml-window.2.6.0.dylib /usr/local/lib/libsfml-system.2.6.0.dylib
   FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib/libsfml-graphics.2.6.0.dylib  /usr/local/lib/libsfml-audio.2.6.0.dylib  /usr/local/lib/libsfml-window.2.6.0.dylib  /usr/local/lib/libsfml-system.2.6.0.dylib
   OBJECT_DIR = CMakeFiles/Asteroids.dir

@@ -1,7 +1,52 @@
 [
 {
   "directory": "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/build",
+  "command": "/usr/bin/clang++ -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17 -o CMakeFiles/Asteroids.dir/src/entities/Asteroid.cpp.o -c /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/entities/Asteroid.cpp",
+  "file": "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/entities/Asteroid.cpp"
+},
+{
+  "directory": "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/build",
+  "command": "/usr/bin/clang++ -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17 -o CMakeFiles/Asteroids.dir/src/entities/Bullet.cpp.o -c /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/entities/Bullet.cpp",
+  "file": "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/entities/Bullet.cpp"
+},
+{
+  "directory": "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/build",
+  "command": "/usr/bin/clang++ -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17 -o CMakeFiles/Asteroids.dir/src/entities/Player.cpp.o -c /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/entities/Player.cpp",
+  "file": "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/entities/Player.cpp"
+},
+{
+  "directory": "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/build",
+  "command": "/usr/bin/clang++ -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17 -o CMakeFiles/Asteroids.dir/src/entities/ScoreUI.cpp.o -c /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/entities/ScoreUI.cpp",
+  "file": "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/entities/ScoreUI.cpp"
+},
+{
+  "directory": "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/build",
   "command": "/usr/bin/clang++ -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17 -o CMakeFiles/Asteroids.dir/src/main.cpp.o -c /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/main.cpp",
   "file": "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/main.cpp"
+},
+{
+  "directory": "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/build",
+  "command": "/usr/bin/clang++ -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17 -o CMakeFiles/Asteroids.dir/src/scenes/Scene.cpp.o -c /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/scenes/Scene.cpp",
+  "file": "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/scenes/Scene.cpp"
+},
+{
+  "directory": "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/build",
+  "command": "/usr/bin/clang++ -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17 -o CMakeFiles/Asteroids.dir/src/scenes/SceneIManager.cpp.o -c /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/scenes/SceneIManager.cpp",
+  "file": "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/scenes/SceneIManager.cpp"
+},
+{
+  "directory": "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/build",
+  "command": "/usr/bin/clang++ -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17 -o CMakeFiles/Asteroids.dir/src/scenes/SceneManager.cpp.o -c /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/scenes/SceneManager.cpp",
+  "file": "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/scenes/SceneManager.cpp"
+},
+{
+  "directory": "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/build",
+  "command": "/usr/bin/clang++ -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17 -o CMakeFiles/Asteroids.dir/src/systems/Render.cpp.o -c /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/systems/Render.cpp",
+  "file": "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/systems/Render.cpp"
+},
+{
+  "directory": "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/build",
+  "command": "/usr/bin/clang++ -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17 -o CMakeFiles/Asteroids.dir/src/systems/System.cpp.o -c /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/systems/System.cpp",
+  "file": "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/systems/System.cpp"
 }
 ]

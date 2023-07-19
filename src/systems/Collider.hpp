@@ -13,14 +13,17 @@ namespace System
   class Collider : public System
   {
   public:
+    Collider(std::reference_wrapper<Scene::IManager> sceneManager, Scene::IScene &scene)
+        : System::System(sceneManager, scene) {}
     /**
      * @brief Updates the colliders based on transform components.
      *
      * @param registry The entity registry.
      * @param dt The elapsed time since the last update.
      */
-    void update(entt::registry &registry, sf::Time dt)
+    void update(sf::Time dt)
     {
+      entt::registry &registry = sceneManagerRef.get().registryRef.get();
       auto view = registry.view<Component::Collider, Component::Transform>();
 
       for (auto entity : view)

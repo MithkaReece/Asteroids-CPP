@@ -1,13 +1,11 @@
+#include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/Window/Keyboard.hpp>
-#include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 
 #include <entt/entt.hpp>
 
-#include "systems/Manager.cpp"
-
-#include "scenes/SceneManager.cpp"
+#include "scenes/SceneManager.hpp"
 
 // Temp
 #include <iostream>
@@ -17,8 +15,7 @@ int main(int argc, char *argv[])
   sf::RenderWindow window(sf::VideoMode(1000, 600), "");
 
   entt::registry registry;
-  System::Manager systemManager(window);
-  SceneManager sceneManager(registry, window, 0);
+  Scene::Manager sceneManager(registry, window);
 
   sf::Clock clock;
   sf::Time dt;
@@ -39,10 +36,10 @@ int main(int argc, char *argv[])
     // Calculate delta time
     dt = clock.restart();
     // Update
-    systemManager.updateSystems(registry, dt);
+    sceneManager.updateSystems(dt);
     // Render
     window.clear(sf::Color::Black);
-    systemManager.updateRenderSystem(registry, dt);
+    sceneManager.updateRenderSystem(dt);
 
     // Display the window
     window.display();

@@ -21,14 +21,17 @@ namespace System
   class Weapon : public System
   {
   public:
+    Weapon(std::reference_wrapper<Scene::IManager> sceneManager, Scene::IScene &scene)
+        : System::System(sceneManager, scene) {}
     /**
      * @brief Update function for managing the player's weapon system.
      *
      * @param registry The entt::registry containing the game entities.
      * @param dt The time delta for the update.
      */
-    void update(entt::registry &registry, sf::Time dt)
+    void update(sf::Time dt)
     {
+      entt::registry &registry = sceneManagerRef.get().registryRef.get();
       auto view = registry.view<Component::Transform, Component::PlayerInput, Component::Weapon, Component::Velocity>();
       for (auto entity : view)
       {
@@ -56,8 +59,9 @@ namespace System
           sf::Vector2f position = transform.position;
           position += forwardVector * transform.scale.x;
 
-          // Create a bullet entity with the calculated position, velocity, and rotation
-          Entity::createBullet(registry, position, bulletVelocity, transform.rotation);
+          // TODO: Give scene instead of registry
+          //  Create a bullet entity with the calculated position, velocity, and rotation
+          // Entity::createBullet(registry, position, bulletVelocity, transform.rotation);
 
           // Reset the remaining cooldown to the specified cooldown duration
           weapon.remainingCooldown = weapon.cooldownDuration;

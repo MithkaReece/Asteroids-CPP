@@ -70,7 +70,8 @@
     "algorithm": "cpp",
     "numeric": "cpp",
     "random": "cpp",
-    "memory_resource": "cpp"
+    "memory_resource": "cpp",
+    "functional": "cpp"
   },
   "editor.tabSize": 2,
   "editor.detectIndentation": false

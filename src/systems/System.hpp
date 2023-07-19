@@ -1,26 +1,29 @@
 #pragma once
 
 #include <SFML/System/Time.hpp>
-#include <entt/entt.hpp>
+#include <functional>
+#include "scenes/SceneIManager.hpp"
+#include "scenes/IScene.hpp"
+#include "systems/ISystem.hpp"
+
 namespace System
 {
   /**
    * @brief The base System class for game systems.
    */
-  class System
+  class System : ISystem
   {
+  protected:
+    std::reference_wrapper<Scene::IManager> sceneManagerRef;
+    std::reference_wrapper<Scene::IScene> sceneRef;
+
   public:
+    System(std::reference_wrapper<Scene::IManager> sceneManager, Scene::IScene &scene);
+
     /**
      * @brief Virtual destructor for proper inheritance.
      */
-    virtual ~System() {}
-
-    /**
-     * @brief Update function for the system.
-     *
-     * @param registry The entt::registry containing the game entities.
-     * @param dt The time delta for the update.
-     */
-    virtual void update(entt::registry &registry, sf::Time dt) = 0;
+    // virtual ~System() {}
+    virtual void update(sf::Time dt);
   };
 }

@@ -13,6 +13,11 @@
 
 #include "entities/Asteroid.hpp"
 
+#include "scenes/SceneManager.hpp"
+
+// TODO This is require but is circlular dependency
+//   #include "scenes/Manager.cpp"
+
 #include "Constants.h"
 #include <string>
 
@@ -26,9 +31,51 @@ namespace System
    */
   class Collision : public System
   {
-  private:
-    sf::RenderWindow &window;
 
+  public:
+    Collision(std::reference_wrapper<Scene::IManager> sceneManager, Scene::IScene &scene)
+        : System::System(sceneManager, scene) {}
+
+    /**
+     * @brief Updates the collision system.
+     *
+     * @param registry The entity registry.
+     * @param dt The delta time.
+     */
+    void update(sf::Time dt)
+    {
+      entt::registry &registry = sceneManagerRef.get().registryRef.get();
+      auto asteroidView = registry.view<Component::Transform, Component::Collider, Component::Asteroid, Component::Velocity>();
+      auto playerView = registry.view<Component::Transform, Component::Collider, Component::Player, Component::Velocity>();
+      auto bulletView = registry.view<Component::BulletTag>();
+
+      registry.view<Component::Transform, Component::Collider, Component::Velocity>()
+          .each([this, &registry, asteroidView, playerView, bulletView](entt::entity entity1, Component::Transform &transform1, Component::Collider &collider1, Component::Velocity &velocity1)
+                { registry.view<Component::Transform, Component::Collider, Component::Velocity>()
+                      .each([this, &registry, asteroidView, playerView, bulletView, entity1, &transform1, &collider1, &velocity1](entt::entity entity2, Component::Transform &transform2, Component::Collider &collider2, Component::Velocity &velocity2)
+                            {
+                              if (entity1 == entity2 || !collider1.shape.getGlobalBounds().intersects(collider2.shape.getGlobalBounds()))
+                                return;
+                              
+                              const bool isAsteroid1 = asteroidView.contains(entity1), isPlayer1 = playerView.contains(entity1), isBullet1 = bulletView.contains(entity1);
+                              const bool isAsteroid2 = asteroidView.contains(entity2), isPlayer2 = playerView.contains(entity2), isBullet2 = bulletView.contains(entity2);
+
+                              if(isAsteroid1 && isAsteroid2)
+                                handleAsteroidCollision(registry, entity1, transform1, velocity1, asteroidView.get<Component::Asteroid>(entity1).level,
+                                      entity2, transform2, velocity2, asteroidView.get<Component::Asteroid>(entity2).level);
+                              else if(isAsteroid1 && isPlayer2 || isPlayer1 && isAsteroid2)
+                                handlePlayerCollision();
+                              else if (isAsteroid1 && isBullet2)
+                                handleBulletCollision(registry,
+                                                      entity2, transform2,
+                                                      entity1, transform1, velocity1, asteroidView.get<Component::Asteroid>(entity1).level);
+                              else if (isBullet1 && isAsteroid2)
+                                handleBulletCollision(registry,
+                                                      entity1, transform1,
+                                                      entity2, transform2, velocity2, asteroidView.get<Component::Asteroid>(entity2).level); }); });
+    }
+
+  private:
     /**
      * @brief Handles collision between two asteroids.
      *
@@ -120,8 +167,9 @@ namespace System
       if (level < 2 || level > 3)
         return;
 
-      Entity::createAsteroid(registry, window, level - 1, position1, velocity1);
-      Entity::createAsteroid(registry, window, level - 1, position2, velocity2);
+      // TODO registry -> scene
+      // Entity::createAsteroid(registry, sceneManagerRef.get().windowRef.get(), level - 1, position1, velocity1);
+      // Entity::createAsteroid(registry, sceneManagerRef.get().windowRef.get(), level - 1, position2, velocity2);
     }
 
     /**
@@ -185,86 +233,13 @@ namespace System
       }
     }
 
-  public:
-    /**
-     * @brief Constructs a Collision system with the specified render window.
-     *
-     * @param window The render window.
-     */
-    Collision(sf::RenderWindow &window) : window(window) {}
-
-    /**
-     * @brief Updates the collision system.
-     *
-     * @param registry The entity registry.
-     * @param dt The delta time.
-     */
-    void update(entt::registry &registry, sf::Time dt)
+    void handlePlayerCollision()
     {
-      auto view = registry.view<Component::Transform, Component::Collider, Component::Velocity>();
-      auto asteroidView = registry.view<Component::Transform, Component::Collider, Component::Asteroid, Component::Velocity>();
-      auto playerView = registry.view<Component::Transform, Component::Collider, Component::Player, Component::Velocity>();
-      auto bulletView = registry.view<Component::BulletTag>();
-
-      for (auto entity1 : view)
-      {
-        if (!registry.valid(entity1))
-          continue;
-        const Component::Collider &collider1 = view.get<Component::Collider>(entity1);
-        const Component::Transform &transform1 = view.get<Component::Transform>(entity1);
-        const Component::Velocity &velocity1 = view.get<Component::Velocity>(entity1);
-
-        for (auto entity2 : view)
-        {
-          if (!registry.valid(entity2))
-            continue;
-          if (entity1 == entity2)
-            continue;
-
-          const Component::Collider &collider2 = view.get<Component::Collider>(entity2);
-          const Component::Transform &transform2 = view.get<Component::Transform>(entity2);
-          const Component::Velocity &velocity2 = view.get<Component::Velocity>(entity2);
-
-          if (collider1.shape.getGlobalBounds().intersects(collider2.shape.getGlobalBounds()))
-          {
-            // Determine entity types using tag components
-            const bool isAsteroid1 = asteroidView.contains(entity1);
-            const bool isPlayer1 = playerView.contains(entity1);
-            const bool isBullet1 = bulletView.contains(entity1);
-            const bool isAsteroid2 = asteroidView.contains(entity2);
-            const bool isPlayer2 = playerView.contains(entity2);
-            const bool isBullet2 = bulletView.contains(entity2);
-
-            if (isAsteroid1 && isAsteroid2)
-            {
-              handleAsteroidCollision(registry, entity1, transform1, velocity1, asteroidView.get<Component::Asteroid>(entity1).level,
-                                      entity2, transform2, velocity2, asteroidView.get<Component::Asteroid>(entity2).level);
-            }
-            else if (isAsteroid1 && isPlayer2 || isPlayer1 && isAsteroid2)
-            {
-              // Asteroid-to-Player collision
-              // std::cout << "Player\n";
-              // handleAsteroidPlayerCollision(registry, entity1, entity2);
-            }
-            else if (isAsteroid1 && isBullet2)
-            {
-              handleBulletCollision(registry,
-                                    entity2, transform2,
-                                    entity1, transform1, velocity1, asteroidView.get<Component::Asteroid>(entity1).level);
-            }
-            else if (isBullet1 && isAsteroid2)
-            {
-              handleBulletCollision(registry,
-                                    entity1, transform1,
-                                    entity2, transform2, velocity2, asteroidView.get<Component::Asteroid>(entity2).level);
-            }
-            else
-            {
-              // std::cout << "Unexpected collision (unknown entities)\n";
-            }
-          }
-        }
-      }
+      // TODO: In system updates, also give the sceneManager
+      // TODO: Conversely just give the scene manager as it also holds registry and window
+      // Scene::Manager &sceneManager = Scene::Manager::getInstance();
+      //  TODO: Reset level scene
+      //  sceneManager.switchToScene(0);
     }
   };
 }

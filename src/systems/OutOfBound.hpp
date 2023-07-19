@@ -15,16 +15,10 @@ namespace System
    */
   class OutOfBound : public System
   {
-  private:
-    sf::RenderWindow &window;
 
   public:
-    /**
-     * @brief Constructs an OutOfBound object with a reference to the game window.
-     *
-     * @param window The sf::RenderWindow object representing the game window.
-     */
-    OutOfBound(sf::RenderWindow &window) : window(window) {}
+    OutOfBound(std::reference_wrapper<Scene::IManager> sceneManager, Scene::IScene &scene)
+        : System::System(sceneManager, scene) {}
 
     /**
      * @brief Updates the system by removing entities that are outside the game boundary.
@@ -32,8 +26,10 @@ namespace System
      * @param registry The entt::registry containing the game entities.
      * @param dt The time delta for the update.
      */
-    void update(entt::registry &registry, sf::Time dt)
+    void update(sf::Time dt)
     {
+      entt::registry &registry = sceneManagerRef.get().registryRef.get();
+      sf::RenderWindow &window = sceneManagerRef.get().windowRef.get();
       auto view = registry.view<Component::Transform, Component::Velocity>(entt::exclude<Component::WrapperBoundary>);
 
       for (auto entity : view)

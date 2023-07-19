@@ -17,6 +17,15 @@ include_directories(${SRC_DIR})
 
 set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g")
-add_executable(Asteroids ${SRC_DIR}/main.cpp)
+
+file(GLOB_RECURSE SOURCES 
+    "src/*.cpp" 
+    "src/scenes/*.cpp"
+    "src/systems/*.cpp" 
+    "src/entities/*.cpp" 
+    "src/components/*.cpp" 
+)
+
+add_executable(Asteroids ${SOURCES})
 
 target_link_libraries(Asteroids PRIVATE sfml-system sfml-graphics sfml-audio sfml-window)
