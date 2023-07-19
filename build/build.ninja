@@ -49,93 +49,219 @@ cmake_ninja_workdir = /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/build/
 
 build cmake_object_order_depends_target_Asteroids: phony || CMakeFiles/Asteroids.dir
 
-build CMakeFiles/Asteroids.dir/src/entities/Asteroid.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/entities/Asteroid.cpp || cmake_object_order_depends_target_Asteroids
-  DEP_FILE = CMakeFiles/Asteroids.dir/src/entities/Asteroid.cpp.o.d
+build CMakeFiles/Asteroids.dir/src/Entities/Game/EntityAsteroid.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/Game/EntityAsteroid.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/Entities/Game/EntityAsteroid.cpp.o.d
   FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
-  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Boundary -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Scene -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Bounds -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/System -isystem /usr/local/include
   OBJECT_DIR = CMakeFiles/Asteroids.dir
-  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/entities
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/Entities/Game
   TARGET_COMPILE_PDB = CMakeFiles/Asteroids.dir/
   TARGET_PDB = Asteroids.pdb
 
-build CMakeFiles/Asteroids.dir/src/entities/Bullet.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/entities/Bullet.cpp || cmake_object_order_depends_target_Asteroids
-  DEP_FILE = CMakeFiles/Asteroids.dir/src/entities/Bullet.cpp.o.d
+build CMakeFiles/Asteroids.dir/src/Entities/Game/EntityBullet.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/Game/EntityBullet.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/Entities/Game/EntityBullet.cpp.o.d
   FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
-  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Boundary -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Scene -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Bounds -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/System -isystem /usr/local/include
   OBJECT_DIR = CMakeFiles/Asteroids.dir
-  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/entities
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/Entities/Game
   TARGET_COMPILE_PDB = CMakeFiles/Asteroids.dir/
   TARGET_PDB = Asteroids.pdb
 
-build CMakeFiles/Asteroids.dir/src/entities/Player.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/entities/Player.cpp || cmake_object_order_depends_target_Asteroids
-  DEP_FILE = CMakeFiles/Asteroids.dir/src/entities/Player.cpp.o.d
+build CMakeFiles/Asteroids.dir/src/Entities/Game/EntityPlayer.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/Game/EntityPlayer.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/Entities/Game/EntityPlayer.cpp.o.d
   FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
-  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Boundary -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Scene -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Bounds -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/System -isystem /usr/local/include
   OBJECT_DIR = CMakeFiles/Asteroids.dir
-  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/entities
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/Entities/Game
   TARGET_COMPILE_PDB = CMakeFiles/Asteroids.dir/
   TARGET_PDB = Asteroids.pdb
 
-build CMakeFiles/Asteroids.dir/src/entities/ScoreUI.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/entities/ScoreUI.cpp || cmake_object_order_depends_target_Asteroids
-  DEP_FILE = CMakeFiles/Asteroids.dir/src/entities/ScoreUI.cpp.o.d
+build CMakeFiles/Asteroids.dir/src/Entities/UI/EntityLevelUI.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/UI/EntityLevelUI.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/Entities/UI/EntityLevelUI.cpp.o.d
   FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
-  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Boundary -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Scene -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Bounds -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/System -isystem /usr/local/include
   OBJECT_DIR = CMakeFiles/Asteroids.dir
-  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/entities
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/Entities/UI
+  TARGET_COMPILE_PDB = CMakeFiles/Asteroids.dir/
+  TARGET_PDB = Asteroids.pdb
+
+build CMakeFiles/Asteroids.dir/src/Entities/UI/EntityScoreUI.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/UI/EntityScoreUI.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/Entities/UI/EntityScoreUI.cpp.o.d
+  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Boundary -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Scene -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Bounds -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/System -isystem /usr/local/include
+  OBJECT_DIR = CMakeFiles/Asteroids.dir
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/Entities/UI
+  TARGET_COMPILE_PDB = CMakeFiles/Asteroids.dir/
+  TARGET_PDB = Asteroids.pdb
+
+build CMakeFiles/Asteroids.dir/src/Scenes/Game/SceneGame.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Game/SceneGame.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/Scenes/Game/SceneGame.cpp.o.d
+  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Boundary -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Scene -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Bounds -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/System -isystem /usr/local/include
+  OBJECT_DIR = CMakeFiles/Asteroids.dir
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/Scenes/Game
+  TARGET_COMPILE_PDB = CMakeFiles/Asteroids.dir/
+  TARGET_PDB = Asteroids.pdb
+
+build CMakeFiles/Asteroids.dir/src/Scenes/Game/SceneGameUI.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Game/SceneGameUI.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/Scenes/Game/SceneGameUI.cpp.o.d
+  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Boundary -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Scene -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Bounds -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/System -isystem /usr/local/include
+  OBJECT_DIR = CMakeFiles/Asteroids.dir
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/Scenes/Game
+  TARGET_COMPILE_PDB = CMakeFiles/Asteroids.dir/
+  TARGET_PDB = Asteroids.pdb
+
+build CMakeFiles/Asteroids.dir/src/Scenes/Manager/SceneManager.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Manager/SceneManager.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/Scenes/Manager/SceneManager.cpp.o.d
+  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Boundary -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Scene -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Bounds -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/System -isystem /usr/local/include
+  OBJECT_DIR = CMakeFiles/Asteroids.dir
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/Scenes/Manager
+  TARGET_COMPILE_PDB = CMakeFiles/Asteroids.dir/
+  TARGET_PDB = Asteroids.pdb
+
+build CMakeFiles/Asteroids.dir/src/Scenes/Scene/Scene.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Scene/Scene.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/Scenes/Scene/Scene.cpp.o.d
+  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Boundary -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Scene -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Bounds -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/System -isystem /usr/local/include
+  OBJECT_DIR = CMakeFiles/Asteroids.dir
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/Scenes/Scene
+  TARGET_COMPILE_PDB = CMakeFiles/Asteroids.dir/
+  TARGET_PDB = Asteroids.pdb
+
+build CMakeFiles/Asteroids.dir/src/Systems/Asteroid/SystemAsteroidSpawner.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Asteroid/SystemAsteroidSpawner.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/Systems/Asteroid/SystemAsteroidSpawner.cpp.o.d
+  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Boundary -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Scene -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Bounds -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/System -isystem /usr/local/include
+  OBJECT_DIR = CMakeFiles/Asteroids.dir
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/Systems/Asteroid
+  TARGET_COMPILE_PDB = CMakeFiles/Asteroids.dir/
+  TARGET_PDB = Asteroids.pdb
+
+build CMakeFiles/Asteroids.dir/src/Systems/Bounds/SystemOutOfBound.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Bounds/SystemOutOfBound.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/Systems/Bounds/SystemOutOfBound.cpp.o.d
+  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Boundary -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Scene -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Bounds -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/System -isystem /usr/local/include
+  OBJECT_DIR = CMakeFiles/Asteroids.dir
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/Systems/Bounds
+  TARGET_COMPILE_PDB = CMakeFiles/Asteroids.dir/
+  TARGET_PDB = Asteroids.pdb
+
+build CMakeFiles/Asteroids.dir/src/Systems/Bounds/SystemWrapping.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Bounds/SystemWrapping.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/Systems/Bounds/SystemWrapping.cpp.o.d
+  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Boundary -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Scene -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Bounds -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/System -isystem /usr/local/include
+  OBJECT_DIR = CMakeFiles/Asteroids.dir
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/Systems/Bounds
+  TARGET_COMPILE_PDB = CMakeFiles/Asteroids.dir/
+  TARGET_PDB = Asteroids.pdb
+
+build CMakeFiles/Asteroids.dir/src/Systems/Manager/SystemManager.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Manager/SystemManager.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/Systems/Manager/SystemManager.cpp.o.d
+  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Boundary -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Scene -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Bounds -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/System -isystem /usr/local/include
+  OBJECT_DIR = CMakeFiles/Asteroids.dir
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/Systems/Manager
+  TARGET_COMPILE_PDB = CMakeFiles/Asteroids.dir/
+  TARGET_PDB = Asteroids.pdb
+
+build CMakeFiles/Asteroids.dir/src/Systems/Physics/SystemCollider.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Physics/SystemCollider.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/Systems/Physics/SystemCollider.cpp.o.d
+  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Boundary -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Scene -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Bounds -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/System -isystem /usr/local/include
+  OBJECT_DIR = CMakeFiles/Asteroids.dir
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/Systems/Physics
+  TARGET_COMPILE_PDB = CMakeFiles/Asteroids.dir/
+  TARGET_PDB = Asteroids.pdb
+
+build CMakeFiles/Asteroids.dir/src/Systems/Physics/SystemCollision.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Physics/SystemCollision.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/Systems/Physics/SystemCollision.cpp.o.d
+  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Boundary -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Scene -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Bounds -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/System -isystem /usr/local/include
+  OBJECT_DIR = CMakeFiles/Asteroids.dir
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/Systems/Physics
+  TARGET_COMPILE_PDB = CMakeFiles/Asteroids.dir/
+  TARGET_PDB = Asteroids.pdb
+
+build CMakeFiles/Asteroids.dir/src/Systems/Physics/SystemMovement.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Physics/SystemMovement.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/Systems/Physics/SystemMovement.cpp.o.d
+  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Boundary -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Scene -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Bounds -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/System -isystem /usr/local/include
+  OBJECT_DIR = CMakeFiles/Asteroids.dir
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/Systems/Physics
+  TARGET_COMPILE_PDB = CMakeFiles/Asteroids.dir/
+  TARGET_PDB = Asteroids.pdb
+
+build CMakeFiles/Asteroids.dir/src/Systems/Player/SystemLives.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Player/SystemLives.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/Systems/Player/SystemLives.cpp.o.d
+  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Boundary -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Scene -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Bounds -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/System -isystem /usr/local/include
+  OBJECT_DIR = CMakeFiles/Asteroids.dir
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/Systems/Player
+  TARGET_COMPILE_PDB = CMakeFiles/Asteroids.dir/
+  TARGET_PDB = Asteroids.pdb
+
+build CMakeFiles/Asteroids.dir/src/Systems/Player/SystemPlayerRotate.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Player/SystemPlayerRotate.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/Systems/Player/SystemPlayerRotate.cpp.o.d
+  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Boundary -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Scene -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Bounds -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/System -isystem /usr/local/include
+  OBJECT_DIR = CMakeFiles/Asteroids.dir
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/Systems/Player
+  TARGET_COMPILE_PDB = CMakeFiles/Asteroids.dir/
+  TARGET_PDB = Asteroids.pdb
+
+build CMakeFiles/Asteroids.dir/src/Systems/Player/SystemPlayerThrust.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Player/SystemPlayerThrust.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/Systems/Player/SystemPlayerThrust.cpp.o.d
+  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Boundary -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Scene -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Bounds -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/System -isystem /usr/local/include
+  OBJECT_DIR = CMakeFiles/Asteroids.dir
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/Systems/Player
+  TARGET_COMPILE_PDB = CMakeFiles/Asteroids.dir/
+  TARGET_PDB = Asteroids.pdb
+
+build CMakeFiles/Asteroids.dir/src/Systems/Player/SystemUserInput.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Player/SystemUserInput.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/Systems/Player/SystemUserInput.cpp.o.d
+  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Boundary -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Scene -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Bounds -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/System -isystem /usr/local/include
+  OBJECT_DIR = CMakeFiles/Asteroids.dir
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/Systems/Player
+  TARGET_COMPILE_PDB = CMakeFiles/Asteroids.dir/
+  TARGET_PDB = Asteroids.pdb
+
+build CMakeFiles/Asteroids.dir/src/Systems/Player/SystemWeapon.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Player/SystemWeapon.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/Systems/Player/SystemWeapon.cpp.o.d
+  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Boundary -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Scene -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Bounds -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/System -isystem /usr/local/include
+  OBJECT_DIR = CMakeFiles/Asteroids.dir
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/Systems/Player
+  TARGET_COMPILE_PDB = CMakeFiles/Asteroids.dir/
+  TARGET_PDB = Asteroids.pdb
+
+build CMakeFiles/Asteroids.dir/src/Systems/Rendering/SystemRender.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Rendering/SystemRender.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/Systems/Rendering/SystemRender.cpp.o.d
+  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Boundary -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Scene -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Bounds -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/System -isystem /usr/local/include
+  OBJECT_DIR = CMakeFiles/Asteroids.dir
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/Systems/Rendering
+  TARGET_COMPILE_PDB = CMakeFiles/Asteroids.dir/
+  TARGET_PDB = Asteroids.pdb
+
+build CMakeFiles/Asteroids.dir/src/Systems/System/System.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/System/System.cpp || cmake_object_order_depends_target_Asteroids
+  DEP_FILE = CMakeFiles/Asteroids.dir/src/Systems/System/System.cpp.o.d
+  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Boundary -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Scene -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Bounds -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/System -isystem /usr/local/include
+  OBJECT_DIR = CMakeFiles/Asteroids.dir
+  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/Systems/System
   TARGET_COMPILE_PDB = CMakeFiles/Asteroids.dir/
   TARGET_PDB = Asteroids.pdb
 
 build CMakeFiles/Asteroids.dir/src/main.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/main.cpp || cmake_object_order_depends_target_Asteroids
   DEP_FILE = CMakeFiles/Asteroids.dir/src/main.cpp.o.d
   FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
-  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include
+  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Boundary -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/UI -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Game -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Scene -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Asteroid -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Bounds -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Manager -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Physics -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Player -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Rendering -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/System -isystem /usr/local/include
   OBJECT_DIR = CMakeFiles/Asteroids.dir
   OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src
-  TARGET_COMPILE_PDB = CMakeFiles/Asteroids.dir/
-  TARGET_PDB = Asteroids.pdb
-
-build CMakeFiles/Asteroids.dir/src/scenes/Scene.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/scenes/Scene.cpp || cmake_object_order_depends_target_Asteroids
-  DEP_FILE = CMakeFiles/Asteroids.dir/src/scenes/Scene.cpp.o.d
-  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
-  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include
-  OBJECT_DIR = CMakeFiles/Asteroids.dir
-  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/scenes
-  TARGET_COMPILE_PDB = CMakeFiles/Asteroids.dir/
-  TARGET_PDB = Asteroids.pdb
-
-build CMakeFiles/Asteroids.dir/src/scenes/SceneManager.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/scenes/SceneManager.cpp || cmake_object_order_depends_target_Asteroids
-  DEP_FILE = CMakeFiles/Asteroids.dir/src/scenes/SceneManager.cpp.o.d
-  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
-  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include
-  OBJECT_DIR = CMakeFiles/Asteroids.dir
-  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/scenes
-  TARGET_COMPILE_PDB = CMakeFiles/Asteroids.dir/
-  TARGET_PDB = Asteroids.pdb
-
-build CMakeFiles/Asteroids.dir/src/systems/Render.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/systems/Render.cpp || cmake_object_order_depends_target_Asteroids
-  DEP_FILE = CMakeFiles/Asteroids.dir/src/systems/Render.cpp.o.d
-  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
-  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include
-  OBJECT_DIR = CMakeFiles/Asteroids.dir
-  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/systems
-  TARGET_COMPILE_PDB = CMakeFiles/Asteroids.dir/
-  TARGET_PDB = Asteroids.pdb
-
-build CMakeFiles/Asteroids.dir/src/systems/System.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/systems/System.cpp || cmake_object_order_depends_target_Asteroids
-  DEP_FILE = CMakeFiles/Asteroids.dir/src/systems/System.cpp.o.d
-  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
-  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include
-  OBJECT_DIR = CMakeFiles/Asteroids.dir
-  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/systems
-  TARGET_COMPILE_PDB = CMakeFiles/Asteroids.dir/
-  TARGET_PDB = Asteroids.pdb
-
-build CMakeFiles/Asteroids.dir/src/systems/SystemManager.cpp.o: CXX_COMPILER__Asteroids_Debug /Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/systems/SystemManager.cpp || cmake_object_order_depends_target_Asteroids
-  DEP_FILE = CMakeFiles/Asteroids.dir/src/systems/SystemManager.cpp.o.d
-  FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++17
-  INCLUDES = -I/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src -isystem /usr/local/include
-  OBJECT_DIR = CMakeFiles/Asteroids.dir
-  OBJECT_FILE_DIR = CMakeFiles/Asteroids.dir/src/systems
   TARGET_COMPILE_PDB = CMakeFiles/Asteroids.dir/
   TARGET_PDB = Asteroids.pdb
 
@@ -147,7 +273,7 @@ build CMakeFiles/Asteroids.dir/src/systems/SystemManager.cpp.o: CXX_COMPILER__As
 #############################################
 # Link the executable Asteroids
 
-build Asteroids: CXX_EXECUTABLE_LINKER__Asteroids_Debug CMakeFiles/Asteroids.dir/src/entities/Asteroid.cpp.o CMakeFiles/Asteroids.dir/src/entities/Bullet.cpp.o CMakeFiles/Asteroids.dir/src/entities/Player.cpp.o CMakeFiles/Asteroids.dir/src/entities/ScoreUI.cpp.o CMakeFiles/Asteroids.dir/src/main.cpp.o CMakeFiles/Asteroids.dir/src/scenes/Scene.cpp.o CMakeFiles/Asteroids.dir/src/scenes/SceneManager.cpp.o CMakeFiles/Asteroids.dir/src/systems/Render.cpp.o CMakeFiles/Asteroids.dir/src/systems/System.cpp.o CMakeFiles/Asteroids.dir/src/systems/SystemManager.cpp.o | /usr/local/lib/libsfml-graphics.2.6.0.dylib /usr/local/lib/libsfml-audio.2.6.0.dylib /usr/local/lib/libsfml-window.2.6.0.dylib /usr/local/lib/libsfml-system.2.6.0.dylib
+build Asteroids: CXX_EXECUTABLE_LINKER__Asteroids_Debug CMakeFiles/Asteroids.dir/src/Entities/Game/EntityAsteroid.cpp.o CMakeFiles/Asteroids.dir/src/Entities/Game/EntityBullet.cpp.o CMakeFiles/Asteroids.dir/src/Entities/Game/EntityPlayer.cpp.o CMakeFiles/Asteroids.dir/src/Entities/UI/EntityLevelUI.cpp.o CMakeFiles/Asteroids.dir/src/Entities/UI/EntityScoreUI.cpp.o CMakeFiles/Asteroids.dir/src/Scenes/Game/SceneGame.cpp.o CMakeFiles/Asteroids.dir/src/Scenes/Game/SceneGameUI.cpp.o CMakeFiles/Asteroids.dir/src/Scenes/Manager/SceneManager.cpp.o CMakeFiles/Asteroids.dir/src/Scenes/Scene/Scene.cpp.o CMakeFiles/Asteroids.dir/src/Systems/Asteroid/SystemAsteroidSpawner.cpp.o CMakeFiles/Asteroids.dir/src/Systems/Bounds/SystemOutOfBound.cpp.o CMakeFiles/Asteroids.dir/src/Systems/Bounds/SystemWrapping.cpp.o CMakeFiles/Asteroids.dir/src/Systems/Manager/SystemManager.cpp.o CMakeFiles/Asteroids.dir/src/Systems/Physics/SystemCollider.cpp.o CMakeFiles/Asteroids.dir/src/Systems/Physics/SystemCollision.cpp.o CMakeFiles/Asteroids.dir/src/Systems/Physics/SystemMovement.cpp.o CMakeFiles/Asteroids.dir/src/Systems/Player/SystemLives.cpp.o CMakeFiles/Asteroids.dir/src/Systems/Player/SystemPlayerRotate.cpp.o CMakeFiles/Asteroids.dir/src/Systems/Player/SystemPlayerThrust.cpp.o CMakeFiles/Asteroids.dir/src/Systems/Player/SystemUserInput.cpp.o CMakeFiles/Asteroids.dir/src/Systems/Player/SystemWeapon.cpp.o CMakeFiles/Asteroids.dir/src/Systems/Rendering/SystemRender.cpp.o CMakeFiles/Asteroids.dir/src/Systems/System/System.cpp.o CMakeFiles/Asteroids.dir/src/main.cpp.o | /usr/local/lib/libsfml-graphics.2.6.0.dylib /usr/local/lib/libsfml-audio.2.6.0.dylib /usr/local/lib/libsfml-window.2.6.0.dylib /usr/local/lib/libsfml-system.2.6.0.dylib
   FLAGS = -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib/libsfml-graphics.2.6.0.dylib  /usr/local/lib/libsfml-audio.2.6.0.dylib  /usr/local/lib/libsfml-window.2.6.0.dylib  /usr/local/lib/libsfml-system.2.6.0.dylib
   OBJECT_DIR = CMakeFiles/Asteroids.dir

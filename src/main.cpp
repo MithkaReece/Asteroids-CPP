@@ -5,9 +5,9 @@
 
 #include <entt/entt.hpp>
 
-#include "systems/Render.hpp"
-#include "systems/SystemManager.hpp"
-#include "scenes/SceneManager.hpp"
+#include "SystemRender.hpp"
+#include "SystemManager.hpp"
+#include "SceneManager.hpp"
 
 // Temp
 #include <iostream>
@@ -17,8 +17,8 @@ int main(int argc, char *argv[])
   sf::RenderWindow window(sf::VideoMode(1000, 600), "");
 
   entt::registry registry;
-  System::Manager systemManager(std::make_unique<System::Render>(registry, window));
-  Scene::Manager sceneManager(systemManager, registry, window);
+  SystemManager systemManager(std::make_unique<SystemRender>(registry, window));
+  SceneManager sceneManager(systemManager, registry, window);
 
   sf::Clock clock;
   sf::Time dt;
