@@ -21,8 +21,8 @@ namespace System
   class Weapon : public System
   {
   public:
-    Weapon(std::reference_wrapper<Scene::IManager> sceneManager, Scene::IScene &scene)
-        : System::System(sceneManager, scene) {}
+    Weapon(entt::registry &registry, sf::RenderWindow &window, Scene::Scene &scene)
+        : System::System(registry, window,scene) {}
     /**
      * @brief Update function for managing the player's weapon system.
      *
@@ -31,7 +31,7 @@ namespace System
      */
     void update(sf::Time dt)
     {
-      entt::registry &registry = sceneManagerRef.get().registryRef.get();
+      entt::registry &registry = registryRef.get();
       auto view = registry.view<Component::Transform, Component::PlayerInput, Component::Weapon, Component::Velocity>();
       for (auto entity : view)
       {

@@ -17,8 +17,8 @@ namespace System
   {
 
   public:
-    OutOfBound(std::reference_wrapper<Scene::IManager> sceneManager, Scene::IScene &scene)
-        : System::System(sceneManager, scene) {}
+    OutOfBound(entt::registry &registry, sf::RenderWindow &window, Scene::Scene &scene)
+        : System::System(registry, window, scene) {}
 
     /**
      * @brief Updates the system by removing entities that are outside the game boundary.
@@ -28,8 +28,8 @@ namespace System
      */
     void update(sf::Time dt)
     {
-      entt::registry &registry = sceneManagerRef.get().registryRef.get();
-      sf::RenderWindow &window = sceneManagerRef.get().windowRef.get();
+      entt::registry &registry = registryRef.get();
+      sf::RenderWindow &window = windowRef.get();
       auto view = registry.view<Component::Transform, Component::Velocity>(entt::exclude<Component::WrapperBoundary>);
 
       for (auto entity : view)

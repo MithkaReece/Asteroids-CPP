@@ -7,8 +7,8 @@ namespace Scene
 {
   int Scene::precedence() { return 0; }
 
-  Scene::Scene(IManager &sceneManager)
-      : sceneManagerRef(sceneManager), registryRef(sceneManager.registryRef), windowRef(sceneManager.windowRef) {}
+  Scene::Scene(entt::registry &registry, sf::RenderWindow &window)
+      : registryRef(registry), windowRef(window) {}
 
   Scene::~Scene()
   {
@@ -21,10 +21,11 @@ namespace Scene
     createdEntities.clear();
   }
 
+  // TODO move else where
   void Scene::updateSystems(sf::Time dt)
   {
-    for (auto &system : systems)
-      system->update(dt);
+    // for (auto &system : systems)
+    // system->update(dt);
   }
 
   entt::entity Scene::create()

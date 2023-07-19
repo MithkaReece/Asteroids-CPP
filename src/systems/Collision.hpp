@@ -13,11 +13,6 @@
 
 #include "entities/Asteroid.hpp"
 
-#include "scenes/SceneManager.hpp"
-
-// TODO This is require but is circlular dependency
-//   #include "scenes/Manager.cpp"
-
 #include "Constants.h"
 #include <string>
 
@@ -33,8 +28,8 @@ namespace System
   {
 
   public:
-    Collision(std::reference_wrapper<Scene::IManager> sceneManager, Scene::IScene &scene)
-        : System::System(sceneManager, scene) {}
+    Collision(entt::registry &registry, sf::RenderWindow &window, Scene::Scene &scene)
+        : System::System(registry, window,scene) {}
 
     /**
      * @brief Updates the collision system.
@@ -44,7 +39,7 @@ namespace System
      */
     void update(sf::Time dt)
     {
-      entt::registry &registry = sceneManagerRef.get().registryRef.get();
+      entt::registry &registry = registryRef.get();
       auto asteroidView = registry.view<Component::Transform, Component::Collider, Component::Asteroid, Component::Velocity>();
       auto playerView = registry.view<Component::Transform, Component::Collider, Component::Player, Component::Velocity>();
       auto bulletView = registry.view<Component::BulletTag>();

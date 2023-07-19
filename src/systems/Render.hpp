@@ -2,7 +2,6 @@
 
 #include <entt/entt.hpp>
 #include <functional>
-#include "scenes/SceneIManager.hpp"
 #include "systems/System.hpp"
 #include "components/Transform.hpp"
 #include "components/Render.hpp"
@@ -17,10 +16,11 @@ namespace System
   class Render
   {
   private:
-    std::reference_wrapper<Scene::IManager> sceneManagerRef;
+    std::reference_wrapper<sf::RenderWindow> windowRef;
+    std::reference_wrapper<entt::registry> registryRef;
 
   public:
-    Render(std::reference_wrapper<Scene::IManager> sceneManager);
+    Render(entt::registry &registry, sf::RenderWindow &window);
     /**
      * @brief Updates the system by rendering entities and UI elements.
      *

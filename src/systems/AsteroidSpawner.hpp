@@ -18,8 +18,8 @@ namespace System
     sf::Time timer;    // Timer to track the elapsed time
 
   public:
-    AsteroidSpawner(std::reference_wrapper<Scene::IManager> sceneManager, Scene::IScene &scene, sf::Time interval)
-        : System::System(sceneManager, scene), interval(interval) {}
+    AsteroidSpawner(entt::registry &registry, sf::RenderWindow &window, Scene::Scene &scene, sf::Time interval)
+        : System::System(registry, window,scene), interval(interval) {}
 
     /**
      * @brief Updates the asteroid spawner.
@@ -29,11 +29,11 @@ namespace System
      */
     void update(sf::Time dt)
     {
-      entt::registry &registry = sceneManagerRef.get().registryRef.get();
+      entt::registry &registry = registryRef.get();
       timer += dt;
       if (timer >= interval)
       {
-        Scene::IScene &scene = sceneRef.get();
+        Scene::Scene &scene = sceneRef.get();
         // Entity::createAsteroid(scene, sceneManagerRef.get().windowRef.get());
         timer = sf::Time::Zero;
       }

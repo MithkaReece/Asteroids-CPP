@@ -13,8 +13,8 @@ namespace System
   class PlayerRotate : public System
   {
   public:
-    PlayerRotate(std::reference_wrapper<Scene::IManager> sceneManager, Scene::IScene &scene)
-        : System::System(sceneManager, scene) {}
+    PlayerRotate(entt::registry &registry, sf::RenderWindow &window, Scene::Scene &scene)
+        : System::System(registry, window,scene) {}
     /**
      * @brief Updates the system by handling rotation of player-controlled entities.
      *
@@ -23,7 +23,7 @@ namespace System
      */
     void update(sf::Time dt)
     {
-      entt::registry &registry = sceneManagerRef.get().registryRef.get();
+      entt::registry &registry = registryRef.get();
       auto view = registry.view<Component::PlayerInput, Component::Transform>();
 
       for (auto entity : view)

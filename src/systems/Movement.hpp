@@ -13,8 +13,8 @@ namespace System
   class Movement : public System
   {
   public:
-    Movement(std::reference_wrapper<Scene::IManager> sceneManager, Scene::IScene &scene)
-        : System::System(sceneManager,scene) {}
+    Movement(entt::registry &registry, sf::RenderWindow &window, Scene::Scene &scene)
+        : System::System(registry, window,scene) {}
     /**
      * @brief Updates the position of entities based on their velocity.
      *
@@ -23,7 +23,7 @@ namespace System
      */
     void update(sf::Time dt)
     {
-      entt::registry &registry = sceneManagerRef.get().registryRef.get();
+      entt::registry &registry = registryRef.get();
       auto view = registry.view<Component::Transform, Component::Velocity>();
 
       for (auto entity : view)

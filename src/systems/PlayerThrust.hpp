@@ -14,8 +14,8 @@ namespace System
   class PlayerThrust : public System
   {
   public:
-    PlayerThrust(std::reference_wrapper<Scene::IManager> sceneManager, Scene::IScene &scene)
-        : System::System(sceneManager, scene) {}
+    PlayerThrust(entt::registry &registry, sf::RenderWindow &window, Scene::Scene &scene)
+        : System::System(registry, window,scene) {}
     /**
      * @brief Updates the system by applying thrust to player-controlled entities.
      *
@@ -24,7 +24,7 @@ namespace System
      */
     void update(sf::Time dt)
     {
-      entt::registry &registry = sceneManagerRef.get().registryRef.get();
+      entt::registry &registry = registryRef.get();
       auto view = registry.view<Component::Player, Component::PlayerInput, Component::Transform, Component::Velocity>();
       for (auto entity : view)
       {

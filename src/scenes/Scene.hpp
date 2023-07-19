@@ -4,30 +4,24 @@
 #include <SFML/System/Time.hpp>
 #include <entt/entt.hpp>
 
-#include "scenes/SceneIManager.hpp"
-#include "scenes/IScene.hpp"
-#include "systems/System.hpp"
-
 namespace Scene
 {
   /**
    * @brief Base class for scenes in an ECS (entt) and SFML project.
    * Scenes represent different states or levels in the game.
    */
-  class Scene : public IScene
+  class Scene
   {
   protected:
     std::unordered_set<entt::entity> createdEntities;
-    std::reference_wrapper<IManager> sceneManagerRef;
 
   public:
-    std::vector<std::unique_ptr<System::System>> systems;
     std::reference_wrapper<entt::registry> registryRef;
     std::reference_wrapper<sf::RenderWindow> windowRef;
 
     virtual int precedence();
 
-    Scene(IManager &sceneManager);
+    Scene(entt::registry &registry, sf::RenderWindow &window);
     virtual ~Scene();
     /**
      * @brief Initialize the scene by adding entities and components to the registry.
@@ -54,10 +48,11 @@ namespace Scene
       registryRef.get().emplace<ComponentType>(entity, std::forward<Args>(args)...);
     }
 
+    // TODO Setup systems somewhere else
     template <typename SystemType, typename... Args>
     void addSystem(Args &&...args)
     {
-      systems.push_back(std::make_unique<SystemType>(sceneManagerRef.get(), *this, std::forward<Args>(args)...));
+      // systems.push_back(std::make_unique<SystemType>(sceneManagerRef.get(), *this, std::forward<Args>(args)...));
     }
   };
 }

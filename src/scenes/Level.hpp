@@ -25,8 +25,8 @@ namespace Scene
   class Level : public Scene
   {
   public:
-    Level(IManager &sceneManager)
-        : Scene(sceneManager) {}
+    Level(entt::registry &registry, sf::RenderWindow &window)
+        : Scene(registry, window) {}
     /**
      * @brief Initialize the Scene0 by creating entities and components.
      *
@@ -35,7 +35,6 @@ namespace Scene
      */
     void init() override
     {
-      IManager &sceneManager = sceneManagerRef.get();
       // Define entities
       Entity::createPlayer(*this, windowRef.get());
       // Entity::createScoreUI(*this);

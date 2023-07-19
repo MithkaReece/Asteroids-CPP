@@ -2,23 +2,25 @@
 
 #include <SFML/System/Time.hpp>
 #include <functional>
-#include "scenes/SceneIManager.hpp"
-#include "scenes/IScene.hpp"
-#include "systems/ISystem.hpp"
+#include "scenes/Scene.hpp"
 
 namespace System
 {
   /**
    * @brief The base System class for game systems.
    */
-  class System : ISystem
+  class System
   {
   protected:
-    std::reference_wrapper<Scene::IManager> sceneManagerRef;
-    std::reference_wrapper<Scene::IScene> sceneRef;
+    std::reference_wrapper<entt::registry> registryRef;
+    std::reference_wrapper<sf::RenderWindow> windowRef;
+    std::reference_wrapper<Scene::Scene> sceneRef;
+    static int nextID;
 
   public:
-    System(std::reference_wrapper<Scene::IManager> sceneManager, Scene::IScene &scene);
+    int ID;
+
+    System(entt::registry &registry, sf::RenderWindow &window, Scene::Scene &scene);
 
     /**
      * @brief Virtual destructor for proper inheritance.

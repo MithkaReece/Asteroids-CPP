@@ -15,8 +15,8 @@ namespace System
   {
 
   public:
-    Wrapping(std::reference_wrapper<Scene::IManager> sceneManager, Scene::IScene &scene)
-        : System::System(sceneManager, scene) {}
+    Wrapping(entt::registry &registry, sf::RenderWindow &window, Scene::Scene &scene)
+        : System::System(registry, window,scene) {}
 
     /**
      * @brief Update function for handling the wrapping behavior of entities.
@@ -26,8 +26,8 @@ namespace System
      */
     void update(sf::Time dt)
     {
-      entt::registry &registry = sceneManagerRef.get().registryRef.get();
-      sf::RenderWindow &window = sceneManagerRef.get().windowRef.get();
+      entt::registry &registry = registryRef.get();
+      sf::RenderWindow &window = windowRef.get();
       auto view = registry.view<Component::Transform, Component::Velocity, Component::WrapperBoundary>();
 
       for (auto entity : view)

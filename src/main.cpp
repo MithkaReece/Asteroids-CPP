@@ -5,6 +5,7 @@
 
 #include <entt/entt.hpp>
 
+#include "systems/SystemManager.hpp"
 #include "scenes/SceneManager.hpp"
 
 // Temp
@@ -15,7 +16,8 @@ int main(int argc, char *argv[])
   sf::RenderWindow window(sf::VideoMode(1000, 600), "");
 
   entt::registry registry;
-  Scene::Manager sceneManager(registry, window);
+  System::Manager systemManager;
+  Scene::Manager sceneManager(systemManager, registry, window);
 
   sf::Clock clock;
   sf::Time dt;
