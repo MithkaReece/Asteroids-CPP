@@ -2,9 +2,10 @@
 #ifndef HEADER_COMPONENT_LIVES_TEXT
 #define HEADER_COMPONENT_LIVES_TEXT
 #include <SFML/Graphics.hpp>
+#include <memory>
 
 struct ComponentLivesText
 {
-  sf::Text text;
+  std::unique_ptr<sf::Text> text;
 };
 #endif

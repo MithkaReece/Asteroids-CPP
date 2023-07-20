@@ -4,6 +4,7 @@ SceneGameUI::SceneGameUI(SystemManager &systemManager, entt::registry &registry,
     : Scene(systemManager, registry, window)
 {
   entityLevelUI(*this, windowRef.get());
+
+  addSystem<SystemScore>();
+  addSystem<SystemLives>();
 }
-
-

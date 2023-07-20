@@ -3,6 +3,6 @@
 #define HEADER_COMPONENT_LIVES
 struct ComponentLives
 {
-  int values = 3;
+  int value = 3;
 };
 #endif

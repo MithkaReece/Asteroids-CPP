@@ -5,6 +5,8 @@
 #include "Scene.hpp"
 #include "ComponentScoreText.hpp"
 #include "ComponentLivesText.hpp"
+#include <memory>
+#include <iostream>
 
 void entityLevelUI(Scene &scene, sf::RenderWindow &window);
 #endif

@@ -20,6 +20,7 @@ protected:
   std::vector<int> systemIDs;
 
 public:
+  sf::Font font;
   std::reference_wrapper<entt::registry> registryRef;
   std::reference_wrapper<sf::RenderWindow> windowRef;
 

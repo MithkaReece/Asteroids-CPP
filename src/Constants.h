@@ -10,4 +10,6 @@ const float BOUNDARY = 120.0f;      // Boundary value - used for out of boundary
 
 const float ASTEROID_SPLIT_ANGLE = 30.0f; // Angle asteroids halves will change when separating
 
+
+
 #endif // CONSTANTS_H

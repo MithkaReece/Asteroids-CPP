@@ -13,6 +13,8 @@
 #include "ComponentCollider.hpp"
 #include "ComponentInput.hpp"
 #include "ComponentWeapon.hpp"
+#include "ComponentScore.hpp"
+#include "ComponentLives.hpp"
 
 #include "Scene.hpp"
 

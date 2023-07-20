@@ -34,28 +34,18 @@ void SystemRender::update(sf::Time dt)
   }
 
   // Render UI elements
-  auto viewUI = registry.view<ComponentScoreText, ComponentLivesText>();
+  auto viewUI = registry.view<ComponentScoreText, ComponentLivesText>(); // TODO add lives
   for (auto entity : viewUI)
   {
     if (!registry.valid(entity))
       continue;
 
     ComponentScoreText &score = viewUI.get<ComponentScoreText>(entity);
+
+    window.draw(*score.text);
+
     ComponentLivesText &lives = viewUI.get<ComponentLivesText>(entity);
 
-    sf::Font font;
-    font.loadFromFile("/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Resources/Roboto-Medium.ttf");
-
-    score.text.setFont(font);
-    score.text.setCharacterSize(25);
-    score.text.setPosition(10.0f, 10.0f);
-    score.text.setFillColor(sf::Color::White);
-    window.draw(score.text);
-
-    lives.text.setFont(font);
-    lives.text.setCharacterSize(25);
-    lives.text.setPosition(10.0f, 10.0f);
-    lives.text.setFillColor(sf::Color::White);
-    window.draw(lives.text);
+    window.draw(*lives.text);
   }
 }

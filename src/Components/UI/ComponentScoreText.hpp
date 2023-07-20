@@ -5,6 +5,6 @@
 
 struct ComponentScoreText
 {
-  sf::Text text;
+  std::unique_ptr<sf::Text> text;
 };
 #endif

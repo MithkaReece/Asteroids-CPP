@@ -17,6 +17,9 @@ void EntityPlayer(Scene &scene, sf::RenderWindow &window)
   // Create entity
   auto entity = scene.create();
 
+  scene.emplace<ComponentScore>(entity, 0);
+  scene.emplace<ComponentLives>(entity, 3);
+
   // Add PlayerComponent
   const float acceleration = 100.0f;
 

@@ -6,7 +6,10 @@
 int Scene::precedence() { return 0; }
 
 Scene::Scene(SystemManager &systemManager, entt::registry &registry, sf::RenderWindow &window)
-    : systemManagerRef(systemManager), registryRef(registry), windowRef(window) {}
+    : systemManagerRef(systemManager), registryRef(registry), windowRef(window)
+{
+  font.loadFromFile("/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Resources/Roboto-Medium.ttf");
+}
 
 Scene::~Scene()
 {
@@ -17,13 +20,6 @@ Scene::~Scene()
   }
 
   createdEntities.clear();
-}
-
-// TODO move else where
-void Scene::updateSystems(sf::Time dt)
-{
-  // for (auto &system : systems)
-  // system->update(dt);
 }
 
 entt::entity Scene::create()

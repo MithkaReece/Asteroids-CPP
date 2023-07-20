@@ -3,6 +3,8 @@
 #define HEADER_SCENE_GAME_UI
 #include "Scene.hpp"
 #include "EntityLevelUI.hpp"
+#include "SystemScore.hpp"
+#include "SystemLives.hpp"
 
 class SceneGameUI : public Scene
 {
