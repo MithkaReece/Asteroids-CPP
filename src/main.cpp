@@ -9,11 +9,16 @@
 #include "SystemManager.hpp"
 #include "SceneManager.hpp"
 
+#include "EventManager.hpp"
+
 // Temp
 #include <iostream>
 
 int main(int argc, char *argv[])
 {
+
+  EventManager &eventManager = EventManager::GetInstance();
+
   sf::RenderWindow window(sf::VideoMode(1000, 600), "");
 
   entt::registry registry;

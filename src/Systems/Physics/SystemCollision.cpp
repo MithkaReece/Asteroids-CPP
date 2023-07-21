@@ -153,9 +153,10 @@ void SystemCollision::handleBulletCollision(entt::entity bullet, ComponentTransf
 
   splitAsteroid(asteroid, level, position1, velocity1, position2, velocity2);
 
-  // TODO: addScore() edits something in a different scene
-  // TODO: addScore therefore should be an event
-  // addScore(registry, 1);
+  // TODO: Add Event score
+  //  TODO: addScore() edits something in a different scene
+  //  TODO: addScore therefore should be an event
+  //  addScore(registry, 1);
 }
 
 void SystemCollision::addScore(entt::registry &registry, int scoreIncrease)
