@@ -7,13 +7,8 @@ void SystemUserInput::update(sf::Time dt)
 {
   entt::registry &registry = registryRef.get();
   auto view = registry.view<ComponentPlayerInput>();
-  for (auto entity : view)
+  for (auto [entity, input] : view.each())
   {
-    if (!registry.valid(entity))
-      continue;
-
-    ComponentPlayerInput &input = view.get<ComponentPlayerInput>(entity);
-
     // Update input based on keyboard events
     input.leftRotatePressed = sf::Keyboard::isKeyPressed(sf::Keyboard::A);
     input.rightRotatePressed = sf::Keyboard::isKeyPressed(sf::Keyboard::D);

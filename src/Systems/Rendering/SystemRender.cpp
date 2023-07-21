@@ -14,14 +14,8 @@ void SystemRender::update(sf::Time dt)
 
   auto view = registry.view<ComponentRender, ComponentTransform>();
 
-  for (auto entity : view)
+  for (auto [entity, render, transform] : view.each())
   {
-    if (!registry.valid(entity))
-      continue;
-
-    ComponentRender &render = view.get<ComponentRender>(entity);
-    ComponentTransform &transform = view.get<ComponentTransform>(entity);
-
     // Render the entity using the render and transform components
     sf::Drawable *drawable = render.drawable.get();
     assert(drawable != nullptr && "Drawable is null!");
@@ -35,17 +29,9 @@ void SystemRender::update(sf::Time dt)
 
   // Render UI elements
   auto viewUI = registry.view<ComponentScoreText, ComponentLivesText>(); // TODO add lives
-  for (auto entity : viewUI)
+  for (auto [entity, score, lives] : viewUI.each())
   {
-    if (!registry.valid(entity))
-      continue;
-
-    ComponentScoreText &score = viewUI.get<ComponentScoreText>(entity);
-
     window.draw(*score.text);
-
-    ComponentLivesText &lives = viewUI.get<ComponentLivesText>(entity);
-
     window.draw(*lives.text);
   }
 }

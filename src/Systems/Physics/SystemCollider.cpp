@@ -8,14 +8,8 @@ void SystemCollider::update(sf::Time dt)
   entt::registry &registry = registryRef.get();
   auto view = registry.view<ComponentCollider, ComponentTransform>();
 
-  for (auto entity : view)
+  for (auto [entity, collider, transform] : view.each())
   {
-    if (!registry.valid(entity))
-      continue;
-
-    ComponentCollider &collider = view.get<ComponentCollider>(entity);
-    ComponentTransform &transform = view.get<ComponentTransform>(entity);
-
     sf::ConvexShape &shape = collider.shape;
     shape.setPosition(transform.position);
     shape.setScale(transform.scale);

@@ -7,15 +7,10 @@ void SystemWrapping::update(sf::Time dt)
 {
   entt::registry &registry = registryRef.get();
   sf::RenderWindow &window = windowRef.get();
-  auto view = registry.view<ComponentTransform, ComponentVelocity, ComponentWrapperBoundary>();
+  auto view = registry.view<ComponentTransform, ComponentWrapperBoundary>();
 
-  for (auto entity : view)
+  for (auto [entity, transform, boundary] : view.each())
   {
-    if (!registry.valid(entity))
-      continue;
-
-    ComponentTransform &transform = view.get<ComponentTransform>(entity);
-    ComponentWrapperBoundary &boundary = view.get<ComponentWrapperBoundary>(entity);
     const float boundarySize = boundary.boundarySize;
 
     // Wrap position horizontally

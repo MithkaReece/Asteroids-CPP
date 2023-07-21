@@ -8,17 +8,8 @@ void SystemPlayerRotate::update(sf::Time dt)
   entt::registry &registry = registryRef.get();
   auto view = registry.view<ComponentPlayerInput, ComponentTransform>();
 
-  for (auto entity : view)
+  for (auto [entity, input, transform] : view.each())
   {
-    if (!registry.valid(entity))
-    {
-      continue;
-    }
-
-    // Get the player input and transform components of the entity
-    ComponentPlayerInput &input = view.get<ComponentPlayerInput>(entity);
-    ComponentTransform &transform = view.get<ComponentTransform>(entity);
-
     // Rotate the entity based on player input
     if (input.leftRotatePressed)
     {

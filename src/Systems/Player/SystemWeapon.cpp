@@ -8,17 +8,8 @@ void SystemWeapon::update(sf::Time dt)
   entt::registry &registry = registryRef.get();
   Scene &scene = sceneRef.get();
   auto view = registry.view<ComponentTransform, ComponentPlayerInput, ComponentWeapon, ComponentVelocity>();
-  for (auto entity : view)
+  for (auto [entity, transform, input, weapon, velocity] : view.each())
   {
-    if (!registry.valid(entity))
-    {
-      continue;
-    }
-    ComponentTransform &transform = view.get<ComponentTransform>(entity);
-    ComponentPlayerInput &input = view.get<ComponentPlayerInput>(entity);
-    ComponentWeapon &weapon = view.get<ComponentWeapon>(entity);
-    ComponentVelocity &velocity = view.get<ComponentVelocity>(entity);
-
     if (input.shootPressed && weapon.remainingCooldown <= sf::Time::Zero)
     {
       // Calculate the forward vector based on the player's rotation
@@ -34,7 +25,6 @@ void SystemWeapon::update(sf::Time dt)
       sf::Vector2f position = transform.position;
       position += forwardVector * transform.scale.x;
 
-      // TODO: Give scene instead of registry
       //  Create a bullet entity with the calculated position, velocity, and rotation
       entityBullet(scene, position, bulletVelocity, transform.rotation);
 

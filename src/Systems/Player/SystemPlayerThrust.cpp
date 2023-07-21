@@ -7,32 +7,20 @@ void SystemPlayerThrust::update(sf::Time dt)
 {
   entt::registry &registry = registryRef.get();
   auto view = registry.view<ComponentPlayer, ComponentPlayerInput, ComponentTransform, ComponentVelocity>();
-  for (auto entity : view)
-  {
-    if (!registry.valid(entity))
-    {
+  for (auto [entity, player, input, transform, velocity] : view.each())
+  { // Apply thrust to the entity if the thrust button is pressed
+    if (!input.thrustPressed)
       continue;
-    }
 
-    // Get the player, player input, transform, and velocity components of the entity
-    ComponentPlayer &player = view.get<ComponentPlayer>(entity);
-    ComponentPlayerInput &input = view.get<ComponentPlayerInput>(entity);
-    ComponentTransform &transform = view.get<ComponentTransform>(entity);
-    ComponentVelocity &velocity = view.get<ComponentVelocity>(entity);
+    // Calculate the forward vector based on the entity's rotation
+    sf::Vector2f forwardVector = sf::Vector2f(
+        std::cos(transform.rotation * DEG_TO_RAD),
+        std::sin(transform.rotation * DEG_TO_RAD));
 
-    // Apply thrust to the entity if the thrust button is pressed
-    if (input.thrustPressed)
-    {
-      // Calculate the forward vector based on the entity's rotation
-      sf::Vector2f forwardVector = sf::Vector2f(
-          std::cos(transform.rotation * DEG_TO_RAD),
-          std::sin(transform.rotation * DEG_TO_RAD));
+    // Accelerate the entity forward by adding the forward vector scaled by acceleration and time delta
+    velocity.velocity += forwardVector * player.acceleration * dt.asSeconds();
 
-      // Accelerate the entity forward by adding the forward vector scaled by acceleration and time delta
-      velocity.velocity += forwardVector * player.acceleration * dt.asSeconds();
-
-      // Reset the thrust button state
-      input.thrustPressed = false;
-    }
+    // Reset the thrust button state
+    input.thrustPressed = false;
   }
 }

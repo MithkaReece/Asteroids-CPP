@@ -8,15 +8,10 @@ void SystemLives::update(sf::Time dt)
   entt::registry &registry = registryRef.get();
   auto playerView = registry.view<ComponentLives>();
 
-  for (auto player : playerView)
+  for (auto [player, lives] : playerView.each())
   {
-    ComponentLives &lives = playerView.get<ComponentLives>(player);
-
     auto uiView = registry.view<ComponentLivesText>();
-    for (auto ui : uiView)
-    {
-      ComponentLivesText &livesText = uiView.get<ComponentLivesText>(ui);
+    for (auto [ui, livesText] : uiView.each())
       livesText.text->setString("Lives: " + std::to_string(lives.value));
-    }
   }
 }

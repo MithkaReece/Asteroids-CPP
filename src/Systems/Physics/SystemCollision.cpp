@@ -12,24 +12,10 @@ void SystemCollision::update(sf::Time dt)
   auto bulletView = registry.view<ComponentBulletTag>();
 
   auto view = registry.view<ComponentTransform, ComponentCollider, ComponentVelocity>();
-  for (auto entity1 : view)
+  for (auto [entity1, transform1, collider1, velocity1] : view.each())
   {
-    if (!registry.valid(entity1))
-      continue;
-
-    ComponentTransform &transform1 = view.get<ComponentTransform>(entity1);
-    ComponentCollider &collider1 = view.get<ComponentCollider>(entity1);
-    ComponentVelocity &velocity1 = view.get<ComponentVelocity>(entity1);
-
-    for (auto entity2 : registry.view<ComponentTransform, ComponentCollider, ComponentVelocity>())
+    for (auto [entity2, transform2, collider2, velocity2] : view.each())
     {
-      if (!registry.valid(entity2))
-        continue;
-
-      ComponentTransform &transform2 = view.get<ComponentTransform>(entity2);
-      ComponentCollider &collider2 = view.get<ComponentCollider>(entity2);
-      ComponentVelocity &velocity2 = view.get<ComponentVelocity>(entity2);
-
       if (entity1 == entity2 || !collider1.shape.getGlobalBounds().intersects(collider2.shape.getGlobalBounds()))
         continue;
 
