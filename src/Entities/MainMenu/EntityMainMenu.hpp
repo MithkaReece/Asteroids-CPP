@@ -6,6 +6,8 @@
 #include "ComponentMenuItem.hpp"
 #include "EnumMenuItemID.hpp"
 
-void EntityMenuItem(Scene &scene, sf::RenderWindow &window, MenuItemID itemID, std::string stringText, sf::Vector2f position);
+void EntityMenuItem(Scene &scene, sf::RenderWindow &window,
+                    MenuItemID itemID, std::string stringText,
+                    sf::Vector2f position, sf::Vector2f outerborderRatio);
 
 #endif

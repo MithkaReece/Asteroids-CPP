@@ -1,10 +1,15 @@
 #pragma once
-#ifndef HEADER_SCENE_MANAGER
-#define HEADER_SCENE_MANAGER
+#ifndef HEADER_SYSTEM_MAIN_MENU_INPUT
+#define HEADER_SYSTEM_MAIN_MENU_INPUT
 
+#include <SFML/Graphics.hpp>
 #include "System.hpp"
 
 #include <SFML/Window/Keyboard.hpp>
+
+#include "ComponentMenuItem.hpp"
+
+#include "EnumMenuItemID.hpp"
 
 class SystemMainMenuInput : public System
 {

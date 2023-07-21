@@ -8,7 +8,8 @@ struct ComponentMenuItem
 {
   MenuItemID id;
   std::unique_ptr<sf::Text> text;
-  sf::Vector2f boundaryRatio;
+  std::unique_ptr<sf::RectangleShape> shape;
+  bool hover = false;
 };
 
 #endif

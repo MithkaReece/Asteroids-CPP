@@ -17,6 +17,8 @@
 #include "SystemOutOfBound.hpp"
 #include "SystemScore.hpp"
 #include "SystemLives.hpp"
+#include "SystemMainMenuInput.hpp"
+#include "SystemMouseHover.hpp"
 
 #include "EntityGame.hpp"
 #include "EntityPlayer.hpp"
