@@ -1,8 +1,9 @@
 #include "EntityLevelUI.hpp"
 
-void entityLevelUI(Scene &scene, sf::RenderWindow &window)
+void EntityLevelUI(Scene &scene, sf::RenderWindow &window)
 {
   auto entity = scene.create();
+
   std::unique_ptr<sf::Text> scoreText = std::make_unique<sf::Text>();
   scoreText->setFont(scene.font);
   scoreText->setCharacterSize(25);

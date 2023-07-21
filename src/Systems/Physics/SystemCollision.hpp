@@ -9,8 +9,7 @@
 #include "ComponentPlayer.hpp"
 #include "ComponentAsteroid.hpp"
 #include "ComponentBulletTag.hpp"
-#include "TextUI.hpp"
-#include "ScoreTag.hpp"
+#include "ComponentScore.hpp"
 
 #include "EntityAsteroid.hpp"
 
@@ -99,7 +98,7 @@ private:
    * @param registry The entity registry.
    * @param scoreIncrease The amount to increase the score by.
    */
-  void addScore(entt::registry &registry, int scoreIncrease);
+  void addScore(int scoreIncrease);
 
   void handlePlayerCollision();
 };

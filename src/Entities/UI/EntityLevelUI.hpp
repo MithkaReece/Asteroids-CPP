@@ -8,5 +8,5 @@
 #include <memory>
 #include <iostream>
 
-void entityLevelUI(Scene &scene, sf::RenderWindow &window);
+void EntityLevelUI(Scene &scene, sf::RenderWindow &window);
 #endif

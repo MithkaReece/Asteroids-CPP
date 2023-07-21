@@ -139,26 +139,14 @@ void SystemCollision::handleBulletCollision(entt::entity bullet, ComponentTransf
 
   splitAsteroid(asteroid, level, position1, velocity1, position2, velocity2);
 
-  // TODO: Add Event score
-  //  TODO: addScore() edits something in a different scene
-  //  TODO: addScore therefore should be an event
-  //  addScore(registry, 1);
+  addScore(1);
 }
 
-void SystemCollision::addScore(entt::registry &registry, int scoreIncrease)
+void SystemCollision::addScore(int scoreIncrease)
 {
-  auto view = registry.view<ComponentTransform, ComponentTextUI, ComponentScoreTag>();
-
-  for (auto entity : view)
-  {
-    if (!registry.valid(entity))
-      continue;
-    // Increment score value
-    ComponentTextUI &textUI = view.get<ComponentTextUI>(entity);
-    int score = std::stoi(textUI.text);
-    score += scoreIncrease;
-    textUI.text = std::to_string(score);
-  }
+  auto view = registryRef.get().view<ComponentScore>();
+  for (auto [entity, score] : view.each())
+    score.value += scoreIncrease;
 }
 
 void SystemCollision::handlePlayerCollision()

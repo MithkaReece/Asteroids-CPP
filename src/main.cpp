@@ -8,7 +8,6 @@
 #include "SystemRender.hpp"
 #include "SystemManager.hpp"
 #include "SceneManager.hpp"
-#include "EventManager.hpp"
 
 // Temp
 #include <iostream>

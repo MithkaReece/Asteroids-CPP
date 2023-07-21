@@ -11,8 +11,9 @@
 #include "SystemManager.hpp"
 
 #include "Scene.hpp"
+#include "SceneLevel.hpp"
+#include "SceneLevelUI.hpp"
 #include "SceneGame.hpp"
-#include "SceneGameUI.hpp"
 
 /**
  * @brief Class for managing scenes and switching between them.

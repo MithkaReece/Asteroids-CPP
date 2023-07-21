@@ -7,7 +7,8 @@ SceneManager::SceneManager(SystemManager &systemManager, entt::registry &registr
 {
   // Add initialise scenes
   addScene<SceneGame>();
-  addScene<SceneGameUI>();
+  addScene<SceneLevel>();
+  addScene<SceneLevelUI>();
 }
 
 template <typename SceneType>
