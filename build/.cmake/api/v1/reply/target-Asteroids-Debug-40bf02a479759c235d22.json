@@ -78,6 +78,10 @@
 				},
 				{
 					"backtrace" : 4,
+					"path" : "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/MainMenu"
+				},
+				{
+					"backtrace" : 4,
 					"path" : "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Components/Physics"
 				},
 				{
@@ -102,6 +106,10 @@
 				},
 				{
 					"backtrace" : 4,
+					"path" : "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/MainMenu"
+				},
+				{
+					"backtrace" : 4,
 					"path" : "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Entities/UI"
 				},
 				{
@@ -110,11 +118,7 @@
 				},
 				{
 					"backtrace" : 4,
-					"path" : "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Game"
-				},
-				{
-					"backtrace" : 4,
-					"path" : "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Level"
+					"path" : "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/Base"
 				},
 				{
 					"backtrace" : 4,
@@ -122,7 +126,7 @@
 				},
 				{
 					"backtrace" : 4,
-					"path" : "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes"
+					"path" : "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Scenes/SceneBuilder"
 				},
 				{
 					"backtrace" : 4,
@@ -130,11 +134,15 @@
 				},
 				{
 					"backtrace" : 4,
+					"path" : "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Base"
+				},
+				{
+					"backtrace" : 4,
 					"path" : "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/Bounds"
 				},
 				{
 					"backtrace" : 4,
-					"path" : "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems"
+					"path" : "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Systems/MainMenu"
 				},
 				{
 					"backtrace" : 4,
@@ -311,6 +319,12 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
+			"path" : "src/Entities/MainMenu/EntityMainMenu.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "src/Entities/UI/EntityLevelUI.cpp",
 			"sourceGroupIndex" : 0
 		},
@@ -323,19 +337,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/Scenes/Game/SceneGame.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/Scenes/Level/SceneLevel.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/Scenes/Level/SceneLevelUI.cpp",
+			"path" : "src/Scenes/Base/Scene.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -347,13 +349,19 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/Scenes/Scene.cpp",
+			"path" : "src/Scenes/SceneBuilder/SceneBuilder.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/Systems/Asteroid/SystemAsteroidSpawner.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/Systems/Base/System.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -366,6 +374,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/Systems/Bounds/SystemWrapping.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/Systems/MainMenu/SystemMainMenuInput.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -432,12 +446,6 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/Systems/Rendering/SystemRender.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/Systems/System.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

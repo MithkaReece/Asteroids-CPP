@@ -170,11 +170,8 @@ void SystemCollision::handlePlayerCollision()
   //  TODO: Reset level scene
   //  sceneManager.switchToScene(0);
 }
-// Temp
-#include <iostream>
 void SystemCollision::resetScore()
 {
-  std::cout << "Test\n";
   auto view = registryRef.get().view<ComponentScore>();
   for (auto [entity, score] : view.each())
     score.value = 0;

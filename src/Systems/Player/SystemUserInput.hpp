@@ -8,8 +8,6 @@
 
 #include "Constants.h"
 
-#include <iostream>
-
 /**
  * @brief The UserInput class handles updating player input based on keyboard events.
  */

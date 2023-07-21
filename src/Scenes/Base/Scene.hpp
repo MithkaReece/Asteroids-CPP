@@ -14,17 +14,17 @@
  */
 class Scene
 {
-protected:
+private:
   std::unordered_set<entt::entity> createdEntities;
   std::reference_wrapper<SystemManager> systemManagerRef;
   std::vector<int> systemIDs;
-
-public:
-  sf::Font font;
   std::reference_wrapper<entt::registry> registryRef;
   std::reference_wrapper<sf::RenderWindow> windowRef;
 
-  virtual int precedence();
+public:
+  sf::Font font;
+
+  int precendence = 0;
 
   Scene(SystemManager &systemManager, entt::registry &registry, sf::RenderWindow &window);
   virtual ~Scene();

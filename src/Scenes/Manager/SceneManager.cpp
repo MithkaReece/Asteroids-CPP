@@ -8,16 +8,18 @@ SceneManager::SceneManager(SystemManager &systemManager, entt::registry &registr
 {
   globalDispatcher.sink<EventDeath>().connect<&SceneManager::gotoLevel>(*this);
   // Add initialise scenes
-  persistentScene = std::make_unique<SceneGame>(systemManager, registry, window);
+  persistentScene = SceneGame(systemManager, registry, window);
 
-  gotoLevel();
+  gotoMainMenu();
+  // gotoLevel();
 }
 
-template <typename SceneType>
-void SceneManager::addScene()
+// template <typename SceneType>
+void SceneManager::addScene(std::function<std::unique_ptr<Scene>(SystemManager &, entt::registry &, sf::RenderWindow &)> sceneBuilder)
 {
-  scenes.emplace_back(std::make_unique<SceneType>(systemManagerRef.get(), registryRef.get(), windowRef.get()));
-  // sortScenesByPrecedence();
+  scenes.push_back(std::move(sceneBuilder(systemManagerRef.get(), registryRef.get(), windowRef.get())));
+  // scenes.emplace_back(std::make_unique<SceneType>(systemManagerRef.get(), registryRef.get(), windowRef.get()));
+  //  sortScenesByPrecedence();
 }
 
 template <typename SceneType>
@@ -45,6 +47,7 @@ void SceneManager::clearScenes()
 void SceneManager::gotoMainMenu()
 {
   scenes.clear();
+  addScene(SceneMainMenu);
   // Clear scenes
   // Add Scenes
 }
@@ -53,8 +56,10 @@ void SceneManager::gotoLevel()
 {
   // ClearScenes
   scenes.clear();
-  addScene<SceneLevel>();
-  addScene<SceneLevelUI>();
+  addScene(SceneLevel);
+  addScene(SceneLevelUI);
+  // addScene<SceneLevel>();
+  // addScene<SceneLevelUI>();
 }
 
 /** Main Menu   Level

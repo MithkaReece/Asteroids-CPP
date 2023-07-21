@@ -3,8 +3,6 @@
 
 #include <iostream>
 
-int Scene::precedence() { return 0; }
-
 Scene::Scene(SystemManager &systemManager, entt::registry &registry, sf::RenderWindow &window)
     : systemManagerRef(systemManager), registryRef(registry), windowRef(window)
 {

@@ -10,6 +10,7 @@
 #include "ScoreTag.hpp"
 #include "ComponentScoreText.hpp"
 #include "ComponentLivesText.hpp"
+#include "ComponentMenuItem.hpp"
 
 /**
  * @brief The Render class handles rendering entities and UI elements.

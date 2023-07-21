@@ -11,9 +11,7 @@
 #include "SystemManager.hpp"
 
 #include "Scene.hpp"
-#include "SceneLevel.hpp"
-#include "SceneLevelUI.hpp"
-#include "SceneGame.hpp"
+#include "SceneBuilder.hpp"
 
 #include "EventDeath.hpp"
 /**
@@ -38,8 +36,8 @@ public:
    */
   SceneManager(SystemManager &systemManager, entt::registry &registry, sf::RenderWindow &window);
 
-  template <typename SceneType>
-  void addScene();
+  // template <typename SceneType>
+  void addScene(std::function<std::unique_ptr<Scene>(SystemManager &, entt::registry &, sf::RenderWindow &)> sceneBuilder);
 
   template <typename SceneType>
   void removeScene();
