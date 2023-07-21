@@ -12,6 +12,7 @@ class SystemManager
 {
 private:
   std::vector<std::unique_ptr<ISystem>> systems;
+  std::vector<size_t> indicesToRemove;
   std::unique_ptr<ISystem> render;
 
 public:
@@ -23,6 +24,6 @@ public:
 
   void addSystem(std::unique_ptr<ISystem> system);
 
-  void removeSystem(int ID);
+  void removeSystems(const std::vector<int> &systemIDs);
 };
 #endif

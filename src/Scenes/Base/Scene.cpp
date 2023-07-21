@@ -20,10 +20,7 @@ Scene::~Scene()
   createdEntities.clear();
 
   SystemManager &systemManager = systemManagerRef.get();
-  for (const int systemID : systemIDs)
-  {
-    systemManager.removeSystem(systemID);
-  }
+  systemManager.removeSystems(systemIDs);
 }
 
 entt::entity Scene::create()

@@ -1,11 +1,12 @@
-#include "SystemMainMenuInput.hpp"
+#include "SystemMenuInput.hpp"
 
 #include <iostream>
+extern entt::dispatcher globalDispatcher;
 
-SystemMainMenuInput::SystemMainMenuInput(entt::registry &registry, sf::RenderWindow &window, Scene &scene)
+SystemMenuInput::SystemMenuInput(entt::registry &registry, sf::RenderWindow &window, Scene &scene)
     : System(registry, window, scene) {}
 
-void SystemMainMenuInput::update(sf::Time dt)
+void SystemMenuInput::update(sf::Time dt)
 {
   if (!sf::Mouse::isButtonPressed(sf::Mouse::Left))
     return;
@@ -21,11 +22,11 @@ void SystemMainMenuInput::update(sf::Time dt)
     {
       if (menuItem.id == MenuItemID::StartGame)
       {
-        std::cout << "Start Game\n";
+        globalDispatcher.trigger<EventStartGame>();
       }
-      else
+      else if (menuItem.id == MenuItemID::Exit)
       {
-        std::cout << "Inside\n";
+        window.close();
       }
     }
   }

@@ -17,7 +17,7 @@
 #include "SystemOutOfBound.hpp"
 #include "SystemScore.hpp"
 #include "SystemLives.hpp"
-#include "SystemMainMenuInput.hpp"
+#include "SystemMenuInput.hpp"
 #include "SystemMouseHover.hpp"
 
 #include "EntityGame.hpp"
@@ -32,8 +32,9 @@ std::unique_ptr<Scene> SceneGame(SystemManager &systemManager, entt::registry &r
 
 std::unique_ptr<Scene> SceneMainMenu(SystemManager &systemManager, entt::registry &registry, sf::RenderWindow &window);
 
-std::unique_ptr<Scene> SceneLevel(SystemManager &systemManager, entt::registry &registry, sf::RenderWindow &window);
+std::unique_ptr<Scene> SceneGameplay(SystemManager &systemManager, entt::registry &registry, sf::RenderWindow &window);
 
-std::unique_ptr<Scene> SceneLevelUI(SystemManager &systemManager, entt::registry &registry, sf::RenderWindow &window);
+std::unique_ptr<Scene> SceneHUD(SystemManager &systemManager, entt::registry &registry, sf::RenderWindow &window);
 
+std::unique_ptr<Scene> ScenePauseMenu(SystemManager &systemManager, entt::registry &registry, sf::RenderWindow &window);
 #endif

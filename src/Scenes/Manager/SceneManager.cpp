@@ -7,6 +7,7 @@ SceneManager::SceneManager(SystemManager &systemManager, entt::registry &registr
     : systemManagerRef(systemManager), registryRef(registry), windowRef(window)
 {
   globalDispatcher.sink<EventDeath>().connect<&SceneManager::gotoLevel>(*this);
+  globalDispatcher.sink<EventStartGame>().connect<&SceneManager::gotoLevel>(*this);
   // Add initialise scenes
   persistentScene = SceneGame(systemManager, registry, window);
 
@@ -56,10 +57,10 @@ void SceneManager::gotoLevel()
 {
   // ClearScenes
   scenes.clear();
-  addScene(SceneLevel);
-  addScene(SceneLevelUI);
-  // addScene<SceneLevel>();
-  // addScene<SceneLevelUI>();
+  addScene(SceneGameplay);
+  addScene(SceneHUD);
+  // addScene<SceneGameplay>();
+  // addScene<SceneHUD>();
 }
 
 /** Main Menu   Level

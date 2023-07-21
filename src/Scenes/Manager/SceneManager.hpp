@@ -14,6 +14,7 @@
 #include "SceneBuilder.hpp"
 
 #include "EventDeath.hpp"
+#include "EventStartGame.hpp"
 /**
  * @brief Class for managing scenes and switching between them.
  */

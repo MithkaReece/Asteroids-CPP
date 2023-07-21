@@ -9,12 +9,14 @@
 
 #include "ComponentMenuItem.hpp"
 
+#include "EventStartGame.hpp"
+
 #include "EnumMenuItemID.hpp"
 
-class SystemMainMenuInput : public System
+class SystemMenuInput : public System
 {
 public:
-  SystemMainMenuInput(entt::registry &registry, sf::RenderWindow &window, Scene &scene);
+  SystemMenuInput(entt::registry &registry, sf::RenderWindow &window, Scene &scene);
 
   void update(sf::Time dt);
 };
