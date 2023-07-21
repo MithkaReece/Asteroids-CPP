@@ -15,6 +15,7 @@
 #include "SceneLevelUI.hpp"
 #include "SceneGame.hpp"
 
+#include "EventDeath.hpp"
 /**
  * @brief Class for managing scenes and switching between them.
  */
@@ -22,6 +23,7 @@ class SceneManager
 {
 private:
   std::vector<std::unique_ptr<Scene>> scenes; // Vector of unique pointers to all scenes
+  std::unique_ptr<Scene> persistentScene;
   std::reference_wrapper<SystemManager> systemManagerRef;
 
 public:
@@ -49,5 +51,12 @@ public:
 private:
   // Sort scenes based on precedence
   void sortScenesByPrecedence();
+
+  void gotoMainMenu();
+
+  void clearScenes();
+
+public:
+  void gotoLevel();
 };
 #endif

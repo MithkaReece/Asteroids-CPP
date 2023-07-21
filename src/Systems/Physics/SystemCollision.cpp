@@ -148,12 +148,34 @@ void SystemCollision::addScore(int scoreIncrease)
   for (auto [entity, score] : view.each())
     score.value += scoreIncrease;
 }
-
+extern entt::dispatcher globalDispatcher;
 void SystemCollision::handlePlayerCollision()
 {
+  auto view = registryRef.get().view<ComponentLives>();
+  for (auto [entity, lives] : view.each())
+  {
+    int newLives = lives.value - 1;
+    if (newLives <= 0)
+    {
+      // TODO: update high score
+      resetScore();
+      newLives = 3;
+    }
+    lives.value = newLives;
+  }
+  globalDispatcher.trigger<EventDeath>();
   // TODO: In system updates, also give the sceneManager
   // TODO: Conversely just give the scene manager as it also holds registry and window
   // SceneManager &sceneManager = SceneManager::getInstance();
   //  TODO: Reset level scene
   //  sceneManager.switchToScene(0);
+}
+// Temp
+#include <iostream>
+void SystemCollision::resetScore()
+{
+  std::cout << "Test\n";
+  auto view = registryRef.get().view<ComponentScore>();
+  for (auto [entity, score] : view.each())
+    score.value = 0;
 }

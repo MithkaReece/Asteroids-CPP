@@ -9,7 +9,7 @@ SceneLevel::SceneLevel(SystemManager &systemManager, entt::registry &registry, s
 
   // Define systems
   // Spawners
-  addSystem<SystemAsteroidSpawner>(sf::milliseconds(2000));
+  addSystem<SystemAsteroidSpawner>(sf::milliseconds(1000));
   //  Input
   addSystem<SystemUserInput>();
   //  Input responses

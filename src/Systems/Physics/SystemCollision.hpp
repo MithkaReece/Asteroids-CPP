@@ -10,14 +10,16 @@
 #include "ComponentAsteroid.hpp"
 #include "ComponentBulletTag.hpp"
 #include "ComponentScore.hpp"
+#include "ComponentLives.hpp"
 
 #include "EntityAsteroid.hpp"
+
+#include "EventDeath.hpp"
 
 #include "Constants.h"
 #include <string>
 
-// Temp
-#include <iostream>
+
 
 /**
  * @brief Class for handling collisions between entities.
@@ -101,5 +103,7 @@ private:
   void addScore(int scoreIncrease);
 
   void handlePlayerCollision();
+
+  void resetScore();
 };
 #endif
