@@ -25,14 +25,14 @@ std::unique_ptr<Scene> SceneGameplay(SystemManager &systemManager, entt::registr
   std::unique_ptr<Scene> scene = std::make_unique<Scene>(systemManager, registry, window);
   // Define entities
   EntityPlayer(*scene, window);
-  // EntitycreateScoreUI(*this);
 
   // Define systems
   // Spawners
+
   scene->addSystem<SystemAsteroidSpawner>(sf::milliseconds(1000));
-  //  Input
+  //   Input
   scene->addSystem<SystemUserInput>();
-  //  Input responses
+  //   Input responses
   scene->addSystem<SystemPlayerThrust>();
   scene->addSystem<SystemPlayerRotate>();
   scene->addSystem<SystemWeapon>();

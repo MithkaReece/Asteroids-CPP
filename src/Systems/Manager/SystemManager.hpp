@@ -12,6 +12,8 @@ class SystemManager
 {
 private:
   std::vector<std::unique_ptr<ISystem>> systems;
+  std::vector<std::unique_ptr<ISystem>> newSystems; // To be added
+  std::set<int> systemsToRemove;                    // To be removed
   std::vector<size_t> indicesToRemove;
   std::unique_ptr<ISystem> render;
 
@@ -25,5 +27,7 @@ public:
   void addSystem(std::unique_ptr<ISystem> system);
 
   void removeSystems(const std::vector<int> &systemIDs);
+
+  void RemoveSystemByID(int systemID);
 };
 #endif

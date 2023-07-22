@@ -3,12 +3,11 @@
 #define HEADER_ISYSTEM
 #include <SFML/System/Time.hpp>
 
+class ISystem
+{
+public:
+  int ID;
 
-  class ISystem
-  {
-  public:
-    int ID;
-
-    virtual void update(sf::Time dt) {}
-  };
+  virtual void update(sf::Time dt) {}
+};
 #endif
