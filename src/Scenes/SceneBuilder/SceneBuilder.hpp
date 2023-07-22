@@ -25,7 +25,7 @@
 #include "EntityPlayer.hpp"
 #include "EntityScoreUI.hpp"
 #include "EntityLevelUI.hpp"
-#include "EntityMainMenu.hpp"
+#include "EntityMenuItem.hpp"
 
 #include "EnumMenuItemID.hpp"
 

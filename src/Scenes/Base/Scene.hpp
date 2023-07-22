@@ -22,7 +22,6 @@ private:
   std::reference_wrapper<sf::RenderWindow> windowRef;
 
 public:
-  sf::Font font;
   std::string type;
 
   int precendence = 0;

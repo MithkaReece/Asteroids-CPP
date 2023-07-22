@@ -12,9 +12,14 @@ void SystemRender::update(sf::Time dt)
   sf::RenderWindow &window = windowRef.get();
   entt::registry &registry = registryRef.get();
 
-  auto view = registry.view<ComponentRender, ComponentTransform>();
+  for (auto [entity, background] : registry.view<ComponentBackground>().each())
+  {
+    sf::Texture &backgroundTexture = ResourceManager::getInstance().getTexture(background.textureID);
+    sf::Sprite backgroundSprite(backgroundTexture);
+    window.draw(backgroundSprite);
+  }
 
-  for (auto [entity, render, transform] : view.each())
+  for (auto [entity, render, transform] : registry.view<ComponentRender, ComponentTransform>().each())
   {
     // Render the entity using the render and transform components
     sf::Drawable *drawable = render.drawable.get();
@@ -28,16 +33,14 @@ void SystemRender::update(sf::Time dt)
   }
 
   // Render UI elements
-  auto viewUI = registry.view<ComponentScoreText, ComponentLivesText>(); // TODO add lives
-  for (auto [entity, score, lives] : viewUI.each())
+  for (auto [entity, score, lives] : registry.view<ComponentScoreText, ComponentLivesText>().each())
   {
     window.draw(*score.text);
     window.draw(*lives.text);
   }
 
   // Main Menu
-  auto viewMenu = registry.view<ComponentMenuItem>();
-  for (auto [entity, menuItem] : viewMenu.each())
+  for (auto [entity, menuItem] : registry.view<ComponentMenuItem>().each())
   {
     window.draw(*menuItem.shape);
     window.draw(*menuItem.text);

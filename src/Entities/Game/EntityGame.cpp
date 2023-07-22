@@ -6,4 +6,5 @@ void EntityGame(Scene &scene, sf::RenderWindow &window)
   scene.emplace<ComponentScore>(entity, 0);
   scene.emplace<ComponentLives>(entity, 3);
   scene.emplace<ComponentScene>(entity);
+  scene.emplace<ComponentBackground>(entity, "background3");
 }

@@ -8,6 +8,7 @@
 #include <SFML/Window/Keyboard.hpp>
 
 #include "ComponentMenuItem.hpp"
+#include "ComponentBackground.hpp"
 
 #include "EventStartGame.hpp"
 #include "EventMainMenu.hpp"

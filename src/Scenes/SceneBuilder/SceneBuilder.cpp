@@ -11,8 +11,8 @@ std::unique_ptr<Scene> SceneMainMenu(SystemManager &systemManager, entt::registr
 {
   std::unique_ptr<Scene> scene = std::make_unique<Scene>("MainMenu", systemManager, registry, window);
 
-  EntityMenuItem(*scene, window, MenuItemID::StartGame, "Start Game", sf::Vector2f(0.5f, 0.2f), sf::Vector2f(0.05f, 0.05f));
-  EntityMenuItem(*scene, window, MenuItemID::Exit, "Exit", sf::Vector2f(0.5f, 0.5f), sf::Vector2f(0.05f, 0.05f));
+  EntityMenuItem(*scene, window, MenuItemID::StartGame, "Start Game", sf::Vector2f(0.5f, 0.3f), sf::Vector2f(0.05f, 0.05f));
+  EntityMenuItem(*scene, window, MenuItemID::Exit, "Exit", sf::Vector2f(0.5f, 0.6f), sf::Vector2f(0.05f, 0.05f));
 
   scene->addSystem<SystemMenuInput>();
   scene->addSystem<SystemMouseHover>();
@@ -66,8 +66,8 @@ std::unique_ptr<Scene> ScenePauseMenu(SystemManager &systemManager, entt::regist
 {
   std::unique_ptr<Scene> scene = std::make_unique<Scene>("PauseMenu", systemManager, registry, window);
   // Create pause menu entity
-  EntityMenuItem(*scene, window, MenuItemID::Resume, "Resume", sf::Vector2f(0.5f, 0.2f), sf::Vector2f(0.05f, 0.05f));
-  EntityMenuItem(*scene, window, MenuItemID::MainMenu, "Main Menu", sf::Vector2f(0.5f, 0.5f), sf::Vector2f(0.05f, 0.05f));
+  EntityMenuItem(*scene, window, MenuItemID::Resume, "Resume", sf::Vector2f(0.5f, 0.3f), sf::Vector2f(0.05f, 0.05f));
+  EntityMenuItem(*scene, window, MenuItemID::MainMenu, "Main Menu", sf::Vector2f(0.5f, 0.6f), sf::Vector2f(0.05f, 0.05f));
   // Add system for menu input
   return scene;
 }

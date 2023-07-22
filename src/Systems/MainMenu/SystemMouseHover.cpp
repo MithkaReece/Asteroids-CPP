@@ -13,8 +13,8 @@ void SystemMouseHover::update(sf::Time dt)
   {
     menuItem.hover = menuItem.shape->getGlobalBounds().contains(mousePositionFloat);
     if (menuItem.hover)
-      menuItem.shape->setFillColor(sf::Color(100, 100, 100));
+      menuItem.shape->setFillColor(sf::Color(100, 100, 100, 200));
     else
-      menuItem.shape->setFillColor(sf::Color(50, 50, 50));
+      menuItem.shape->setFillColor(sf::Color(50, 50, 50, 200));
   }
 }

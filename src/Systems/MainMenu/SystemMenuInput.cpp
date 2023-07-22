@@ -33,10 +33,11 @@ void SystemMenuInput::update(sf::Time dt)
 void SystemMenuInput::handleButtonStartGame()
 {
   globalDispatcher.trigger<EventStartGame>();
-  auto view = registryRef.get().view<ComponentScene>();
-  for (auto [entity, sceneInfo] : view.each())
+  auto view = registryRef.get().view<ComponentScene, ComponentBackground>();
+  for (auto [entity, sceneInfo, background] : view.each())
   {
     sceneInfo.inGame = true;
+    background.textureID = "background2";
   }
 }
 

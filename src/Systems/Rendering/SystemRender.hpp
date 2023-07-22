@@ -11,6 +11,8 @@
 #include "ComponentScoreText.hpp"
 #include "ComponentLivesText.hpp"
 #include "ComponentMenuItem.hpp"
+#include "ComponentBackground.hpp"
+#include "ResourceManager.hpp"
 
 /**
  * @brief The Render class handles rendering entities and UI elements.

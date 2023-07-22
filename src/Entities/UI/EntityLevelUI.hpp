@@ -7,6 +7,7 @@
 #include "ComponentLivesText.hpp"
 #include <memory>
 #include <iostream>
+#include "ResourceManager.hpp"
 
 void EntityLevelUI(Scene &scene, sf::RenderWindow &window);
 #endif

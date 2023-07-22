@@ -11,6 +11,8 @@
 
 #include <SFML/Graphics.hpp>
 
+#include "ResourceManager.hpp"
+
 /**
  * @brief Create a score UI entity with the specified components.
  *

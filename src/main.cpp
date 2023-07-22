@@ -5,6 +5,8 @@
 
 #include <entt/entt.hpp>
 
+#include "ResourceManager.hpp"
+
 #include "SystemRender.hpp"
 #include "SystemManager.hpp"
 #include "SceneManager.hpp"
@@ -17,6 +19,8 @@ entt::dispatcher globalDispatcher;
 int main(int argc, char *argv[])
 {
   sf::RenderWindow window(sf::VideoMode(1000, 600), "");
+
+  ResourceManager::getInstance();
 
   entt::registry registry;
   SystemManager systemManager(std::make_unique<SystemRender>(registry, window));
