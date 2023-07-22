@@ -23,10 +23,11 @@ private:
 
 public:
   sf::Font font;
+  std::string type;
 
   int precendence = 0;
 
-  Scene(SystemManager &systemManager, entt::registry &registry, sf::RenderWindow &window);
+  Scene(std::string type, SystemManager &systemManager, entt::registry &registry, sf::RenderWindow &window);
   virtual ~Scene();
   /**
    * @brief Updates all the systems in the scene.

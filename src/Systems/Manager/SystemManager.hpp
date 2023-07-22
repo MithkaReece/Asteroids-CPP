@@ -8,6 +8,8 @@
 #include <SFML/System/Time.hpp>
 #include "ISystem.hpp"
 
+#include "ComponentScene.hpp"
+
 class SystemManager
 {
 private:

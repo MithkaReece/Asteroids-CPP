@@ -5,8 +5,7 @@ SystemUserInput::SystemUserInput(entt::registry &registry, sf::RenderWindow &win
 
 void SystemUserInput::update(sf::Time dt)
 {
-  entt::registry &registry = registryRef.get();
-  auto view = registry.view<ComponentPlayerInput>();
+  auto view = registryRef.get().view<ComponentPlayerInput>();
   for (auto [entity, input] : view.each())
   {
     // Update input based on keyboard events

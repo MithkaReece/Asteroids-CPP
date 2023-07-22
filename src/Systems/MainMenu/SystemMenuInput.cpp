@@ -21,13 +21,31 @@ void SystemMenuInput::update(sf::Time dt)
     if (menuItem.shape->getGlobalBounds().contains(mousePositionFloat))
     {
       if (menuItem.id == MenuItemID::StartGame)
-      {
-        globalDispatcher.trigger<EventStartGame>();
-      }
+        handleButtonStartGame();
       else if (menuItem.id == MenuItemID::Exit)
-      {
         window.close();
-      }
+      else if (menuItem.id == MenuItemID::MainMenu)
+        handleButtonMainMenu();
     }
+  }
+}
+
+void SystemMenuInput::handleButtonStartGame()
+{
+  globalDispatcher.trigger<EventStartGame>();
+  auto view = registryRef.get().view<ComponentScene>();
+  for (auto [entity, sceneInfo] : view.each())
+  {
+    sceneInfo.inGame = true;
+  }
+}
+
+void SystemMenuInput::handleButtonMainMenu()
+{
+  globalDispatcher.trigger<EventMainMenu>();
+  auto view = registryRef.get().view<ComponentScene>();
+  for (auto [entity, sceneInfo] : view.each())
+  {
+    sceneInfo.inGame = false;
   }
 }

@@ -4,7 +4,8 @@
 enum class MenuItemID
 {
   StartGame,
-  Options,
   Exit,
+  Resume,
+  MainMenu,
 };
 #endif

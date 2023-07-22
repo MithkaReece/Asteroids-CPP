@@ -10,6 +10,7 @@
 #include "ComponentMenuItem.hpp"
 
 #include "EventStartGame.hpp"
+#include "EventMainMenu.hpp"
 
 #include "EnumMenuItemID.hpp"
 
@@ -19,6 +20,10 @@ public:
   SystemMenuInput(entt::registry &registry, sf::RenderWindow &window, Scene &scene);
 
   void update(sf::Time dt);
+
+private:
+  void handleButtonStartGame();
+  void handleButtonMainMenu();
 };
 
 #endif

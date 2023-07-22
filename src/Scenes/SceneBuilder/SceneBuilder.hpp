@@ -19,6 +19,7 @@
 #include "SystemLives.hpp"
 #include "SystemMenuInput.hpp"
 #include "SystemMouseHover.hpp"
+#include "SystemPauseMenuToggle.hpp"
 
 #include "EntityGame.hpp"
 #include "EntityPlayer.hpp"

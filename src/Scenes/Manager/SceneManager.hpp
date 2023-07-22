@@ -40,9 +40,6 @@ public:
   // template <typename SceneType>
   void addScene(std::function<std::unique_ptr<Scene>(SystemManager &, entt::registry &, sf::RenderWindow &)> sceneBuilder);
 
-  template <typename SceneType>
-  void removeScene();
-
   entt::registry &getRegistry();
 
   sf::RenderWindow &getWindow();
@@ -51,11 +48,15 @@ private:
   // Sort scenes based on precedence
   void sortScenesByPrecedence();
 
-  void gotoMainMenu();
-
   void clearScenes();
 
-public:
+  void gotoMainMenu();
+
   void gotoLevel();
+
+  void pause();
+  void unpause();
+
+  void removeScene(std::string type);
 };
 #endif

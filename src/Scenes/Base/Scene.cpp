@@ -3,8 +3,8 @@
 
 #include <iostream>
 
-Scene::Scene(SystemManager &systemManager, entt::registry &registry, sf::RenderWindow &window)
-    : systemManagerRef(systemManager), registryRef(registry), windowRef(window)
+Scene::Scene(std::string type, SystemManager &systemManager, entt::registry &registry, sf::RenderWindow &window)
+    : type(type), systemManagerRef(systemManager), registryRef(registry), windowRef(window)
 {
   font.loadFromFile("/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Resources/Roboto-Medium.ttf");
 }

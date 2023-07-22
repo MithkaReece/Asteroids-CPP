@@ -2,14 +2,14 @@
 
 std::unique_ptr<Scene> SceneGame(SystemManager &systemManager, entt::registry &registry, sf::RenderWindow &window)
 {
-  std::unique_ptr<Scene> scene = std::make_unique<Scene>(systemManager, registry, window);
+  std::unique_ptr<Scene> scene = std::make_unique<Scene>("Game", systemManager, registry, window);
   EntityGame(*scene, window);
   return scene;
 }
 
 std::unique_ptr<Scene> SceneMainMenu(SystemManager &systemManager, entt::registry &registry, sf::RenderWindow &window)
 {
-  std::unique_ptr<Scene> scene = std::make_unique<Scene>(systemManager, registry, window);
+  std::unique_ptr<Scene> scene = std::make_unique<Scene>("MainMenu", systemManager, registry, window);
 
   EntityMenuItem(*scene, window, MenuItemID::StartGame, "Start Game", sf::Vector2f(0.5f, 0.2f), sf::Vector2f(0.05f, 0.05f));
   EntityMenuItem(*scene, window, MenuItemID::Exit, "Exit", sf::Vector2f(0.5f, 0.5f), sf::Vector2f(0.05f, 0.05f));
@@ -22,7 +22,7 @@ std::unique_ptr<Scene> SceneMainMenu(SystemManager &systemManager, entt::registr
 
 std::unique_ptr<Scene> SceneGameplay(SystemManager &systemManager, entt::registry &registry, sf::RenderWindow &window)
 {
-  std::unique_ptr<Scene> scene = std::make_unique<Scene>(systemManager, registry, window);
+  std::unique_ptr<Scene> scene = std::make_unique<Scene>("Gameplay", systemManager, registry, window);
   // Define entities
   EntityPlayer(*scene, window);
 
@@ -52,20 +52,22 @@ std::unique_ptr<Scene> SceneGameplay(SystemManager &systemManager, entt::registr
 
 std::unique_ptr<Scene> SceneHUD(SystemManager &systemManager, entt::registry &registry, sf::RenderWindow &window)
 {
-  std::unique_ptr<Scene> scene = std::make_unique<Scene>(systemManager, registry, window);
+  std::unique_ptr<Scene> scene = std::make_unique<Scene>("HUD", systemManager, registry, window);
   EntityLevelUI(*scene, window);
 
   scene->addSystem<SystemScore>();
   scene->addSystem<SystemLives>();
+
+  scene->addSystem<SystemPauseMenuToggle>();
   return scene;
 }
-
+#include <iostream>
 std::unique_ptr<Scene> ScenePauseMenu(SystemManager &systemManager, entt::registry &registry, sf::RenderWindow &window)
 {
-  std::unique_ptr<Scene> scene = std::make_unique<Scene>(systemManager, registry, window);
+  std::unique_ptr<Scene> scene = std::make_unique<Scene>("PauseMenu", systemManager, registry, window);
   // Create pause menu entity
-
+  EntityMenuItem(*scene, window, MenuItemID::Resume, "Resume", sf::Vector2f(0.5f, 0.2f), sf::Vector2f(0.05f, 0.05f));
+  EntityMenuItem(*scene, window, MenuItemID::MainMenu, "Main Menu", sf::Vector2f(0.5f, 0.5f), sf::Vector2f(0.05f, 0.05f));
   // Add system for menu input
-
   return scene;
 }

@@ -6,6 +6,7 @@
 #include "Scene.hpp"
 #include "ComponentScore.hpp"
 #include "ComponentLives.hpp"
+#include "ComponentScene.hpp"
 
 void EntityGame(Scene &scene, sf::RenderWindow &window);
 
