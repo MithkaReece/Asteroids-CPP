@@ -5,7 +5,11 @@
 
 class ISystem
 {
+protected:
+  static int nextID;
+
 public:
+  ISystem();
   int ID;
 
   virtual void update(sf::Time dt) {}

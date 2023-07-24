@@ -72,7 +72,11 @@
     "random": "cpp",
     "memory_resource": "cpp",
     "functional": "cpp",
-    "any": "cpp"
+    "any": "cpp",
+    "fstream": "cpp",
+    "iomanip": "cpp",
+    "stack": "cpp",
+    "filesystem": "cpp"
   },
   "editor.tabSize": 2,
   "editor.detectIndentation": false

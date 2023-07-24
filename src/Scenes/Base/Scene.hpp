@@ -8,6 +8,9 @@
 
 #include "SystemManager.hpp"
 
+#include <iostream>
+#include <string>
+
 /**
  * @brief Base class for scenes in an ECS (entt) and SFML project.
  * Scenes represent different states or levels in the game.
@@ -51,9 +54,10 @@ public:
   template <typename SystemType, typename... Args>
   void addSystem(Args &&...args)
   {
-    std::unique_ptr<ISystem> system = std::make_unique<SystemType>(
+    std::unique_ptr<SystemType> system = std::make_unique<SystemType>(
         registryRef.get(), windowRef.get(), *this, std::forward<Args>(args)...);
     systemIDs.push_back(system->ID);
+    std::cout << "System created:" << std::to_string(system->ID) << "\n";
     systemManagerRef.get().addSystem(std::move(system));
   }
 };

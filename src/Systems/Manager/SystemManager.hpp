@@ -30,6 +30,6 @@ public:
 
   void removeSystems(const std::vector<int> &systemIDs);
 
-  void RemoveSystemByID(int systemID);
+  void emptyRemoveQueue();
 };
 #endif

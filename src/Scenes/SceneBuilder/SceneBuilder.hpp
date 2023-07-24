@@ -15,15 +15,13 @@
 #include "SystemPlayerRotate.hpp"
 #include "SystemWeapon.hpp"
 #include "SystemOutOfBound.hpp"
-#include "SystemScore.hpp"
-#include "SystemLives.hpp"
+#include "SystemHUD.hpp"
 #include "SystemMenuInput.hpp"
 #include "SystemMouseHover.hpp"
 #include "SystemPauseMenuToggle.hpp"
 
 #include "EntityGame.hpp"
 #include "EntityPlayer.hpp"
-#include "EntityScoreUI.hpp"
 #include "EntityLevelUI.hpp"
 #include "EntityMenuItem.hpp"
 

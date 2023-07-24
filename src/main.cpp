@@ -18,7 +18,7 @@ entt::dispatcher globalDispatcher;
 
 int main(int argc, char *argv[])
 {
-  sf::RenderWindow window(sf::VideoMode(1000, 600), "");
+  sf::RenderWindow window(sf::VideoMode(1920, 1080), "");
 
   ResourceManager::getInstance();
 

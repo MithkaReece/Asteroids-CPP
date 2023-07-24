@@ -1,20 +1,16 @@
 #include "EntityLevelUI.hpp"
-
-void EntityLevelUI(Scene &scene, sf::RenderWindow &window)
+void EntityLevelUI(Scene &scene, sf::RenderWindow &window, sf::Vector2f position, std::string ID)
 {
   auto entity = scene.create();
 
   std::unique_ptr<sf::Text> scoreText = std::make_unique<sf::Text>();
   scoreText->setFont(ResourceManager::getInstance().getFont("Default"));
-  scoreText->setCharacterSize(25);
-  scoreText->setPosition(window.getSize().x * 0.01f, 10.0f);
-  scoreText->setFillColor(sf::Color::White);
-  scene.emplace<ComponentScoreText>(entity, std::move(scoreText));
+  scoreText->setCharacterSize(35);
 
-  std::unique_ptr<sf::Text> livesText = std::make_unique<sf::Text>();
-  livesText->setFont(ResourceManager::getInstance().getFont("Default"));
-  livesText->setCharacterSize(25);
-  livesText->setPosition(window.getSize().x * 0.9f, 10.0f);
-  livesText->setFillColor(sf::Color::White);
-  scene.emplace<ComponentLivesText>(entity, std::move(livesText));
+  scoreText->setPosition(window.getSize().x * position.x, window.getSize().y * position.y);
+  scoreText->setFillColor(sf::Color::White);
+  scoreText->setOutlineThickness(2.f); // Set the thickness in pixels
+  scoreText->setOutlineColor(sf::Color::Black);
+
+  scene.emplace<ComponentText>(entity, std::move(ID), std::move(scoreText));
 }

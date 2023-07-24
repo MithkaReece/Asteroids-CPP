@@ -11,6 +11,7 @@
 #include "ComponentBulletTag.hpp"
 #include "ComponentScore.hpp"
 #include "ComponentLives.hpp"
+#include "ComponentHighScore.hpp"
 
 #include "EntityAsteroid.hpp"
 
@@ -18,8 +19,6 @@
 
 #include "Constants.h"
 #include <string>
-
-
 
 /**
  * @brief Class for handling collisions between entities.

@@ -15,11 +15,8 @@ protected:
   std::reference_wrapper<entt::registry> registryRef;
   std::reference_wrapper<sf::RenderWindow> windowRef;
   std::reference_wrapper<Scene> sceneRef;
-  static int nextID;
 
 public:
-  int ID;
-
   System(entt::registry &registry, sf::RenderWindow &window, Scene &scene);
 
   /**

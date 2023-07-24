@@ -4,12 +4,73 @@
 
 ResourceManager::ResourceManager()
 {
-  std::cout << "Test\n";
+
   loadFont("Default", "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Resources/Fonts/Roboto-Medium.ttf");
 
   loadTexture("background1", "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Resources/Backgrounds/1.png");
   loadTexture("background2", "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Resources/Backgrounds/2.png");
   loadTexture("background3", "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Resources/Backgrounds/3.png");
+
+  loadHighScore();
+}
+#include <iostream>
+int ResourceManager::loadHighScore()
+{
+  int highScore = 0;
+  if (std::filesystem::exists(highScorePath))
+  {
+    std::ifstream file(highScorePath, std::ios::binary);
+    if (file.is_open())
+    {
+      file.read(reinterpret_cast<char *>(&highScore), sizeof(int));
+      file.close();
+    }
+    else
+    {
+      // Handle error if file cannot be opened (optional)
+      std::cerr << "Error: Could not open file '" << highScorePath << "' for reading.\n";
+    }
+  }
+  else
+  {
+    // The file doesn't exist, so create it with the default high score
+    std::ofstream file(highScorePath, std::ios::binary);
+    if (file.is_open())
+    {
+      std::cout << "Create file\n";
+      file.write(reinterpret_cast<const char *>(&highScore), sizeof(int));
+      file.close();
+    }
+    else
+    {
+      // Handle error if file cannot be created (optional)
+      std::cerr << "Error: Could not create file '" << highScorePath << "' for writing.\n";
+    }
+  }
+  std::cout << "Highscore loaded:" << highScore << "\n";
+  return highScore;
+}
+
+int ResourceManager::getHighScore()
+{
+  return highScore;
+}
+
+void ResourceManager::setHighScore(int newHighScore)
+{
+  highScore = newHighScore;
+  // Save to file
+  std::ofstream file(highScorePath, std::ios::binary);
+  if (file.is_open())
+  {
+    file.write(reinterpret_cast<const char *>(&highScore), sizeof(int));
+    file.close();
+  }
+  else
+  {
+    // Handle error if file cannot be opened
+    // ...
+  }
 }
 
 bool ResourceManager::loadTexture(const std::string &id, const std::string &filepath)
@@ -27,9 +88,9 @@ bool ResourceManager::loadTexture(const std::string &id, const std::string &file
 
 sf::Texture &ResourceManager::getTexture(const std::string &id)
 {
-    auto it = textures.find(id);
-    assert(it != textures.end() && "Texture not found in ResourceManager");
-    return it->second;
+  auto it = textures.find(id);
+  assert(it != textures.end() && "Texture not found in ResourceManager");
+  return it->second;
 }
 
 bool ResourceManager::loadFont(const std::string &id, const std::string &filepath)

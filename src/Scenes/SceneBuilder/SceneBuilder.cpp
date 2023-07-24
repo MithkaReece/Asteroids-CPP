@@ -53,10 +53,11 @@ std::unique_ptr<Scene> SceneGameplay(SystemManager &systemManager, entt::registr
 std::unique_ptr<Scene> SceneHUD(SystemManager &systemManager, entt::registry &registry, sf::RenderWindow &window)
 {
   std::unique_ptr<Scene> scene = std::make_unique<Scene>("HUD", systemManager, registry, window);
-  EntityLevelUI(*scene, window);
+  EntityLevelUI(*scene, window, sf::Vector2f(0.08f, 0.01f), "Score");
+  EntityLevelUI(*scene, window, sf::Vector2f(0.92f, 0.01f), "Lives");
+  EntityLevelUI(*scene, window, sf::Vector2f(0.5f, 0.01f), "HighScore");
 
-  scene->addSystem<SystemScore>();
-  scene->addSystem<SystemLives>();
+  scene->addSystem<SystemHUD>();
 
   scene->addSystem<SystemPauseMenuToggle>();
   return scene;

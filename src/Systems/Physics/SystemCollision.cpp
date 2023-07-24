@@ -145,8 +145,17 @@ void SystemCollision::handleBulletCollision(entt::entity bullet, ComponentTransf
 void SystemCollision::addScore(int scoreIncrease)
 {
   auto view = registryRef.get().view<ComponentScore>();
-  for (auto [entity, score] : view.each())
+  for (auto [scoreEntity, score] : view.each())
+  {
     score.value += scoreIncrease;
+    for (auto [highScoreEntity, highScore] : registryRef.get().view<ComponentHighScore>().each())
+    {
+      if (score.value > highScore.value)
+      {
+        highScore.value = score.value;
+      }
+    }
+  }
 }
 extern entt::dispatcher globalDispatcher;
 void SystemCollision::handlePlayerCollision()

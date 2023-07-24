@@ -4,6 +4,7 @@
 
 #include <entt/entt.hpp>
 #include "Scene.hpp"
+#include "ComponentHighScore.hpp"
 #include "ComponentScore.hpp"
 #include "ComponentLives.hpp"
 #include "ComponentScene.hpp"
