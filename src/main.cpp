@@ -5,6 +5,7 @@
 
 #include <entt/entt.hpp>
 
+#include "SystemSaveHighScore.hpp"
 #include "ResourceManager.hpp"
 
 #include "SystemRender.hpp"
@@ -18,7 +19,7 @@ entt::dispatcher globalDispatcher;
 
 int main(int argc, char *argv[])
 {
-  sf::RenderWindow window(sf::VideoMode(1920, 1080), "");
+  sf::RenderWindow window(sf::VideoMode(1000, 500), "");
 
   ResourceManager::getInstance();
 
@@ -36,7 +37,10 @@ int main(int argc, char *argv[])
     while (window.pollEvent(event))
     { // Close window (on close button)
       if (event.type == sf::Event::Closed)
+      {
+        SystemSaveHighScore::SaveHighScore(registry);
         window.close();
+      }
       else if (event.type == sf::Event::Resized)
       {
       }

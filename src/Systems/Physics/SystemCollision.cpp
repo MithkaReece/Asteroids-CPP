@@ -166,7 +166,8 @@ void SystemCollision::handlePlayerCollision()
     int newLives = lives.value - 1;
     if (newLives <= 0)
     {
-      // TODO: update high score
+      SystemSaveHighScore::SaveHighScore(registryRef.get());
+
       resetScore();
       newLives = 3;
     }

@@ -57,7 +57,6 @@ public:
     std::unique_ptr<SystemType> system = std::make_unique<SystemType>(
         registryRef.get(), windowRef.get(), *this, std::forward<Args>(args)...);
     systemIDs.push_back(system->ID);
-    std::cout << "System created:" << std::to_string(system->ID) << "\n";
     systemManagerRef.get().addSystem(std::move(system));
   }
 };

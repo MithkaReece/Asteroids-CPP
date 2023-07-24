@@ -20,6 +20,8 @@
 #include "Constants.h"
 #include <string>
 
+#include "SystemSaveHighScore.hpp"
+
 /**
  * @brief Class for handling collisions between entities.
  */

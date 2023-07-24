@@ -37,22 +37,21 @@ void SystemManager::addSystem(std::unique_ptr<ISystem> system)
 void SystemManager::removeSystems(const std::vector<int> &systemIDs)
 {
   for (const int &systemID : systemIDs)
-  {
-    // std::cout << "Delete queue +" << std::to_string(systemID) + "\n";
     systemsToRemove.insert(systemID);
-  }
 }
 
 // Function to remove a system by ID
 void SystemManager::emptyRemoveQueue()
 {
+  if (systemsToRemove.size() <= 0)
+    return;
+
   for (auto it = systems.begin(); it != systems.end();)
   {
     int systemID = (*it)->ID;
 
     if (systemsToRemove.find(systemID) != systemsToRemove.end())
     {
-      std::cout << "System " << std::to_string(systemID) << " Deleted\n";
       it = systems.erase(it);
     }
     else

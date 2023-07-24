@@ -30,14 +30,15 @@ private:
 
   bool loadFont(const std::string &id, const std::string &filepath);
 
-  int loadHighScore();
-  int getHighScore();
-  void setHighScore(int newHighScore);
+  void loadHighScore();
 
 public:
   sf::Texture &getTexture(const std::string &id);
 
   sf::Font &getFont(const std::string &id);
+
+  int getHighScore();
+  void setHighScore(int newHighScore);
 };
 
 #endif

@@ -27,6 +27,8 @@
 
 #include "EnumMenuItemID.hpp"
 
+
+
 std::unique_ptr<Scene> SceneGame(SystemManager &systemManager, entt::registry &registry, sf::RenderWindow &window);
 
 std::unique_ptr<Scene> SceneMainMenu(SystemManager &systemManager, entt::registry &registry, sf::RenderWindow &window);

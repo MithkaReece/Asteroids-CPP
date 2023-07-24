@@ -10,6 +10,8 @@
 #include "ComponentScene.hpp"
 #include "ComponentBackground.hpp"
 
+#include "ResourceManager.hpp"
+
 void EntityGame(Scene &scene, sf::RenderWindow &window);
 
 #endif

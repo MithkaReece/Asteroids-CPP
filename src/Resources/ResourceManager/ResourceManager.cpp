@@ -14,15 +14,15 @@ ResourceManager::ResourceManager()
   loadHighScore();
 }
 #include <iostream>
-int ResourceManager::loadHighScore()
+void ResourceManager::loadHighScore()
 {
-  int highScore = 0;
+  int retrievedHighScore = 0;
   if (std::filesystem::exists(highScorePath))
   {
     std::ifstream file(highScorePath, std::ios::binary);
     if (file.is_open())
     {
-      file.read(reinterpret_cast<char *>(&highScore), sizeof(int));
+      file.read(reinterpret_cast<char *>(&retrievedHighScore), sizeof(int));
       file.close();
     }
     else
@@ -38,7 +38,7 @@ int ResourceManager::loadHighScore()
     if (file.is_open())
     {
       std::cout << "Create file\n";
-      file.write(reinterpret_cast<const char *>(&highScore), sizeof(int));
+      file.write(reinterpret_cast<const char *>(&retrievedHighScore), sizeof(int));
       file.close();
     }
     else
@@ -47,12 +47,13 @@ int ResourceManager::loadHighScore()
       std::cerr << "Error: Could not create file '" << highScorePath << "' for writing.\n";
     }
   }
-  std::cout << "Highscore loaded:" << highScore << "\n";
-  return highScore;
+  std::cout << "Highscore loaded:" << retrievedHighScore << "\n";
+  highScore = retrievedHighScore;
 }
 
 int ResourceManager::getHighScore()
 {
+  std::cout << "High Score give is " << std::to_string(highScore) << "\n";
   return highScore;
 }
 
