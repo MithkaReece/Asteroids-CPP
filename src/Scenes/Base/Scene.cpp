@@ -16,8 +16,7 @@ Scene::~Scene()
 
   createdEntities.clear();
 
-  SystemManager &systemManager = systemManagerRef.get();
-  systemManager.removeSystems(systemIDs);
+  systemManagerRef.get().removeSystems(systemIDs);
 }
 
 entt::entity Scene::create()
@@ -25,4 +24,14 @@ entt::entity Scene::create()
   entt::entity entity = registryRef.get().create();
   createdEntities.insert(entity);
   return entity;
+}
+
+void Scene::pause()
+{
+  systemManagerRef.get().pauseSystems(systemIDs);
+}
+
+void Scene::unpause()
+{
+  systemManagerRef.get().unpauseSystems(systemIDs);
 }

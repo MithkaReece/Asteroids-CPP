@@ -59,5 +59,9 @@ public:
     systemIDs.push_back(system->ID);
     systemManagerRef.get().addSystem(std::move(system));
   }
+
+  void pause();
+
+  void unpause();
 };
 #endif

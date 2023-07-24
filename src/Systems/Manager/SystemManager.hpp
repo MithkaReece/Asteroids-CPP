@@ -31,5 +31,9 @@ public:
   void removeSystems(const std::vector<int> &systemIDs);
 
   void emptyRemoveQueue();
+
+  void pauseSystems(const std::vector<int> &idsToPause);
+
+  void unpauseSystems(const std::vector<int> &idsToPause);
 };
 #endif

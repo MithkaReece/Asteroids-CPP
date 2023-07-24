@@ -50,16 +50,16 @@ void SystemRender::update(sf::Time dt)
     window.draw(*drawable, sfTransform); // Draw the drawable object to the window
   }
 
-  // Render UI elements
-  for (auto [entity, text] : registry.view<ComponentText>().each())
-  {
-    window.draw(*text.text);
-  }
-
   // Main Menu
   for (auto [entity, menuItem] : registry.view<ComponentMenuItem>().each())
   {
     window.draw(*menuItem.shape);
     window.draw(*menuItem.text);
+  }
+
+  // Render UI elements
+  for (auto [entity, text] : registry.view<ComponentText>().each())
+  {
+    window.draw(*text.text);
   }
 }

@@ -11,6 +11,7 @@ protected:
 public:
   ISystem();
   int ID;
+  int Paused = false;
 
   virtual void update(sf::Time dt) {}
 };

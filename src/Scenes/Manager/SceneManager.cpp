@@ -61,10 +61,27 @@ void SceneManager::gotoLevel()
 
 void SceneManager::pause()
 {
+  for (const auto &scene : scenes)
+  {
+    if (scene->type == "Gameplay")
+    {
+      scene->pause();
+      break;
+    }
+  }
+
   addScene(ScenePauseMenu);
 }
 void SceneManager::unpause()
 {
+  for (const auto &scene : scenes)
+  {
+    if (scene->type == "Gameplay")
+    {
+      scene->unpause();
+      break;
+    }
+  }
   removeScene("PauseMenu");
 }
 

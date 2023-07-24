@@ -19,7 +19,7 @@ void SystemManager::updateSystems(sf::Time dt)
 
   for (const std::unique_ptr<ISystem> &system : systems)
   {
-    if (system && system != nullptr)
+    if (system && system != nullptr && !system->Paused)
       system->update(dt);
   }
 }
@@ -60,4 +60,34 @@ void SystemManager::emptyRemoveQueue()
     }
   }
   systemsToRemove.clear();
+}
+
+void SystemManager::pauseSystems(const std::vector<int> &idsToPause)
+{
+  // Find the systems with the given IDs and call pause() on each of them
+  for (const auto &id : idsToPause)
+  {
+    auto it = std::find_if(systems.begin(), systems.end(), [id](const auto &system)
+                           { return system->ID == id; });
+
+    if (it != systems.end())
+    {
+      (*it)->Paused = true;
+    }
+  }
+}
+
+void SystemManager::unpauseSystems(const std::vector<int> &idsToPause)
+{
+  // Find the systems with the given IDs and call pause() on each of them
+  for (const auto &id : idsToPause)
+  {
+    auto it = std::find_if(systems.begin(), systems.end(), [id](const auto &system)
+                           { return system->ID == id; });
+
+    if (it != systems.end())
+    {
+      (*it)->Paused = false;
+    }
+  }
 }

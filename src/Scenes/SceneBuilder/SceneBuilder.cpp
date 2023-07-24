@@ -4,6 +4,8 @@ std::unique_ptr<Scene> SceneGame(SystemManager &systemManager, entt::registry &r
 {
   std::unique_ptr<Scene> scene = std::make_unique<Scene>("Game", systemManager, registry, window);
   EntityGame(*scene, window);
+
+  scene->addSystem<SystemMouseHover>();
   return scene;
 }
 
@@ -15,7 +17,6 @@ std::unique_ptr<Scene> SceneMainMenu(SystemManager &systemManager, entt::registr
   EntityMenuItem(*scene, window, MenuItemID::Exit, "Exit", sf::Vector2f(0.5f, 0.6f), sf::Vector2f(0.05f, 0.05f));
 
   scene->addSystem<SystemMenuInput>();
-  scene->addSystem<SystemMouseHover>();
 
   return scene;
 }
