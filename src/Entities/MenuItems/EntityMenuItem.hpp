@@ -7,8 +7,7 @@
 #include "EnumMenuItemID.hpp"
 #include "ResourceManager.hpp"
 
-void EntityMenuItem(Scene &scene, sf::RenderWindow &window,
-                    MenuItemID itemID, std::string stringText,
-                    sf::Vector2f position, sf::Vector2f outerborderRatio);
+void EntityMenuItem(Scene &scene, sf::RenderWindow &window, std::string buttonText,
+                    sf::Vector2f position, sf::Vector2f outerborderRatio, OnClickFunc onClickFunc);
 
 #endif

@@ -1,7 +1,10 @@
 #include "EntityMenuItem.hpp"
 
-void EntityMenuItem(Scene &scene, sf::RenderWindow &window, MenuItemID itemID,
-                    std::string stringText, sf::Vector2f position, sf::Vector2f outerborderRatio)
+using OnClickFunc = void (*)(entt::registry &, sf::RenderWindow &window, entt::dispatcher &);
+
+void EntityMenuItem(Scene &scene, sf::RenderWindow &window, std::string buttonText,
+                    sf::Vector2f position, sf::Vector2f outerborderRatio, OnClickFunc onClickFunc)
+
 {
   auto entity = scene.create();
   // Make button text
@@ -10,7 +13,7 @@ void EntityMenuItem(Scene &scene, sf::RenderWindow &window, MenuItemID itemID,
   text->setCharacterSize(75);
   text->setPosition(window.getSize().x * position.x, window.getSize().y * position.y);
   text->setFillColor(sf::Color::White);
-  text->setString(stringText);
+  text->setString(buttonText);
   sf::FloatRect textBounds = text->getLocalBounds();
   text->setOrigin(textBounds.width / 2.f, textBounds.height / 2.f);
 
@@ -23,5 +26,5 @@ void EntityMenuItem(Scene &scene, sf::RenderWindow &window, MenuItemID itemID,
   backgroundRect->setPosition(globalTextBounds.left - window.getSize().x * outerborderRatio.x / 2.0f,
                               globalTextBounds.top - window.getSize().y * outerborderRatio.y / 2.0f);
 
-  scene.emplace<ComponentMenuItem>(entity, itemID, std::move(text), std::move(backgroundRect));
+  scene.emplace<ComponentMenuItem>(entity, std::move(text), std::move(backgroundRect), onClickFunc);
 }

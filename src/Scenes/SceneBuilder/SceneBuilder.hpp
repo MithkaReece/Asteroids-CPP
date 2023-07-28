@@ -25,9 +25,9 @@
 #include "EntityLevelUI.hpp"
 #include "EntityMenuItem.hpp"
 
-#include "EnumMenuItemID.hpp"
-
-
+#include "EventStartGame.hpp"
+#include "EventUnpause.hpp"
+#include "EventMainMenu.hpp"
 
 std::unique_ptr<Scene> SceneGame(SystemManager &systemManager, entt::registry &registry, sf::RenderWindow &window);
 

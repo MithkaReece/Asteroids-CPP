@@ -23,6 +23,6 @@ public:
    * @brief Virtual destructor for proper inheritance.
    */
   // virtual ~System() {}
-  virtual void update(sf::Time dt);
+  virtual void update(sf::Time dt) {}
 };
 #endif

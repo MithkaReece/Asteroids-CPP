@@ -10,11 +10,13 @@ SceneManager::SceneManager(SystemManager &systemManager, entt::registry &registr
   globalDispatcher.sink<EventStartGame>().connect<&SceneManager::gotoLevel>(*this);
   globalDispatcher.sink<EventPause>().connect<&SceneManager::pause>(*this);
   globalDispatcher.sink<EventUnpause>().connect<&SceneManager::unpause>(*this);
+  globalDispatcher.sink<EventMainMenu>().connect<&SceneManager::gotoMainMenu>(*this);
   // Add initialise scenes
   persistentScene = SceneGame(systemManager, registry, window);
 
+  // addScene(SceneMainMenu);
   gotoMainMenu();
-  // gotoLevel();
+  //  gotoLevel();
 }
 
 // template <typename SceneType>
@@ -34,11 +36,13 @@ void SceneManager::sortScenesByPrecedence()
 void SceneManager::clearScenes()
 {
 }
-
+#include <iostream>
 void SceneManager::gotoMainMenu()
 {
+  std::cout << "====MAIN MENU====\n";
   scenes.clear();
   addScene(SceneMainMenu);
+  std::cout << "====SCENES DELETED====\n";
 
   // auto view = registryRef.get().view<ComponentScene>();
   // for (auto [entity, sceneInfo] : view.each())

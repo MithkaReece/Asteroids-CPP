@@ -17,6 +17,8 @@ private:
   std::vector<std::unique_ptr<ISystem>> newSystems; // To be added
   std::set<int> systemsToRemove;                    // To be removed
   std::vector<size_t> indicesToRemove;
+
+  std::unique_ptr<ISystem> input;
   std::unique_ptr<ISystem> render;
 
 public:

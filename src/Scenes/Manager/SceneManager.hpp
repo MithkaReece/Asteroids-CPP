@@ -15,6 +15,9 @@
 
 #include "EventDeath.hpp"
 #include "EventStartGame.hpp"
+#include "EventMainMenu.hpp"
+#include "EventPause.hpp"
+#include "EventUnpause.hpp"
 /**
  * @brief Class for managing scenes and switching between them.
  */

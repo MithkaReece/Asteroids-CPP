@@ -9,6 +9,7 @@
 #include "ResourceManager.hpp"
 
 #include "SystemRender.hpp"
+
 #include "SystemManager.hpp"
 #include "SceneManager.hpp"
 
@@ -19,7 +20,7 @@ entt::dispatcher globalDispatcher;
 
 int main(int argc, char *argv[])
 {
-  sf::RenderWindow window(sf::VideoMode(1000, 500), "");
+  sf::RenderWindow window(sf::VideoMode(1920, 1080), "");
 
   ResourceManager::getInstance();
 

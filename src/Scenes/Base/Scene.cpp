@@ -15,7 +15,6 @@ Scene::~Scene()
   }
 
   createdEntities.clear();
-
   systemManagerRef.get().removeSystems(systemIDs);
 }
 

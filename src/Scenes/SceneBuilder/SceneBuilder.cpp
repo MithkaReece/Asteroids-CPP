@@ -5,18 +5,28 @@ std::unique_ptr<Scene> SceneGame(SystemManager &systemManager, entt::registry &r
   std::unique_ptr<Scene> scene = std::make_unique<Scene>("Game", systemManager, registry, window);
   EntityGame(*scene, window);
 
+  scene->addSystem<SystemMenuInput>();
   scene->addSystem<SystemMouseHover>();
+
   return scene;
 }
-
+#include <iostream>
 std::unique_ptr<Scene> SceneMainMenu(SystemManager &systemManager, entt::registry &registry, sf::RenderWindow &window)
 {
   std::unique_ptr<Scene> scene = std::make_unique<Scene>("MainMenu", systemManager, registry, window);
 
-  EntityMenuItem(*scene, window, MenuItemID::StartGame, "Start Game", sf::Vector2f(0.5f, 0.3f), sf::Vector2f(0.05f, 0.05f));
-  EntityMenuItem(*scene, window, MenuItemID::Exit, "Exit", sf::Vector2f(0.5f, 0.6f), sf::Vector2f(0.05f, 0.05f));
-
-  scene->addSystem<SystemMenuInput>();
+  EntityMenuItem(*scene, window, "Start Game", sf::Vector2f(0.5f, 0.3f), sf::Vector2f(0.05f, 0.05f), [](entt::registry &registry, sf::RenderWindow &window, entt::dispatcher &dispatcher)
+                 {
+                    std::cout<<"Test\n";
+                    dispatcher.trigger<EventStartGame>();
+                    auto view = registry.view<ComponentScene, ComponentBackground>();
+                    for (auto [entity, sceneInfo, background] : view.each())
+                    {
+                      sceneInfo.inGame = true;
+                      background.textureID = "background2";
+                    } });
+  EntityMenuItem(*scene, window, "Exit", sf::Vector2f(0.5f, 0.6f), sf::Vector2f(0.05f, 0.05f), [](entt::registry &registry, sf::RenderWindow &window, entt::dispatcher &dispatcher)
+                 { window.close(); });
 
   return scene;
 }
@@ -68,8 +78,22 @@ std::unique_ptr<Scene> ScenePauseMenu(SystemManager &systemManager, entt::regist
 {
   std::unique_ptr<Scene> scene = std::make_unique<Scene>("PauseMenu", systemManager, registry, window);
   // Create pause menu entity
-  EntityMenuItem(*scene, window, MenuItemID::Resume, "Resume", sf::Vector2f(0.5f, 0.3f), sf::Vector2f(0.05f, 0.05f));
-  EntityMenuItem(*scene, window, MenuItemID::MainMenu, "Main Menu", sf::Vector2f(0.5f, 0.6f), sf::Vector2f(0.05f, 0.05f));
+  EntityMenuItem(*scene, window, "Resume", sf::Vector2f(0.5f, 0.3f), sf::Vector2f(0.05f, 0.05f), [](entt::registry &registry, sf::RenderWindow &window, entt::dispatcher &dispatcher)
+                 {
+                   dispatcher.trigger<EventUnpause>();
+                   auto view = registry.view<ComponentScene>();
+                   for (auto [entity, sceneInfo] : view.each())
+                   {
+                     sceneInfo.pauseMenu = false;
+                   } });
+  EntityMenuItem(*scene, window, "Main Menu", sf::Vector2f(0.5f, 0.6f), sf::Vector2f(0.05f, 0.05f), [](entt::registry &registry, sf::RenderWindow &window, entt::dispatcher &dispatcher)
+                 {
+                    dispatcher.trigger<EventMainMenu>();
+                    /*auto view = registry.view<ComponentScene>();
+                    for (auto [entity, sceneInfo] : view.each())
+                    {
+                      sceneInfo.inGame = false;
+                    } */ });
   // Add system for menu input
   return scene;
 }
