@@ -9,6 +9,7 @@
 
 #include "Constants.h"
 
+
 /**
  * @brief The OutOfBound class removes entities that are outside the game boundary.
  */
@@ -16,7 +17,7 @@ class SystemOutOfBound : public System
 {
 
 public:
-  SystemOutOfBound(entt::registry &registry, sf::RenderWindow &window, Scene &scene);
+  SystemOutOfBound();
 
   /**
    * @brief Updates the system by removing entities that are outside the game boundary.

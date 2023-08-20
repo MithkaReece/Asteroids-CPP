@@ -1,12 +1,10 @@
 #include "SystemCollision.hpp"
 
-SystemCollision::SystemCollision(entt::registry &registry, sf::RenderWindow &window, Scene &scene)
-    : System(registry, window, scene) {}
+SystemCollision::SystemCollision() {}
 
 void SystemCollision::update(sf::Time dt)
 {
-  entt::registry &registry = registryRef.get();
-  Scene &scene = sceneRef.get();
+  entt::registry &registry = GlobalObjects::getRegistry();
   auto asteroidView = registry.view<ComponentTransform, ComponentCollider, ComponentAsteroid, ComponentVelocity>();
   auto playerView = registry.view<ComponentTransform, ComponentCollider, ComponentPlayer, ComponentVelocity>();
   auto bulletView = registry.view<ComponentBulletTag>();
@@ -71,7 +69,7 @@ void SystemCollision::handleAsteroidCollision(entt::entity entity1, ComponentTra
   sf::Vector2f newVelocity1 = velocity1.velocity + (impulseMagnitude * collisionNormal) / mass1;
   sf::Vector2f newVelocity2 = velocity2.velocity - (impulseMagnitude * collisionNormal) / mass2;
 
-  entt::registry &registry = registryRef.get();
+  entt::registry &registry = GlobalObjects::getRegistry();
 
   if (!(registry.valid(entity1) && registry.valid(entity2)))
     return;
@@ -109,16 +107,15 @@ void SystemCollision::splitAsteroid(entt::entity entity, int level,
 {
   if (level < 2 || level > 3)
     return;
-  Scene &scene = sceneRef.get();
 
-  entityAsteroid(scene, windowRef.get(), level - 1, position1, velocity1);
-  entityAsteroid(scene, windowRef.get(), level - 1, position2, velocity2);
+  entityAsteroid("Gameplay", level - 1, position1, velocity1);
+  entityAsteroid("Gameplay", level - 1, position2, velocity2);
 }
 
 void SystemCollision::handleBulletCollision(entt::entity bullet, ComponentTransform bulletTransform,
                                             entt::entity asteroid, ComponentTransform transform, ComponentVelocity velocity, int level)
 {
-  entt::registry &registry = registryRef.get();
+  entt::registry &registry = GlobalObjects::getRegistry();
   registry.destroy(bullet);
 
   // Find collision normal
@@ -144,11 +141,11 @@ void SystemCollision::handleBulletCollision(entt::entity bullet, ComponentTransf
 
 void SystemCollision::addScore(int scoreIncrease)
 {
-  auto view = registryRef.get().view<ComponentScore>();
+  auto view = GlobalObjects::getRegistry().view<ComponentScore>();
   for (auto [scoreEntity, score] : view.each())
   {
     score.value += scoreIncrease;
-    for (auto [highScoreEntity, highScore] : registryRef.get().view<ComponentHighScore>().each())
+    for (auto [highScoreEntity, highScore] : GlobalObjects::getRegistry().view<ComponentHighScore>().each())
     {
       if (score.value > highScore.value)
       {
@@ -160,13 +157,13 @@ void SystemCollision::addScore(int scoreIncrease)
 extern entt::dispatcher globalDispatcher;
 void SystemCollision::handlePlayerCollision()
 {
-  auto view = registryRef.get().view<ComponentLives>();
+  auto view = GlobalObjects::getRegistry().view<ComponentLives>();
   for (auto [entity, lives] : view.each())
   {
     int newLives = lives.value - 1;
     if (newLives <= 0)
     {
-      SystemSaveHighScore::SaveHighScore(registryRef.get());
+      SystemSaveHighScore::SaveHighScore();
 
       resetScore();
       newLives = 3;
@@ -174,15 +171,10 @@ void SystemCollision::handlePlayerCollision()
     lives.value = newLives;
   }
   globalDispatcher.trigger<EventDeath>();
-  // TODO: In system updates, also give the sceneManager
-  // TODO: Conversely just give the scene manager as it also holds registry and window
-  // SceneManager &sceneManager = SceneManager::getInstance();
-  //  TODO: Reset level scene
-  //  sceneManager.switchToScene(0);
 }
 void SystemCollision::resetScore()
 {
-  auto view = registryRef.get().view<ComponentScore>();
+  auto view = GlobalObjects::getRegistry().view<ComponentScore>();
   for (auto [entity, score] : view.each())
     score.value = 0;
 }

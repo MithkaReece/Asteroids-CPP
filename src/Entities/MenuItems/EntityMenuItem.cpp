@@ -1,11 +1,12 @@
 #include "EntityMenuItem.hpp"
 
-using OnClickFunc = void (*)(entt::registry &, sf::RenderWindow &window, entt::dispatcher &);
+using OnClickFunc = void (*)(entt::dispatcher &);
 
-void EntityMenuItem(Scene &scene, sf::RenderWindow &window, std::string buttonText,
+void EntityMenuItem(Scene &scene, std::string buttonText,
                     sf::Vector2f position, sf::Vector2f outerborderRatio, OnClickFunc onClickFunc)
 
 {
+  sf::RenderWindow &window = GlobalObjects::getWindow();
   auto entity = scene.create();
   // Make button text
   std::unique_ptr<sf::Text> text = std::make_unique<sf::Text>();
@@ -25,6 +26,7 @@ void EntityMenuItem(Scene &scene, sf::RenderWindow &window, std::string buttonTe
 
   backgroundRect->setPosition(globalTextBounds.left - window.getSize().x * outerborderRatio.x / 2.0f,
                               globalTextBounds.top - window.getSize().y * outerborderRatio.y / 2.0f);
+  backgroundRect->setFillColor(sf::Color(100, 100, 100));
 
   scene.emplace<ComponentMenuItem>(entity, std::move(text), std::move(backgroundRect), onClickFunc);
 }

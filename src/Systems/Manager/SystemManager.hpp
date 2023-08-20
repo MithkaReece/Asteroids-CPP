@@ -6,29 +6,29 @@
 #include <vector>
 
 #include <SFML/System/Time.hpp>
-#include "ISystem.hpp"
+#include "System.hpp"
+#include "SystemRender.hpp"
 
 #include "ComponentScene.hpp"
 
 class SystemManager
 {
 private:
-  std::vector<std::unique_ptr<ISystem>> systems;
-  std::vector<std::unique_ptr<ISystem>> newSystems; // To be added
-  std::set<int> systemsToRemove;                    // To be removed
+  std::vector<std::unique_ptr<System>> systems;
+  std::vector<std::unique_ptr<System>> newSystems; // To be added
+  std::set<int> systemsToRemove;                   // To be removed
   std::vector<size_t> indicesToRemove;
 
-  std::unique_ptr<ISystem> input;
-  std::unique_ptr<ISystem> render;
+  std::unique_ptr<System> render;
 
 public:
-  SystemManager(std::unique_ptr<ISystem> renderSystem);
+  static SystemManager &getInstance();
 
   void updateSystems(sf::Time dt);
 
   void updateRenderSystem(sf::Time dt);
 
-  void addSystem(std::unique_ptr<ISystem> system);
+  void addSystem(std::unique_ptr<System> system);
 
   void removeSystems(const std::vector<int> &systemIDs);
 
@@ -37,5 +37,11 @@ public:
   void pauseSystems(const std::vector<int> &idsToPause);
 
   void unpauseSystems(const std::vector<int> &idsToPause);
+
+private:
+  SystemManager();
+
+  SystemManager(const SystemManager &) = delete;
+  SystemManager &operator=(const SystemManager &) = delete;
 };
 #endif

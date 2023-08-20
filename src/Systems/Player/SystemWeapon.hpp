@@ -20,7 +20,7 @@
 class SystemWeapon : public System
 {
 public:
-  SystemWeapon(entt::registry &registry, sf::RenderWindow &window, Scene &scene);
+  SystemWeapon();
   /**
    * @brief Update function for managing the player's weapon system.
    *

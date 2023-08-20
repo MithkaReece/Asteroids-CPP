@@ -14,6 +14,8 @@
 #include "Scene.hpp"
 #include "Constants.h"
 
+#include "GlobalObjects.hpp"
+#include "SceneManager.hpp"
 /**
  * @brief Create an asteroid shape with given number of points and noise magnitude.
  *
@@ -48,7 +50,7 @@ float levelMaxScale(int level);
  * @param position The position of the asteroid.
  * @param velocity The velocity of the asteroid.
  */
-void entityAsteroid(Scene &scene, sf::RenderWindow &window, int level,
+void entityAsteroid(std::string sceneID, int level,
                     sf::Vector2f position, sf::Vector2f velocity);
 
 /**
@@ -60,5 +62,5 @@ void entityAsteroid(Scene &scene, sf::RenderWindow &window, int level,
  * @param registry The entity registry.
  * @param window The SFML render window.
  */
-void entityAsteroid(Scene &scene, sf::RenderWindow &window);
+void entityAsteroid(std::string sceneID);
 #endif

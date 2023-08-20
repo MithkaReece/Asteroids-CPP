@@ -1,12 +1,10 @@
 #include "SystemWeapon.hpp"
 
-SystemWeapon::SystemWeapon(entt::registry &registry, sf::RenderWindow &window, Scene &scene)
-    : System(registry, window, scene) {}
+SystemWeapon::SystemWeapon() {}
 
 void SystemWeapon::update(sf::Time dt)
 {
-  entt::registry &registry = registryRef.get();
-  Scene &scene = sceneRef.get();
+  entt::registry &registry = GlobalObjects::getRegistry();
   auto view = registry.view<ComponentTransform, ComponentPlayerInput, ComponentWeapon, ComponentVelocity>();
   for (auto [entity, transform, input, weapon, velocity] : view.each())
   {
@@ -26,7 +24,7 @@ void SystemWeapon::update(sf::Time dt)
       position += forwardVector * transform.scale.x;
 
       //  Create a bullet entity with the calculated position, velocity, and rotation
-      entityBullet(scene, position, bulletVelocity, transform.rotation);
+      entityBullet("Gameplay", position, bulletVelocity, transform.rotation);
 
       // Reset the remaining cooldown to the specified cooldown duration
       weapon.remainingCooldown = weapon.cooldownDuration;

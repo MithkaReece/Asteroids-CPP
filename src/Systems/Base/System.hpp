@@ -3,21 +3,20 @@
 #define HEADER_SYSTEM
 #include <SFML/System/Time.hpp>
 #include <functional>
-#include "Scene.hpp"
-#include "ISystem.hpp"
+#include "GlobalObjects.hpp"
 
 /**
  * @brief The base System class for game systems.
  */
-class System : public ISystem
+class System
 {
 protected:
-  std::reference_wrapper<entt::registry> registryRef;
-  std::reference_wrapper<sf::RenderWindow> windowRef;
-  std::reference_wrapper<Scene> sceneRef;
+  static int nextID;
 
 public:
-  System(entt::registry &registry, sf::RenderWindow &window, Scene &scene);
+  System();
+  int ID;
+  int Paused = false;
 
   /**
    * @brief Virtual destructor for proper inheritance.

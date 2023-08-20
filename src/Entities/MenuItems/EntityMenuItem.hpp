@@ -4,10 +4,11 @@
 #include <SFML/Graphics.hpp>
 #include "Scene.hpp"
 #include "ComponentMenuItem.hpp"
-#include "EnumMenuItemID.hpp"
 #include "ResourceManager.hpp"
 
-void EntityMenuItem(Scene &scene, sf::RenderWindow &window, std::string buttonText,
+#include "GlobalObjects.hpp"
+
+void EntityMenuItem(Scene &scene, std::string buttonText,
                     sf::Vector2f position, sf::Vector2f outerborderRatio, OnClickFunc onClickFunc);
 
 #endif

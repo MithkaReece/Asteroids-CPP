@@ -11,9 +11,9 @@ sf::ConvexShape entityTriangle()
   return triangle;
 }
 
-void EntityPlayer(Scene &scene, sf::RenderWindow &window)
+void EntityPlayer(Scene &scene)
 {
-
+  sf::RenderWindow &window = GlobalObjects::getWindow();
   // Create entity
   auto entity = scene.create();
 

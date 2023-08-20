@@ -1,11 +1,10 @@
 #include "SystemPlayerRotate.hpp"
 
-SystemPlayerRotate::SystemPlayerRotate(entt::registry &registry, sf::RenderWindow &window, Scene &scene)
-    : System(registry, window, scene) {}
+SystemPlayerRotate::SystemPlayerRotate() {}
 
 void SystemPlayerRotate::update(sf::Time dt)
 {
-  entt::registry &registry = registryRef.get();
+  entt::registry &registry = GlobalObjects::getRegistry();
   auto view = registry.view<ComponentPlayerInput, ComponentTransform>();
 
   for (auto [entity, input, transform] : view.each())

@@ -13,6 +13,8 @@
 #include "SystemManager.hpp"
 #include "SceneManager.hpp"
 
+#include "GlobalObjects.hpp"
+
 // Temp
 #include <iostream>
 
@@ -20,13 +22,14 @@ entt::dispatcher globalDispatcher;
 
 int main(int argc, char *argv[])
 {
-  sf::RenderWindow window(sf::VideoMode(1920, 1080), "");
+  sf::RenderWindow &window = GlobalObjects::getWindow();
+  entt::registry &registry = GlobalObjects::getRegistry();
 
-  ResourceManager::getInstance();
+  ResourceManager::getInstance(); // Create resource manager
 
-  entt::registry registry;
-  SystemManager systemManager(std::make_unique<SystemRender>(registry, window));
-  SceneManager sceneManager(systemManager, registry, window);
+  SystemManager &systemManager = SystemManager::getInstance();
+
+  SceneManager &sceneManager = SceneManager::getInstance();
 
   sf::Clock clock;
   sf::Time dt;
@@ -39,7 +42,7 @@ int main(int argc, char *argv[])
     { // Close window (on close button)
       if (event.type == sf::Event::Closed)
       {
-        SystemSaveHighScore::SaveHighScore(registry);
+        SystemSaveHighScore::SaveHighScore();
         window.close();
       }
       else if (event.type == sf::Event::Resized)

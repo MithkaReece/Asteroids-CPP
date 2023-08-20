@@ -11,7 +11,8 @@
 #include "ComponentBackground.hpp"
 
 #include "ResourceManager.hpp"
+#include "GlobalObjects.hpp"
 
-void EntityGame(Scene &scene, sf::RenderWindow &window);
+void EntityGame(Scene &scene);
 
 #endif

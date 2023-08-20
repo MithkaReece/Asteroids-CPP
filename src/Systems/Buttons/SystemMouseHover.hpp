@@ -6,10 +6,11 @@
 
 #include "ComponentMenuItem.hpp"
 
+
 class SystemMouseHover : public System
 {
 public:
-  SystemMouseHover(entt::registry &registry, sf::RenderWindow &window, Scene &scene);
+  SystemMouseHover();
   void update(sf::Time dt);
 };
 

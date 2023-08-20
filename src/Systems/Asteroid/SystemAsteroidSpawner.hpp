@@ -5,6 +5,7 @@
 #include "System.hpp"
 #include "EntityAsteroid.hpp"
 
+
 /**
  * @brief Class for spawning asteroids at a fixed interval.
  */
@@ -16,7 +17,7 @@ private:
   sf::Time timer;    // Timer to track the elapsed time
 
 public:
-  SystemAsteroidSpawner(entt::registry &registry, sf::RenderWindow &window, Scene &scene, sf::Time interval);
+  SystemAsteroidSpawner(sf::Time interval);
 
   /**
    * @brief Updates the asteroid spawner.

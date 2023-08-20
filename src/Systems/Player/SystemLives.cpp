@@ -1,11 +1,10 @@
 #include "SystemLives.hpp"
 
-SystemLives::SystemLives(entt::registry &registry, sf::RenderWindow &window, Scene &scene)
-    : System(registry, window, scene) {}
+SystemLives::SystemLives() {}
 
 void SystemLives::update(sf::Time dt)
 {
-  entt::registry &registry = registryRef.get();
+  entt::registry &registry = GlobalObjects::getRegistry();
   auto playerView = registry.view<ComponentLives>();
 
   for (auto [player, lives] : playerView.each())

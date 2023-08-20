@@ -11,6 +11,8 @@
 #include <iostream>
 #include <string>
 
+#include "GlobalObjects.hpp"
+
 /**
  * @brief Base class for scenes in an ECS (entt) and SFML project.
  * Scenes represent different states or levels in the game.
@@ -19,17 +21,14 @@ class Scene
 {
 private:
   std::unordered_set<entt::entity> createdEntities;
-  std::reference_wrapper<SystemManager> systemManagerRef;
   std::vector<int> systemIDs;
-  std::reference_wrapper<entt::registry> registryRef;
-  std::reference_wrapper<sf::RenderWindow> windowRef;
 
 public:
-  std::string type;
+  std::string ID;
 
   int precendence = 0;
 
-  Scene(std::string type, SystemManager &systemManager, entt::registry &registry, sf::RenderWindow &window);
+  Scene(std::string id);
   virtual ~Scene();
   /**
    * @brief Updates all the systems in the scene.
@@ -45,7 +44,7 @@ public:
   template <typename ComponentType, typename... Args>
   void emplace(entt::entity entity, Args &&...args)
   {
-    registryRef.get().emplace<ComponentType>(entity, std::forward<Args>(args)...);
+    GlobalObjects::getRegistry().emplace<ComponentType>(entity, std::forward<Args>(args)...);
   }
 
   /**
@@ -54,10 +53,9 @@ public:
   template <typename SystemType, typename... Args>
   void addSystem(Args &&...args)
   {
-    std::unique_ptr<SystemType> system = std::make_unique<SystemType>(
-        registryRef.get(), windowRef.get(), *this, std::forward<Args>(args)...);
+    std::unique_ptr<SystemType> system = std::make_unique<SystemType>(std::forward<Args>(args)...);
     systemIDs.push_back(system->ID);
-    systemManagerRef.get().addSystem(std::move(system));
+    SystemManager::getInstance().addSystem(std::move(system));
   }
 
   void pause();

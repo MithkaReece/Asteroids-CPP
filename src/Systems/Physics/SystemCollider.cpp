@@ -1,11 +1,10 @@
 #include "SystemCollider.hpp"
 
-SystemCollider::SystemCollider(entt::registry &registry, sf::RenderWindow &window, Scene &scene)
-    : System(registry, window, scene) {}
+SystemCollider::SystemCollider() {}
 
 void SystemCollider::update(sf::Time dt)
 {
-  entt::registry &registry = registryRef.get();
+  entt::registry &registry = GlobalObjects::getRegistry();
   auto view = registry.view<ComponentCollider, ComponentTransform>();
 
   for (auto [entity, collider, transform] : view.each())

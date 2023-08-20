@@ -1,18 +1,36 @@
-
-
 #include "SceneManager.hpp"
 extern entt::dispatcher globalDispatcher;
 
-SceneManager::SceneManager(SystemManager &systemManager, entt::registry &registry, sf::RenderWindow &window)
-    : systemManagerRef(systemManager), registryRef(registry), windowRef(window)
+SceneManager &SceneManager::getInstance()
+{
+  static SceneManager instance;
+  return instance;
+}
+
+Scene dummyScene(""); // Create a dummy scene instance
+
+Scene &SceneManager::getScene(const std::string &id)
+{
+  for (const auto &scene : SceneManager::getInstance().scenes)
+  {
+    if (scene->ID == id)
+    {
+      return *scene;
+    }
+  }
+  std::cout << "Could not find scene " + id + "\n";
+  return dummyScene; // Scene not found
+}
+
+SceneManager::SceneManager()
 {
   globalDispatcher.sink<EventDeath>().connect<&SceneManager::gotoLevel>(*this);
   globalDispatcher.sink<EventStartGame>().connect<&SceneManager::gotoLevel>(*this);
   globalDispatcher.sink<EventPause>().connect<&SceneManager::pause>(*this);
   globalDispatcher.sink<EventUnpause>().connect<&SceneManager::unpause>(*this);
   globalDispatcher.sink<EventMainMenu>().connect<&SceneManager::gotoMainMenu>(*this);
-  // Add initialise scenes
-  persistentScene = SceneGame(systemManager, registry, window);
+  //   Add initialise scenes
+  persistentScene = SceneGame();
 
   // addScene(SceneMainMenu);
   gotoMainMenu();
@@ -20,11 +38,9 @@ SceneManager::SceneManager(SystemManager &systemManager, entt::registry &registr
 }
 
 // template <typename SceneType>
-void SceneManager::addScene(std::function<std::unique_ptr<Scene>(SystemManager &, entt::registry &, sf::RenderWindow &)> sceneBuilder)
+void SceneManager::addScene(std::function<std::unique_ptr<Scene>()> sceneBuilder)
 {
-  scenes.push_back(std::move(sceneBuilder(systemManagerRef.get(), registryRef.get(), windowRef.get())));
-  // scenes.emplace_back(std::make_unique<SceneType>(systemManagerRef.get(), registryRef.get(), windowRef.get()));
-  //  sortScenesByPrecedence();
+  scenes.push_back(std::move(sceneBuilder()));
 }
 
 void SceneManager::sortScenesByPrecedence()
@@ -67,7 +83,7 @@ void SceneManager::pause()
 {
   for (const auto &scene : scenes)
   {
-    if (scene->type == "Gameplay")
+    if (scene->ID == "Gameplay")
     {
       scene->pause();
       break;
@@ -80,7 +96,7 @@ void SceneManager::unpause()
 {
   for (const auto &scene : scenes)
   {
-    if (scene->type == "Gameplay")
+    if (scene->ID == "Gameplay")
     {
       scene->unpause();
       break;
@@ -89,12 +105,12 @@ void SceneManager::unpause()
   removeScene("PauseMenu");
 }
 
-void SceneManager::removeScene(std::string type)
+void SceneManager::removeScene(std::string id)
 {
   scenes.erase(std::remove_if(scenes.begin(), scenes.end(),
-                              [type](const std::unique_ptr<Scene> &scene)
+                              [id](const std::unique_ptr<Scene> &scene)
                               {
-                                return scene->type == type;
+                                return scene->ID == id;
                               }),
                scenes.end());
 }

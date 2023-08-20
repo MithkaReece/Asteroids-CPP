@@ -3,7 +3,7 @@
 #define HEADER_SYSTEM_RENDER
 #include <entt/entt.hpp>
 #include <functional>
-#include "ISystem.hpp"
+#include "System.hpp"
 #include "ComponentTransform.hpp"
 #include "ComponentRender.hpp"
 #include "ComponentText.hpp"
@@ -11,17 +11,15 @@
 #include "ComponentBackground.hpp"
 #include "ResourceManager.hpp"
 
+#include "GlobalObjects.hpp"
+
 /**
  * @brief The Render class handles rendering entities and UI elements.
  */
-class SystemRender : public ISystem
+class SystemRender : public System
 {
-private:
-  std::reference_wrapper<sf::RenderWindow> windowRef;
-  std::reference_wrapper<entt::registry> registryRef;
-
 public:
-  SystemRender(entt::registry &registry, sf::RenderWindow &window);
+  SystemRender();
   /**
    * @brief Updates the system by rendering entities and UI elements.
    *

@@ -1,12 +1,11 @@
 #include "SystemOutOfBound.hpp"
 
-SystemOutOfBound::SystemOutOfBound(entt::registry &registry, sf::RenderWindow &window, Scene &scene)
-    : System(registry, window, scene) {}
+SystemOutOfBound::SystemOutOfBound() {}
 
 void SystemOutOfBound::update(sf::Time dt)
 {
-  entt::registry &registry = registryRef.get();
-  sf::RenderWindow &window = windowRef.get();
+  entt::registry &registry = GlobalObjects::getRegistry();
+  sf::RenderWindow &window = GlobalObjects::getWindow();
   auto view = registry.view<ComponentTransform>(entt::exclude<ComponentWrapperBoundary>);
 
   for (auto [entity, transform] : view.each())

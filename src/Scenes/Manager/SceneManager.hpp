@@ -7,9 +7,6 @@
 #include <SFML/System/Time.hpp>
 #include <functional>
 
-#include "SystemRender.hpp"
-#include "SystemManager.hpp"
-
 #include "Scene.hpp"
 #include "SceneBuilder.hpp"
 
@@ -26,28 +23,27 @@ class SceneManager
 private:
   std::vector<std::unique_ptr<Scene>> scenes; // Vector of unique pointers to all scenes
   std::unique_ptr<Scene> persistentScene;
-  std::reference_wrapper<SystemManager> systemManagerRef;
 
 public:
-  std::reference_wrapper<entt::registry> registryRef; // Reference to the entity registry
-  std::reference_wrapper<sf::RenderWindow> windowRef; // Reference to the SFML render window
   /**
    * @brief Constructs a SceneManager object and switches to a given scene.
-   *
-   * @param registry The entity registry.
-   * @param window The SFML render window.
-   * @param startingSceneIndex The index of the starting scene.
    */
-  SceneManager(SystemManager &systemManager, entt::registry &registry, sf::RenderWindow &window);
+  static SceneManager &getInstance();
 
-  // template <typename SceneType>
-  void addScene(std::function<std::unique_ptr<Scene>(SystemManager &, entt::registry &, sf::RenderWindow &)> sceneBuilder);
+  static Scene &getScene(const std::string &id);
+
+  void addScene(std::function<std::unique_ptr<Scene>()> sceneBuilder);
 
   entt::registry &getRegistry();
 
   sf::RenderWindow &getWindow();
 
 private:
+  SceneManager();
+
+  SceneManager(const SceneManager &) = delete;
+  SceneManager &operator=(const SceneManager &) = delete;
+
   // Sort scenes based on precedence
   void sortScenesByPrecedence();
 

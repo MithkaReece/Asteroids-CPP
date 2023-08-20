@@ -15,6 +15,7 @@
 #include "ComponentWeapon.hpp"
 
 #include "Scene.hpp"
+#include "GlobalObjects.hpp"
 
 /**
  * @brief Create a triangle shape.
@@ -30,5 +31,5 @@ entityTriangle();
  * @param registry The entity registry.
  * @param window The render window.
  */
-void EntityPlayer(Scene &scene, sf::RenderWindow &window);
+void EntityPlayer(Scene &scene);
 #endif

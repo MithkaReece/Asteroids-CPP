@@ -1,11 +1,10 @@
 #include "SystemPlayerThrust.hpp"
 
-SystemPlayerThrust::SystemPlayerThrust(entt::registry &registry, sf::RenderWindow &window, Scene &scene)
-    : System(registry, window, scene) {}
+SystemPlayerThrust::SystemPlayerThrust() {}
 
 void SystemPlayerThrust::update(sf::Time dt)
 {
-  entt::registry &registry = registryRef.get();
+  entt::registry &registry = GlobalObjects::getRegistry();
   auto view = registry.view<ComponentPlayer, ComponentPlayerInput, ComponentTransform, ComponentVelocity>();
   for (auto [entity, player, input, transform, velocity] : view.each())
   { // Apply thrust to the entity if the thrust button is pressed

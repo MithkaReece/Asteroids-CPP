@@ -11,6 +11,8 @@
 #include "Scene.hpp"
 #include <SFML/Graphics.hpp>
 
+#include "SceneManager.hpp"
+
 /**
  * @brief Create a bullet shape.
  *
@@ -26,6 +28,6 @@ sf::ConvexShape entityBulletShape();
  * @param velocity The velocity of the bullet.
  * @param rotation The rotation of the bullet.
  */
-void entityBullet(Scene &scene, sf::Vector2f position,
+void entityBullet(std::string sceneID, sf::Vector2f position,
                   sf::Vector2f velocity, float rotation);
 #endif

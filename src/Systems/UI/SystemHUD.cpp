@@ -1,11 +1,10 @@
 #include "SystemHUD.hpp"
 
-SystemHUD::SystemHUD(entt::registry &registry, sf::RenderWindow &window, Scene &scene)
-    : System(registry, window, scene) {}
+SystemHUD::SystemHUD() {}
 
 void SystemHUD::update(sf::Time dt)
 {
-  entt::registry &registry = registryRef.get();
+  entt::registry &registry = GlobalObjects::getRegistry();
   for (auto [textEntity, text] : registry.view<ComponentText>().each())
   {
     if (text.ID == "Score")

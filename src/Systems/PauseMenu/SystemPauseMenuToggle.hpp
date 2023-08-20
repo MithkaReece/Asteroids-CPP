@@ -8,10 +8,12 @@
 #include "EventPause.hpp"
 #include "EventUnpause.hpp"
 
+#include "ComponentScene.hpp"
+
 class SystemPauseMenuToggle : public System
 {
 public:
-  SystemPauseMenuToggle(entt::registry &registry, sf::RenderWindow &window, Scene &scene);
+  SystemPauseMenuToggle();
 
   void update(sf::Time dt);
 };

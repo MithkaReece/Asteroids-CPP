@@ -16,7 +16,7 @@
 class SystemPlayerThrust : public System
 {
 public:
-  SystemPlayerThrust(entt::registry &registry, sf::RenderWindow &window, Scene &scene);
+  SystemPlayerThrust();
   /**
    * @brief Updates the system by applying thrust to player-controlled entities.
    *

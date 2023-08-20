@@ -9,10 +9,12 @@
 #include "ComponentText.hpp"
 #include <string>
 
+#include "GlobalObjects.hpp"
+
 class SystemHUD : public System
 {
 public:
-  SystemHUD(entt::registry &registry, sf::RenderWindow &window, Scene &scene);
+  SystemHUD();
 
   void update(sf::Time dt);
 };

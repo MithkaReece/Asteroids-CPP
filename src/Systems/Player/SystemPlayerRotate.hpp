@@ -12,7 +12,7 @@
 class SystemPlayerRotate : public System
 {
 public:
-  SystemPlayerRotate(entt::registry &registry, sf::RenderWindow &window, Scene &scene);
+  SystemPlayerRotate();
   /**
    * @brief Updates the system by handling rotation of player-controlled entities.
    *

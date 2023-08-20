@@ -13,8 +13,9 @@ sf::ConvexShape entityBulletShape()
   return bullet;
 }
 
-void entityBullet(Scene &scene, sf::Vector2f position, sf::Vector2f velocity, float rotation)
+void entityBullet(std::string sceneID, sf::Vector2f position, sf::Vector2f velocity, float rotation)
 {
+  Scene &scene = SceneManager::getScene(sceneID);
   // Add components
   auto entity = scene.create();
 

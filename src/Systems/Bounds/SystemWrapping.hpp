@@ -14,7 +14,7 @@ class SystemWrapping : public System
 {
 
 public:
-  SystemWrapping(entt::registry &registry, sf::RenderWindow &window, Scene &scene);
+  SystemWrapping();
 
   /**
    * @brief Update function for handling the wrapping behavior of entities.

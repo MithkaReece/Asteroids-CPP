@@ -10,7 +10,7 @@
 class SystemLives : public System
 {
 public:
-  SystemLives(entt::registry &registry, sf::RenderWindow &window, Scene &scene);
+  SystemLives();
 
   void update(sf::Time dt);
 };

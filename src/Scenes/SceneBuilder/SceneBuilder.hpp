@@ -29,13 +29,13 @@
 #include "EventUnpause.hpp"
 #include "EventMainMenu.hpp"
 
-std::unique_ptr<Scene> SceneGame(SystemManager &systemManager, entt::registry &registry, sf::RenderWindow &window);
+std::unique_ptr<Scene> SceneGame();
 
-std::unique_ptr<Scene> SceneMainMenu(SystemManager &systemManager, entt::registry &registry, sf::RenderWindow &window);
+std::unique_ptr<Scene> SceneMainMenu();
 
-std::unique_ptr<Scene> SceneGameplay(SystemManager &systemManager, entt::registry &registry, sf::RenderWindow &window);
+std::unique_ptr<Scene> SceneGameplay();
 
-std::unique_ptr<Scene> SceneHUD(SystemManager &systemManager, entt::registry &registry, sf::RenderWindow &window);
+std::unique_ptr<Scene> SceneHUD();
 
-std::unique_ptr<Scene> ScenePauseMenu(SystemManager &systemManager, entt::registry &registry, sf::RenderWindow &window);
+std::unique_ptr<Scene> ScenePauseMenu();
 #endif

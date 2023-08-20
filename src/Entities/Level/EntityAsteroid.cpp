@@ -58,9 +58,12 @@ float levelMaxScale(int level)
   return 0.0f;
 }
 
-void entityAsteroid(Scene &scene, sf::RenderWindow &window, int level, sf::Vector2f position, sf::Vector2f velocity)
+void entityAsteroid(std::string sceneID, int level, sf::Vector2f position, sf::Vector2f velocity)
 {
   assert(level == 1 || level == 2 || level == 3);
+  Scene &scene = SceneManager::getScene(sceneID);
+
+  sf::RenderWindow &window = GlobalObjects::getWindow();
   // Calculate random scale from level
   std::random_device rd;
   std::mt19937 gen(rd());
@@ -85,8 +88,11 @@ void entityAsteroid(Scene &scene, sf::RenderWindow &window, int level, sf::Vecto
   scene.emplace<ComponentCollider>(entity, shape);
 }
 
-void entityAsteroid(Scene &scene, sf::RenderWindow &window)
+void entityAsteroid(std::string sceneID)
 {
+  Scene &scene = SceneManager::getScene(sceneID);
+  sf::RenderWindow &window = GlobalObjects::getWindow();
+
   std::random_device rd;
   std::mt19937 gen(rd());
 
@@ -128,5 +134,5 @@ void entityAsteroid(Scene &scene, sf::RenderWindow &window)
   std::uniform_real_distribution<float> directionDistribution(-maxStartingVelocity, maxStartingVelocity);
   sf::Vector2f velocity(directionDistribution(gen), directionDistribution(gen));
 
-  entityAsteroid(scene, window, level, position, velocity);
+  entityAsteroid(sceneID, level, position, velocity);
 }

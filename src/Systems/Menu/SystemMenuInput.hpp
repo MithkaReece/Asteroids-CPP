@@ -7,10 +7,11 @@
 
 #include "ComponentMenuItem.hpp"
 
+
 class SystemMenuInput : public System
 {
 public:
-  SystemMenuInput(entt::registry &registry, sf::RenderWindow &window, Scene &scene);
+  SystemMenuInput();
 
   void update(sf::Time dt);
 

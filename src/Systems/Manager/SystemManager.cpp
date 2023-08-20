@@ -2,11 +2,18 @@
 #include <iostream>
 #include <string>
 
-SystemManager::SystemManager(std::unique_ptr<ISystem> renderSystem)
-    : render(std::move(renderSystem)) {}
+SystemManager &SystemManager::getInstance()
+{
+  static SystemManager instance;
+  return instance;
+}
+
+SystemManager::SystemManager()
+    : render(std::move(std::make_unique<SystemRender>())) {}
 
 void SystemManager::updateSystems(sf::Time dt)
 {
+
   // Remove systems with stored IDs after iteration
   emptyRemoveQueue();
 
@@ -17,7 +24,7 @@ void SystemManager::updateSystems(sf::Time dt)
   }
   newSystems.clear();
 
-  for (const std::unique_ptr<ISystem> &system : systems)
+  for (const std::unique_ptr<System> &system : systems)
   {
     if (system && system != nullptr && !system->Paused)
       system->update(dt);
@@ -29,7 +36,7 @@ void SystemManager::updateRenderSystem(sf::Time dt)
   render->update(dt);
 }
 
-void SystemManager::addSystem(std::unique_ptr<ISystem> system)
+void SystemManager::addSystem(std::unique_ptr<System> system)
 {
   newSystems.push_back(std::move(system));
 }

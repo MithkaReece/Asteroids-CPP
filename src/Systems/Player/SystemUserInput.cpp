@@ -1,11 +1,10 @@
 #include "SystemUserInput.hpp"
 
-SystemUserInput::SystemUserInput(entt::registry &registry, sf::RenderWindow &window, Scene &scene)
-    : System(registry, window, scene) {}
+SystemUserInput::SystemUserInput() {}
 
 void SystemUserInput::update(sf::Time dt)
 {
-  auto view = registryRef.get().view<ComponentPlayerInput>();
+  auto view = GlobalObjects::getRegistry().view<ComponentPlayerInput>();
   for (auto [entity, input] : view.each())
   {
     // Update input based on keyboard events

@@ -6,14 +6,13 @@
 #include "ComponentTransform.hpp"
 #include "ComponentCollider.hpp"
 
-
 /**
  * @brief Class for updating colliders based on transform components.
  */
 class SystemCollider : public System
 {
 public:
-  SystemCollider(entt::registry &registry, sf::RenderWindow &window, Scene &scene);
+  SystemCollider();
   /**
    * @brief Updates the colliders based on transform components.
    *

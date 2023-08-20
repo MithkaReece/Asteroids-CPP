@@ -4,14 +4,11 @@ extern entt::dispatcher globalDispatcher;
 
 #include <iostream>
 
-SystemPauseMenuToggle::SystemPauseMenuToggle(entt::registry &registry, sf::RenderWindow &window, Scene &scene)
-    : System(registry, window, scene)
-{
-}
+SystemPauseMenuToggle::SystemPauseMenuToggle() {}
 
 void SystemPauseMenuToggle::update(sf::Time dt)
 {
-  auto view = registryRef.get().view<ComponentScene>();
+  auto view = GlobalObjects::getRegistry().view<ComponentScene>();
   for (auto [entity, sceneInfo] : view.each())
   {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && !sceneInfo.pausePressed && sceneInfo.inGame)

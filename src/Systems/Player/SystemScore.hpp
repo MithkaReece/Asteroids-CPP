@@ -10,7 +10,7 @@
 class SystemScore : public System
 {
 public:
-  SystemScore(entt::registry &registry, sf::RenderWindow &window, Scene &scene);
+  SystemScore();
 
   void update(sf::Time dt);
 };

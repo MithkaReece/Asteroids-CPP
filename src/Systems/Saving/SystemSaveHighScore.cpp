@@ -1,8 +1,8 @@
 #include "SystemSaveHighScore.hpp"
 
-void SystemSaveHighScore::SaveHighScore(entt::registry &registry)
+void SystemSaveHighScore::SaveHighScore()
 {
-  for (auto [highScoreEntity, highScore] : registry.view<ComponentHighScore>().each())
+  for (auto [highScoreEntity, highScore] : GlobalObjects::getRegistry().view<ComponentHighScore>().each())
   {
     int savedHighScore = ResourceManager::getInstance().getHighScore();
     if (savedHighScore < highScore.value)

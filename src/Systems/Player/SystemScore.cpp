@@ -2,12 +2,11 @@
 
 #include <iostream>
 
-SystemScore::SystemScore(entt::registry &registry, sf::RenderWindow &window, Scene &scene)
-    : System(registry, window, scene) {}
+SystemScore::SystemScore() {}
 
 void SystemScore::update(sf::Time dt)
 {
-  entt::registry &registry = registryRef.get();
+  entt::registry &registry = GlobalObjects::getRegistry();
   auto playerView = registry.view<ComponentScore>();
 
   for (auto [player, score] : playerView.each())

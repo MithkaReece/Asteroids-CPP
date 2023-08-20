@@ -1,5 +1,5 @@
 #include "System.hpp"
-#include <iostream>
-#include <string>
-System::System(entt::registry &registry, sf::RenderWindow &window, Scene &scene)
-    : registryRef(registry), windowRef(window), sceneRef(scene) {}
+
+System::System() : ID(nextID++) {}
+
+int System::nextID = 0;

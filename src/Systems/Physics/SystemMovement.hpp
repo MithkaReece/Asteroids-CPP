@@ -13,7 +13,7 @@
 class SystemMovement : public System
 {
 public:
-  SystemMovement(entt::registry &registry, sf::RenderWindow &window, Scene &scene);
+  SystemMovement();
   /**
    * @brief Updates the position of entities based on their velocity.
    *

@@ -1,14 +1,14 @@
 #include "SystemAsteroidSpawner.hpp"
 
-SystemAsteroidSpawner::SystemAsteroidSpawner(entt::registry &registry, sf::RenderWindow &window, Scene &scene, sf::Time interval)
-    : System(registry, window, scene), interval(interval) {}
+SystemAsteroidSpawner::SystemAsteroidSpawner(sf::Time interval)
+    : interval(interval) {}
 
 void SystemAsteroidSpawner::update(sf::Time dt)
 {
   timer += dt;
   if (timer >= interval)
   {
-    entityAsteroid(sceneRef.get(), windowRef.get());
+    entityAsteroid("Gameplay");
     timer = sf::Time::Zero;
   }
 }

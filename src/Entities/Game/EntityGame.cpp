@@ -1,6 +1,6 @@
 #include "EntityGame.hpp"
 
-void EntityGame(Scene &scene, sf::RenderWindow &window)
+void EntityGame(Scene &scene)
 {
   auto entity = scene.create();
   scene.emplace<ComponentHighScore>(entity, ResourceManager::getInstance().getHighScore());

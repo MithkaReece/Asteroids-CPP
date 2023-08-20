@@ -29,7 +29,7 @@ class SystemCollision : public System
 {
 
 public:
-  SystemCollision(entt::registry &registry, sf::RenderWindow &window, Scene &scene);
+  SystemCollision();
 
   /**
    * @brief Updates the collision system.

@@ -1,12 +1,11 @@
 #include "SystemWrapping.hpp"
 
-SystemWrapping::SystemWrapping(entt::registry &registry, sf::RenderWindow &window, Scene &scene)
-    : System(registry, window, scene) {}
+SystemWrapping::SystemWrapping() {}
 
 void SystemWrapping::update(sf::Time dt)
 {
-  entt::registry &registry = registryRef.get();
-  sf::RenderWindow &window = windowRef.get();
+  entt::registry &registry = GlobalObjects::getRegistry();
+  sf::RenderWindow &window = GlobalObjects::getWindow();
   auto view = registry.view<ComponentTransform, ComponentWrapperBoundary>();
 
   for (auto [entity, transform, boundary] : view.each())

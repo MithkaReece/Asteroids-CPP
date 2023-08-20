@@ -1,14 +1,13 @@
 #include "SystemRender.hpp"
 
-SystemRender::SystemRender(entt::registry &registry, sf::RenderWindow &window)
-    : registryRef(registry), windowRef(window)
-{
-}
+#include <iostream>
+
+SystemRender::SystemRender() {}
 
 void SystemRender::update(sf::Time dt)
 {
-  sf::RenderWindow &window = windowRef.get();
-  entt::registry &registry = registryRef.get();
+  sf::RenderWindow &window = GlobalObjects::getWindow();
+  entt::registry &registry = GlobalObjects::getRegistry();
 
   for (auto [entity, background] : registry.view<ComponentBackground>().each())
   {
@@ -34,7 +33,7 @@ void SystemRender::update(sf::Time dt)
     backgroundSprite.setScale(scale, scale);
     backgroundSprite.setPosition(posX, posY);
 
-    window.draw(backgroundSprite);
+    // window.draw(backgroundSprite);
   }
 
   for (auto [entity, render, transform] : registry.view<ComponentRender, ComponentTransform>().each())

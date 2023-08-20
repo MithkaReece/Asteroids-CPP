@@ -1,6 +1,7 @@
 #include "EntityLevelUI.hpp"
-void EntityLevelUI(Scene &scene, sf::RenderWindow &window, sf::Vector2f position, std::string ID)
+void EntityLevelUI(Scene &scene, sf::Vector2f position, std::string ID)
 {
+  sf::RenderWindow &window = GlobalObjects::getWindow();
   auto entity = scene.create();
 
   std::unique_ptr<sf::Text> scoreText = std::make_unique<sf::Text>();

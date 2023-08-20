@@ -8,5 +8,7 @@
 #include <iostream>
 #include "ResourceManager.hpp"
 
-void EntityLevelUI(Scene &scene, sf::RenderWindow &window, sf::Vector2f position, std::string ID);
+#include "GlobalObjects.hpp"
+
+void EntityLevelUI(Scene &scene, sf::Vector2f position, std::string ID);
 #endif

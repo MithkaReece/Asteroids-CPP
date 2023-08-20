@@ -14,7 +14,7 @@
 class SystemUserInput : public System
 {
 public:
-  SystemUserInput(entt::registry &registry, sf::RenderWindow &window, Scene &scene);
+  SystemUserInput();
   /**
    * @brief Update function for updating player input.
    *

@@ -5,10 +5,12 @@
 #include "ComponentHighScore.hpp"
 #include "ResourceManager.hpp"
 
+#include "GlobalObjects.hpp"
+
 class SystemSaveHighScore
 {
 public:
-  static void SaveHighScore(entt::registry &registry);
+  static void SaveHighScore();
 };
 
 #endif
