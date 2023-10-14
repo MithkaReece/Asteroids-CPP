@@ -1,6 +1,7 @@
 #pragma once
 #ifndef HEADER_SYSTEM
 #define HEADER_SYSTEM
+#include <entt/entt.hpp>
 #include <SFML/System/Time.hpp>
 #include <functional>
 #include "GlobalObjects.hpp"
