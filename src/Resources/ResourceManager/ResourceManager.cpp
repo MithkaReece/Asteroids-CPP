@@ -17,43 +17,43 @@ ResourceManager::ResourceManager()
 void ResourceManager::loadHighScore()
 {
   int retrievedHighScore = 0;
-  if (std::filesystem::exists(highScorePath))
-  {
-    std::ifstream file(highScorePath, std::ios::binary);
-    if (file.is_open())
-    {
-      file.read(reinterpret_cast<char *>(&retrievedHighScore), sizeof(int));
-      file.close();
-    }
-    else
-    {
-      // Handle error if file cannot be opened (optional)
-      std::cerr << "Error: Could not open file '" << highScorePath << "' for reading.\n";
-    }
-  }
-  else
-  {
-    // The file doesn't exist, so create it with the default high score
-    std::ofstream file(highScorePath, std::ios::binary);
-    if (file.is_open())
-    {
-      std::cout << "Create file\n";
-      file.write(reinterpret_cast<const char *>(&retrievedHighScore), sizeof(int));
-      file.close();
-    }
-    else
-    {
-      // Handle error if file cannot be created (optional)
-      std::cerr << "Error: Could not create file '" << highScorePath << "' for writing.\n";
-    }
-  }
-  std::cout << "Highscore loaded:" << retrievedHighScore << "\n";
+  // if (std::filesystem::exists(highScorePath))
+  // {
+  //   std::ifstream file(highScorePath, std::ios::binary);
+  //   if (file.is_open())
+  //   {
+  //     file.read(reinterpret_cast<char *>(&retrievedHighScore), sizeof(int));
+  //     file.close();
+  //   }
+  //   else
+  //   {
+  //     // Handle error if file cannot be opened (optional)
+  //     std::cerr << "Error: Could not open file '" << highScorePath << "' for reading.\n";
+  //   }
+  // }
+  // else
+  // {
+  //   // The file doesn't exist, so create it with the default high score
+  //   // std::ofstream file(highScorePath, std::ios::binary);
+  //   // if (file.is_open())
+  //   // {
+  //   //   // std::cout << "Create file\n";
+  //   //   file.write(reinterpret_cast<const char *>(&retrievedHighScore), sizeof(int));
+  //   //   file.close();
+  //   // }
+  //   // else
+  //   // {
+  //   //   // Handle error if file cannot be created (optional)
+  //   //   // std::cerr << "Error: Could not create file '" << highScorePath << "' for writing.\n";
+  //   // }
+  // }
+  // std::cout << "Highscore loaded:" << retrievedHighScore << "\n";
   highScore = retrievedHighScore;
 }
 
 int ResourceManager::getHighScore()
 {
-  std::cout << "High Score give is " << std::to_string(highScore) << "\n";
+  // std::cout << "High Score give is " << std::to_string(highScore) << "\n";
   return highScore;
 }
 

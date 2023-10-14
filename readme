@@ -1,0 +1,9 @@
+Run Asteroids Game:
+  Short-version: "ctrl-p"
+  Long-version: "ctrl-shift-p" -> CMake: Run without debugging
+
+  Note: If this runs the tests, change the target launch option on the left of 
+  Run C Test button to target AsteroidsExecutable
+
+Run Tests:
+  Click Run C Test from the bottom bar

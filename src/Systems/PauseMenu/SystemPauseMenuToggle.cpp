@@ -15,13 +15,13 @@ void SystemPauseMenuToggle::update(sf::Time dt)
     {
       if (sceneInfo.pauseMenu)
       {
-        std::cout << "Unpause\n";
+        // std::cout << "Unpause\n";
         sceneInfo.pauseMenu = false;
         globalDispatcher.trigger<EventUnpause>();
       }
       else
       {
-        std::cout << "Pause\n";
+        // std::cout << "Pause\n";
         sceneInfo.pauseMenu = true;
         globalDispatcher.trigger<EventPause>();
       }

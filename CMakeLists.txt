@@ -1,5 +1,10 @@
+message(STATUS "Executing CMakeLists.txt in the 'main' directory")
+
 cmake_minimum_required(VERSION 3.12)
-project(Asteroids)
+
+set(This Asteroids)
+
+project(${This})
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -38,8 +43,6 @@ HEADER_DIRECTORIES(header_dir_list)
 list(LENGTH header_dir_list header_dir_list_count)
 message(STATUS "[INFO] Found ${header_dir_list_count} header directories.")
 
-
-
 set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g")
 
@@ -47,13 +50,40 @@ file(GLOB_RECURSE SOURCES
     "src/*.cpp" 
 )
 
-add_executable(Asteroids ${SOURCES})
+# Create project into a library
+add_library(${This} STATIC ${SOURCES} ${header_dir_list})
 
-target_link_libraries(Asteroids PRIVATE sfml-system sfml-graphics sfml-audio sfml-window)
+target_link_libraries(${This} PUBLIC sfml-system sfml-graphics sfml-audio sfml-window)
+
+# Create executable and use library created about
+add_executable(AsteroidsExecutable src/main.cpp)
+# Link the "Asteroids" library to the executable
+target_link_libraries(AsteroidsExecutable PRIVATE Asteroids)
 
 # Include the header directories in the target
 target_include_directories(
-    Asteroids
+  ${This}
     PUBLIC
     ${header_dir_list} # Recursive
 )
+
+
+
+# ===============================================
+# ------------------- Testing -------------------
+# ===============================================
+
+# GoogleTest requires at least C++14
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+enable_testing()
+
+add_subdirectory(googletest)
+# Include the "test" directory for building tests
+add_subdirectory(test)
+
+# Actually run the test
+add_custom_target(run_tests COMMAND hello_test)
+# add_custom_target(run_all_tests)
+# add_dependencies(run_all_tests hello_test)

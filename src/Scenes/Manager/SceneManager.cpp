@@ -18,7 +18,7 @@ Scene &SceneManager::getScene(const std::string &id)
       return *scene;
     }
   }
-  std::cout << "Could not find scene " + id + "\n";
+  std::cerr << "Could not find scene " + id + "\n";
   return dummyScene; // Scene not found
 }
 
@@ -55,10 +55,10 @@ void SceneManager::clearScenes()
 #include <iostream>
 void SceneManager::gotoMainMenu()
 {
-  std::cout << "====MAIN MENU====\n";
+  // std::cout << "====MAIN MENU====\n";
   scenes.clear();
   addScene(SceneMainMenu);
-  std::cout << "====SCENES DELETED====\n";
+  // std::cout << "====SCENES DELETED====\n";
 
   // auto view = registryRef.get().view<ComponentScene>();
   // for (auto [entity, sceneInfo] : view.each())
