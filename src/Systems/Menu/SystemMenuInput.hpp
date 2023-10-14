@@ -6,7 +6,7 @@
 #include "System.hpp"
 
 #include "ComponentMenuItem.hpp"
-
+#include "Input.hpp"
 
 class SystemMenuInput : public System
 {
@@ -16,7 +16,7 @@ public:
   void update(sf::Time dt);
 
 private:
-  bool mouseDown = false;
+  bool previousMouseLeft = false;
 };
 
 #endif

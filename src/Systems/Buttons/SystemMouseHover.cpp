@@ -4,13 +4,13 @@ SystemMouseHover::SystemMouseHover() {}
 
 void SystemMouseHover::update(sf::Time dt)
 {
-  sf::Vector2i mousePosition = sf::Mouse::getPosition(GlobalObjects::getWindow());
-  sf::Vector2f mousePositionFloat(static_cast<float>(mousePosition.x), static_cast<float>(mousePosition.y));
+  const sf::Vector2f mouse_pos = Input::GetMousePosFloat();
 
   auto view = GlobalObjects::getRegistry().view<ComponentMenuItem>();
+
   for (auto [entity, menuItem] : view.each())
   {
-    menuItem.hover = menuItem.shape->getGlobalBounds().contains(mousePositionFloat);
+    menuItem.hover = menuItem.shape->getGlobalBounds().contains(mouse_pos);
     if (menuItem.hover)
       menuItem.shape->setFillColor(sf::Color(100, 100, 100, 200));
     else

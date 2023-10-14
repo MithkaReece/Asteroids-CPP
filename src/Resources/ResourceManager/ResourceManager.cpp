@@ -5,11 +5,11 @@
 ResourceManager::ResourceManager()
 {
 
-  loadFont("Default", "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Resources/Fonts/Roboto-Medium.ttf");
+  loadFont("Default", "/Users/reece/Documents/GitHub.nosync/C++/Asteroids-CPP/src/Resources/Fonts/Roboto-Medium.ttf");
 
-  loadTexture("background1", "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Resources/Backgrounds/1.png");
-  loadTexture("background2", "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Resources/Backgrounds/2.png");
-  loadTexture("background3", "/Users/reece/Documents/GitHub.nosync/Asteroids-CPP/src/Resources/Backgrounds/3.png");
+  loadTexture("background1", "/Users/reece/Documents/GitHub.nosync/C++/Asteroids-CPP/src/Resources/Backgrounds/1.png");
+  loadTexture("background2", "/Users/reece/Documents/GitHub.nosync/C++/Asteroids-CPP/src/Resources/Backgrounds/2.png");
+  loadTexture("background3", "/Users/reece/Documents/GitHub.nosync/C++/Asteroids-CPP/src/Resources/Backgrounds/3.png");
 
   loadHighScore();
 }

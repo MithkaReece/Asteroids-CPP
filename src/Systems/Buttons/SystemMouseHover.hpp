@@ -5,7 +5,7 @@
 #include "System.hpp"
 
 #include "ComponentMenuItem.hpp"
-
+#include "Input.hpp"
 
 class SystemMouseHover : public System
 {

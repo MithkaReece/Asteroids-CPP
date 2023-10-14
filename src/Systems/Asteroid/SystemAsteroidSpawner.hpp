@@ -5,7 +5,6 @@
 #include "System.hpp"
 #include "EntityAsteroid.hpp"
 
-
 /**
  * @brief Class for spawning asteroids at a fixed interval.
  */
