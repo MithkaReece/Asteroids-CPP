@@ -3,7 +3,7 @@
 #define HEADER_SYSTEM_PLAYER_ROTATE
 #include "System.hpp"
 
-#include "ComponentInput.hpp"
+#include "ComponentPlayerInput.hpp"
 #include "ComponentTransform.hpp"
 
 /**

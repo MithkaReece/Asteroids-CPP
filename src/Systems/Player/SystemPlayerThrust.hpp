@@ -4,7 +4,8 @@
 #include "System.hpp"
 
 #include "ComponentPlayer.hpp"
-#include "ComponentInput.hpp"
+#include "ComponentAcceleration.hpp"
+#include "ComponentPlayerInput.hpp"
 #include "ComponentTransform.hpp"
 #include "ComponentVelocity.hpp"
 

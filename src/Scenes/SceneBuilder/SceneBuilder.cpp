@@ -15,7 +15,6 @@ std::unique_ptr<Scene> SceneMainMenu()
   std::unique_ptr<Scene> scene = std::make_unique<Scene>("MainMenu");
   // Start Game Button
   EntityMenuItem(*scene, "Start Game", sf::Vector2f(0.5f, 0.3f), sf::Vector2f(0.05f, 0.05f), [](entt::dispatcher &dispatcher) { // OnClick
-    // std::cout << "Test\n";
     dispatcher.trigger<EventStartGame>();
     auto view = GlobalObjects::getRegistry().view<ComponentScene, ComponentBackground>();
     for (auto [entity, sceneInfo, background] : view.each())

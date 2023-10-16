@@ -6,12 +6,13 @@
 #include <SFML/Graphics.hpp>
 
 #include "ComponentPlayer.hpp"
+#include "ComponentAcceleration.hpp"
 #include "ComponentTransform.hpp"
 #include "ComponentVelocity.hpp"
 #include "ComponentWrapperBoundary.hpp"
 #include "ComponentRender.hpp"
 #include "ComponentCollider.hpp"
-#include "ComponentInput.hpp"
+#include "ComponentPlayerInput.hpp"
 #include "ComponentWeapon.hpp"
 
 #include "Scene.hpp"
@@ -22,8 +23,7 @@
  *
  * @return The created triangle shape.
  */
-sf::ConvexShape
-entityTriangle();
+sf::ConvexShape entityTriangle();
 
 /**
  * @brief Create a player entity with the specified components.

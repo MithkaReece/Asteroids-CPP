@@ -2,7 +2,7 @@
 #ifndef HEADER_SYSTEM_USER_INPUT
 #define HEADER_SYSTEM_USER_INPUT
 #include "System.hpp"
-#include "ComponentInput.hpp"
+#include "ComponentPlayerInput.hpp"
 
 #include <SFML/Window/Keyboard.hpp>
 

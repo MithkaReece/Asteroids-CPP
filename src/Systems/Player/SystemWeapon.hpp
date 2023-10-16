@@ -4,7 +4,7 @@
 #include "System.hpp"
 
 #include "ComponentTransform.hpp"
-#include "ComponentInput.hpp"
+#include "ComponentPlayerInput.hpp"
 #include "ComponentWeapon.hpp"
 
 #include "EntityBullet.hpp"

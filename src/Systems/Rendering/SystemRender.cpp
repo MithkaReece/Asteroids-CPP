@@ -9,33 +9,35 @@ void SystemRender::update(sf::Time dt)
   sf::RenderWindow &window = GlobalObjects::getWindow();
   entt::registry &registry = GlobalObjects::getRegistry();
 
-  for (auto [entity, background] : registry.view<ComponentBackground>().each())
-  {
-    sf::Texture &backgroundTexture = ResourceManager::getInstance().getTexture(background.textureID);
-    sf::Sprite backgroundSprite(backgroundTexture);
+  // Background
+  // for (auto [entity, background] : registry.view<ComponentBackground>().each())
+  // {
+  //   sf::Texture &backgroundTexture = ResourceManager::getInstance().getTexture(background.textureID);
+  //   sf::Sprite backgroundSprite(backgroundTexture);
 
-    // Get the size of the window and the texture
-    sf::Vector2u windowSize = window.getSize();
-    sf::Vector2u textureSize = backgroundTexture.getSize();
+  //   // Get the size of the window and the texture
+  //   sf::Vector2u windowSize = window.getSize();
+  //   sf::Vector2u textureSize = backgroundTexture.getSize();
 
-    // Calculate the scale factors for both X and Y directions
-    float scaleX = static_cast<float>(windowSize.x) / static_cast<float>(textureSize.x);
-    float scaleY = static_cast<float>(windowSize.y) / static_cast<float>(textureSize.y);
+  //   // Calculate the scale factors for both X and Y directions
+  //   float scaleX = static_cast<float>(windowSize.x) / static_cast<float>(textureSize.x);
+  //   float scaleY = static_cast<float>(windowSize.y) / static_cast<float>(textureSize.y);
 
-    // Determine the scale that will preserve the aspect ratio
-    float scale = std::max(scaleX, scaleY);
+  //   // Determine the scale that will preserve the aspect ratio
+  //   float scale = std::max(scaleX, scaleY);
 
-    // Calculate the position to center the image
-    float posX = (windowSize.x - textureSize.x * scale) / 2.f;
-    float posY = (windowSize.y - textureSize.y * scale) / 2.f;
+  //   // Calculate the position to center the image
+  //   float posX = (windowSize.x - textureSize.x * scale) / 2.f;
+  //   float posY = (windowSize.y - textureSize.y * scale) / 2.f;
 
-    // Set the scale and position of the sprite
-    backgroundSprite.setScale(scale, scale);
-    backgroundSprite.setPosition(posX, posY);
+  //   // Set the scale and position of the sprite
+  //   backgroundSprite.setScale(scale, scale);
+  //   backgroundSprite.setPosition(posX, posY);
 
-    // window.draw(backgroundSprite);
-  }
+  //   window.draw(backgroundSprite);
+  // }
 
+  // GameObjects
   for (auto [entity, render, transform] : registry.view<ComponentRender, ComponentTransform>().each())
   {
     // Render the entity using the render and transform components
